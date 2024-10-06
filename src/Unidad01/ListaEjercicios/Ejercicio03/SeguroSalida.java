@@ -43,6 +43,7 @@ public class SeguroSalida extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Seguro Salida");
+        setResizable(false);
 
         jLabelMensaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelMensaje.setText("¿Está seguro que desea salir?");
