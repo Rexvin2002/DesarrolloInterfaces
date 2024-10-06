@@ -3,8 +3,6 @@ package Unidad01.Ejemplos.Ejercicio05;
 
 import Unidad01.ListaEjercicios.Ejercicio04.About;
 import Unidad01.ListaEjercicios.Ejercicio04.Persona;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,16 +21,6 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         inicializarTabla();
-        jTableDatos.setal
-        
-        // Crear un DefaultTableCellRenderer para alinear el texto al centro
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        // Asignar el renderizador a todas las columnas de la tabla
-        for (int i = 0; i < jTableDatos.getColumnCount(); i++) {
-            jTableDatos.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-        }
     }
 
     private void inicializarTabla(){
