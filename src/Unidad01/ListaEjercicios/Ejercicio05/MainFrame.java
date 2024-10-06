@@ -75,7 +75,7 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Profesión", "Sexo", "Deporte", "Compras", "Televisión", "Cine"
+                "Profesión", "Nº Hermanos", "Edad", "Sexo", "Deporte", "Compras", "Televisión", "Cine"
             }
         ));
         jTableDatos.setShowHorizontalLines(true);
@@ -85,15 +85,19 @@ public class MainFrame extends javax.swing.JFrame {
             jTableDatos.getColumnModel().getColumn(0).setResizable(false);
             jTableDatos.getColumnModel().getColumn(0).setPreferredWidth(200);
             jTableDatos.getColumnModel().getColumn(1).setResizable(false);
-            jTableDatos.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTableDatos.getColumnModel().getColumn(1).setPreferredWidth(80);
             jTableDatos.getColumnModel().getColumn(2).setResizable(false);
-            jTableDatos.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTableDatos.getColumnModel().getColumn(2).setPreferredWidth(80);
             jTableDatos.getColumnModel().getColumn(3).setResizable(false);
             jTableDatos.getColumnModel().getColumn(3).setPreferredWidth(100);
             jTableDatos.getColumnModel().getColumn(4).setResizable(false);
             jTableDatos.getColumnModel().getColumn(4).setPreferredWidth(100);
             jTableDatos.getColumnModel().getColumn(5).setResizable(false);
             jTableDatos.getColumnModel().getColumn(5).setPreferredWidth(100);
+            jTableDatos.getColumnModel().getColumn(6).setResizable(false);
+            jTableDatos.getColumnModel().getColumn(6).setPreferredWidth(100);
+            jTableDatos.getColumnModel().getColumn(7).setResizable(false);
+            jTableDatos.getColumnModel().getColumn(7).setPreferredWidth(100);
         }
 
         jMenuArchivo.setText("Archivo");
@@ -143,7 +147,7 @@ public class MainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
