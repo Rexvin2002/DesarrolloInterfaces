@@ -1,6 +1,14 @@
 
 package Unidad01.ListaEjercicios.Ejercicio05;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +22,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private Formulario form;
     private About about;
+    private JFileChooser jfc = new JFileChooser(); // Mover fuera de los métodos, a nivel de clase
+
     
     /**
      * Creates new form MainFrame
@@ -44,6 +54,15 @@ public class MainFrame extends javax.swing.JFrame {
         header.setDefaultRenderer(headerRenderer);
     }
     
+    private void actualizarTabla(ArrayList<String[]> dataList) {
+        DefaultTableModel model = (DefaultTableModel) jTableDatos.getModel();
+        model.setRowCount(0);  // Limpia la tabla
+
+        for (String[] rowData : dataList) {
+            model.addRow(rowData);
+        }
+    }
+    
     public void añadirPersona(Persona p){
         DefaultTableModel modeloTabla = (DefaultTableModel) jTableDatos.getModel();
         modeloTabla.addRow(p.toArrayString());
@@ -67,6 +86,9 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItemRealizarEncuesta = new javax.swing.JMenuItem();
         jMenuAyuda = new javax.swing.JMenu();
         jMenuItemAyuda = new javax.swing.JMenuItem();
+        jMenuFichero = new javax.swing.JMenu();
+        jMenuItemLeer = new javax.swing.JMenuItem();
+        jMenuItemEscribir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +161,26 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBarOpciones.add(jMenuAyuda);
 
+        jMenuFichero.setText("Fichero");
+
+        jMenuItemLeer.setText("Leer");
+        jMenuItemLeer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLeerActionPerformed(evt);
+            }
+        });
+        jMenuFichero.add(jMenuItemLeer);
+
+        jMenuItemEscribir.setText("Escribir");
+        jMenuItemEscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEscribirActionPerformed(evt);
+            }
+        });
+        jMenuFichero.add(jMenuItemEscribir);
+
+        jMenuBarOpciones.add(jMenuFichero);
+
         setJMenuBar(jMenuBarOpciones);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,10 +213,76 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemRealizarEncuestaActionPerformed
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
-        about = new About(this, true);
-        about.setVisible(true);
+        this.about = new About(this, true);
+        this.about.setVisible(true);
     }//GEN-LAST:event_jMenuItemAyudaActionPerformed
 
+    private void jMenuItemLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeerActionPerformed
+        jfc.setMultiSelectionEnabled(true); // Activar selección múltiple
+        int returnValue = jfc.showOpenDialog(this);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File[] selectedFiles = jfc.getSelectedFiles(); // Obtener múltiples archivos
+            for (File file : selectedFiles) {
+                cargarDatosDesdeArchivo(file);
+            }
+        }
+    }//GEN-LAST:event_jMenuItemLeerActionPerformed
+
+    private void cargarDatosDesdeArchivo(File file) {
+        ArrayList<String[]> dataList = new ArrayList<>();  // ArrayList para almacenar los datos
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Suponiendo que los datos están separados por comas (CSV)
+                String[] data = line.split(",");
+                dataList.add(data);
+            }
+        } catch (IOException e) {
+            System.err.println("ERROR: "+e.getMessage());
+        }
+
+        // Aquí actualizamos la tabla con los datos leídos
+        actualizarTabla(dataList);
+    }
+    
+    private void jMenuItemEscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEscribirActionPerformed
+        int returnValue = jfc.showSaveDialog(this);
+    
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jfc.getSelectedFile();
+            guardarDatosEnArchivo(selectedFile);
+        }
+    }//GEN-LAST:event_jMenuItemEscribirActionPerformed
+
+    private void guardarDatosEnArchivo(File file) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            
+            DefaultTableModel model = (DefaultTableModel) jTableDatos.getModel();
+            
+            for (int row = 0; row < model.getRowCount(); row++) {
+                
+                StringBuilder rowData = new StringBuilder();
+                
+                for (int col = 0; col < model.getColumnCount(); col++) {
+                    
+                    rowData.append(model.getValueAt(row, col).toString());
+                    
+                    if (col < model.getColumnCount() - 1) {
+                        rowData.append(":"); 
+                    }
+                }
+                
+                bw.write(rowData.toString());
+                bw.newLine();
+                
+            }
+        } catch (IOException e) {
+            System.err.println("\nERROR: " + e.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -215,7 +323,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuAyuda;
     private javax.swing.JMenuBar jMenuBarOpciones;
     private javax.swing.JMenu jMenuEncuesta;
+    private javax.swing.JMenu jMenuFichero;
     private javax.swing.JMenuItem jMenuItemAyuda;
+    private javax.swing.JMenuItem jMenuItemEscribir;
+    private javax.swing.JMenuItem jMenuItemLeer;
     private javax.swing.JMenuItem jMenuItemRealizarEncuesta;
     private javax.swing.JMenuItem jMenuItemSalir;
     private javax.swing.JScrollPane jScrollPane1;
