@@ -2,6 +2,8 @@
 package Unidad01.ListaEjercicios.Ejercicio04;
 
 import Unidad01.ListaEjercicios.Ejercicio05.Error;
+import Unidad01.ListaEjercicios.Ejercicio10.Menu;
+import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -28,6 +30,14 @@ public class Mezclador extends javax.swing.JFrame {
         // Eliminar las barras de desplazamiento
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        
+        Menu m = new Menu();
+        m.setSize(427, 35);
+
+        jPanelMezclador.removeAll();
+        jPanelMezclador.add(m, BorderLayout.CENTER);
+        jPanelMezclador.revalidate();
+        jPanelMezclador.repaint();
     }
 
     /**
@@ -52,6 +62,7 @@ public class Mezclador extends javax.swing.JFrame {
         jButtonReiniciar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPaneNombresMezclados = new javax.swing.JTextPane();
+        jPanelMezclador = new javax.swing.JPanel();
 
         jScrollPane2.setViewportView(jTextPane1);
 
@@ -90,6 +101,19 @@ public class Mezclador extends javax.swing.JFrame {
         jTextPaneNombresMezclados.setForeground(new java.awt.Color(0, 0, 204));
         jScrollPane3.setViewportView(jTextPaneNombresMezclados);
 
+        jPanelMezclador.setPreferredSize(new java.awt.Dimension(100, 35));
+
+        javax.swing.GroupLayout jPanelMezcladorLayout = new javax.swing.GroupLayout(jPanelMezclador);
+        jPanelMezclador.setLayout(jPanelMezcladorLayout);
+        jPanelMezcladorLayout.setHorizontalGroup(
+            jPanelMezcladorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelMezcladorLayout.setVerticalGroup(
+            jPanelMezcladorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,11 +142,13 @@ public class Mezclador extends javax.swing.JFrame {
                         .addComponent(jButtonReiniciar)
                         .addGap(154, 154, 154)))
                 .addContainerGap(8, Short.MAX_VALUE))
+            .addComponent(jPanelMezclador, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jPanelMezclador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelPrimerNombre)
@@ -140,7 +166,7 @@ public class Mezclador extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonReiniciar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,6 +264,7 @@ public class Mezclador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPrimerNombre;
     private javax.swing.JLabel jLabelSegundoNombre;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JPanel jPanelMezclador;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTextField jTextFieldPrimerNombre;

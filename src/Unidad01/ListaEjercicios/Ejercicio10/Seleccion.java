@@ -191,6 +191,7 @@ public class Seleccion extends javax.swing.JFrame {
         }
 
         ventana.setVisible(true);
+        dispose();
     }
     
     /**

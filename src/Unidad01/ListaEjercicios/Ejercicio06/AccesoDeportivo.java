@@ -1,6 +1,9 @@
 
 package Unidad01.ListaEjercicios.Ejercicio06;
 
+import Unidad01.ListaEjercicios.Ejercicio10.Menu;
+import java.awt.BorderLayout;
+
 /**
  *
  * @author kgv17
@@ -19,6 +22,14 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     public AccesoDeportivo() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        Menu m = new Menu();
+        m.setSize(326, 35);
+
+        jPanelMenuDeportivo.removeAll();
+        jPanelMenuDeportivo.add(m, BorderLayout.CENTER);
+        jPanelMenuDeportivo.revalidate();
+        jPanelMenuDeportivo.repaint();
     }
 
     /**
@@ -37,6 +48,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         jLabelUsuario = new javax.swing.JLabel();
         jLabelContraseña = new javax.swing.JLabel();
         jPasswordFieldContraseña = new javax.swing.JPasswordField();
+        jPanelMenuDeportivo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Acceso Deportivo");
@@ -92,6 +104,19 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(100, 35));
+
+        javax.swing.GroupLayout jPanelMenuDeportivoLayout = new javax.swing.GroupLayout(jPanelMenuDeportivo);
+        jPanelMenuDeportivo.setLayout(jPanelMenuDeportivoLayout);
+        jPanelMenuDeportivoLayout.setHorizontalGroup(
+            jPanelMenuDeportivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelMenuDeportivoLayout.setVerticalGroup(
+            jPanelMenuDeportivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,17 +131,19 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButtonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButtonAcceder)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,6 +209,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelMenuDeportivo;
     private javax.swing.JPasswordField jPasswordFieldContraseña;
     private javax.swing.JTextField jTextFieldUsuario;
     private javax.swing.JToggleButton jToggleButtonAcceder;
