@@ -3,6 +3,7 @@ package Unidad01.ListaEjercicios.Ejercicio05;
 
 import Unidad01.ListaEjercicios.Ejercicio10.Menu;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -42,6 +43,8 @@ public class AppMinisterio extends javax.swing.JFrame {
         jPanelMinisterio.add(m, BorderLayout.CENTER);
         jPanelMinisterio.revalidate();
         jPanelMinisterio.repaint();
+        
+        jPanelMinisterio.setLayout(new FlowLayout(FlowLayout.RIGHT));
     }
 
     private void inicializarTabla(){
