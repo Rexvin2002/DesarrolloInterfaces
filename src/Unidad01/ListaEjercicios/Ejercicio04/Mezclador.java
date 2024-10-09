@@ -11,14 +11,14 @@ import javax.swing.text.StyledDocument;
  *
  * @author kgv17
  */
-public class MainFrame extends javax.swing.JFrame {
+public class Mezclador extends javax.swing.JFrame {
 
     private Error e;
     
     /**
      * Creates new form MezcladorNombre
      */
-    public MainFrame() {
+    public Mezclador() {
         initComponents();
         setLocationRelativeTo(null);
         
@@ -55,8 +55,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jTextPane1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Mezclador de nombres");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Mezclador de Nombres");
 
         jLabelTitulo.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabelTitulo.setText("MEZCLADORA DE NOMBRES DE PAREJA");
@@ -206,25 +206,27 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(Mezclador.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(Mezclador.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(Mezclador.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(Mezclador.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         }
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                new Mezclador().setVisible(true);
             }
         });
     }

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  */
 public class Formulario extends javax.swing.JDialog {
 
-    private final MainFrame mf;
+    private final AppMinisterio mf;
     
     /**
      * Creates new form Formulario
@@ -20,7 +20,7 @@ public class Formulario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        mf = (MainFrame) parent;
+        mf = (AppMinisterio) parent;
     }
 
     /**
@@ -333,7 +333,6 @@ public class Formulario extends javax.swing.JDialog {
             
             mf.añadirPersona(p);
             mf.setVisible(true);
-            dispose();
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 

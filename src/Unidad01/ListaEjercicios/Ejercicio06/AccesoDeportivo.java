@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Unidad01.ListaEjercicios.Ejercicio06;
 
-import javax.swing.JOptionPane;
+package Unidad01.ListaEjercicios.Ejercicio06;
 
 /**
  *
@@ -13,6 +8,10 @@ import javax.swing.JOptionPane;
 public class AccesoDeportivo extends javax.swing.JFrame {
 
     private Error e;
+    private final String usuario = "user";
+    private final String contraseña = "userpasswd";
+    private Registro r;
+    
     
     /**
      * Creates new form AccesoDeportivo
@@ -39,7 +38,8 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         jLabelContraseña = new javax.swing.JLabel();
         jPasswordFieldContraseña = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Acceso Deportivo");
 
         jToggleButtonAcceder.setText("Acceder");
         jToggleButtonAcceder.addActionListener(new java.awt.event.ActionListener() {
@@ -100,13 +100,11 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButtonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButtonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,10 +123,19 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButtonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAccederActionPerformed
-        if(jTextFieldUsuario.getText().isEmpty() || jPasswordFieldContraseña.getPassword().length == 0){
+        char[] passwordIngresada = this.jPasswordFieldContraseña.getPassword();
+        String contraseñaIngresada = new String(passwordIngresada);
+        if(this.jTextFieldUsuario.getText().isEmpty() || 
+                this.jPasswordFieldContraseña.getPassword().length == 0 || 
+                !this.jTextFieldUsuario.getText().equals(this.usuario) || 
+                !contraseñaIngresada.equals(this.contraseña)){
             e = new Error(this, true);
             e.setVisible(true);
+        }else{
+            r = new Registro(this, true);
+            r.setVisible(true);
         }
+        
     }//GEN-LAST:event_jToggleButtonAccederActionPerformed
 
     private void jPasswordFieldContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaActionPerformed
