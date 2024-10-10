@@ -67,15 +67,20 @@ public class Registro extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro Deportivo");
-        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMaximumSize(new java.awt.Dimension(500, 2147483647));
         setMinimumSize(new java.awt.Dimension(500, 500));
         setPreferredSize(new java.awt.Dimension(500, 500));
         setSize(new java.awt.Dimension(500, 500));
 
         jLabelTitulo.setFont(new java.awt.Font("Arial Black", 3, 24)); // NOI18N
         jLabelTitulo.setText("REGISTRO DEPORTIVO");
+        jLabelTitulo.setMaximumSize(new java.awt.Dimension(325, 35));
+        jLabelTitulo.setMinimumSize(new java.awt.Dimension(325, 35));
+        jLabelTitulo.setPreferredSize(new java.awt.Dimension(325, 35));
 
         jPanelSeleccionDeporte.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selección deporte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
+        jPanelSeleccionDeporte.setMinimumSize(new java.awt.Dimension(430, 350));
+        jPanelSeleccionDeporte.setPreferredSize(new java.awt.Dimension(430, 350));
 
         jComboBoxDeportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tenis", "Padel", "Squash" }));
         jComboBoxDeportes.addActionListener(new java.awt.event.ActionListener() {
@@ -103,11 +108,11 @@ public class Registro extends javax.swing.JDialog {
         jCheckBoxTrimestral.setText("Trimestral");
 
         jPanelHijos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hijos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
-        jPanelHijos.setMaximumSize(new java.awt.Dimension(430, 300));
-        jPanelHijos.setMinimumSize(new java.awt.Dimension(430, 20));
-        jPanelHijos.setPreferredSize(new java.awt.Dimension(430, 50));
 
         jButtonAñadirHijo.setText("Añadir Hijo");
+        jButtonAñadirHijo.setMaximumSize(new java.awt.Dimension(100, 23));
+        jButtonAñadirHijo.setMinimumSize(new java.awt.Dimension(100, 23));
+        jButtonAñadirHijo.setPreferredSize(new java.awt.Dimension(100, 23));
         jButtonAñadirHijo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAñadirHijoActionPerformed(evt);
@@ -115,11 +120,20 @@ public class Registro extends javax.swing.JDialog {
         });
 
         jButtonVerOcultaTabla.setText("Ver tabla");
+        jButtonVerOcultaTabla.setMaximumSize(new java.awt.Dimension(100, 23));
+        jButtonVerOcultaTabla.setMinimumSize(new java.awt.Dimension(100, 23));
+        jButtonVerOcultaTabla.setPreferredSize(new java.awt.Dimension(100, 23));
         jButtonVerOcultaTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerOcultaTablaActionPerformed(evt);
             }
         });
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(380, 32767));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(357, 50));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(357, 50));
 
         jTableTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,9 +146,9 @@ public class Registro extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTableTabla.setMaximumSize(new java.awt.Dimension(408, 10));
-        jTableTabla.setMinimumSize(new java.awt.Dimension(408, 10));
-        jTableTabla.setPreferredSize(new java.awt.Dimension(408, 10));
+        jTableTabla.setMaximumSize(new java.awt.Dimension(400, 200));
+        jTableTabla.setMinimumSize(new java.awt.Dimension(380, 200));
+        jTableTabla.setPreferredSize(new java.awt.Dimension(380, 200));
         jScrollPane2.setViewportView(jTableTabla);
 
         javax.swing.GroupLayout jPanelHijosLayout = new javax.swing.GroupLayout(jPanelHijos);
@@ -142,32 +156,30 @@ public class Registro extends javax.swing.JDialog {
         jPanelHijosLayout.setHorizontalGroup(
             jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHijosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(10, 10, 10)
+                .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelHijosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanelHijosLayout.createSequentialGroup()
-                        .addComponent(jButtonVerOcultaTabla)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
-                        .addComponent(jButtonAñadirHijo)
-                        .addGap(6, 6, 6))))
+                        .addComponent(jButtonVerOcultaTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(157, 157, 157)
+                        .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanelHijosLayout.setVerticalGroup(
             jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHijosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonVerOcultaTabla)
-                    .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jButtonVerOcultaTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jSeparator1.setMaximumSize(new java.awt.Dimension(430, 3));
-        jSeparator1.setMinimumSize(new java.awt.Dimension(430, 3));
-        jSeparator1.setPreferredSize(new java.awt.Dimension(430, 3));
+        jSeparator1.setMaximumSize(new java.awt.Dimension(400, 3));
+        jSeparator1.setMinimumSize(new java.awt.Dimension(400, 3));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(400, 3));
 
         jLabelNivel.setText("Nivel");
 
@@ -178,42 +190,44 @@ public class Registro extends javax.swing.JDialog {
             .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
                 .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
+                                .addComponent(jRadioButtonTarde)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
                                 .addComponent(jLabelDeporte)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTurno)
-                                    .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButtonTarde)
-                                            .addComponent(jRadioButtonMañana))))))
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabelNivel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelRenovación)
-                            .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBoxTrimestral)
-                            .addComponent(jCheckBoxAnual)))
+                                .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabelNivel))
                     .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabelTurno))
+                            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jRadioButtonMañana)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelRenovación)
+                    .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxTrimestral)
+                    .addComponent(jCheckBoxAnual))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
+                .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 16, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelSeleccionDeporteLayout.setVerticalGroup(
             jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDeporte, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDeporte)
                     .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNivel)
                     .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -229,14 +243,17 @@ public class Registro extends javax.swing.JDialog {
                 .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonTarde)
                     .addComponent(jCheckBoxAnual))
-                .addGap(10, 10, 10)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         jButtonMatricular.setText("MATRICULAR");
+        jButtonMatricular.setMaximumSize(new java.awt.Dimension(450, 23));
+        jButtonMatricular.setMinimumSize(new java.awt.Dimension(450, 23));
+        jButtonMatricular.setPreferredSize(new java.awt.Dimension(450, 23));
         jButtonMatricular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMatricularActionPerformed(evt);
@@ -248,26 +265,26 @@ public class Registro extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButtonMatricular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelTitulo)
-                .addGap(16, 16, 16)
-                .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jButtonMatricular)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();

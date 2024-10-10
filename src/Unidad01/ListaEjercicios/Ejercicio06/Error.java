@@ -9,6 +9,8 @@ public class Error extends javax.swing.JDialog {
 
     /**
      * Creates new form Error
+     * @param parent
+     * @param modal
      */
     public Error(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
