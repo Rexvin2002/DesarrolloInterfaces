@@ -7,19 +7,36 @@ import javax.swing.DefaultListModel;
  *
  * @author kgv17
  */
-public class Resultados2 extends javax.swing.JPanel {
+public final class Resultados2 extends javax.swing.JPanel {
 
-    private static DefaultListModel<String> listModel;
+    
+    public DefaultListModel listModel = new DefaultListModel();
     
     /**
      * Creates new form Resultados
      */
     public Resultados2() {
         initComponents();
-        listModel = new DefaultListModel<>(); // Inicializa el modelo
-        jListLista.setModel(listModel); // Asigna el modelo al JList
+        agregarDato("kicee");
+  
     }
-
+    
+    public DefaultListModel limpiarJList(){
+        listModel = new DefaultListModel(); 
+        jListLista.setModel(listModel);  
+        
+        return listModel;
+    }
+    
+    public DefaultListModel agregarDato(String s){
+        listModel = (DefaultListModel) jListLista.getModel();
+        
+        listModel.addElement(s);
+        
+        return listModel;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +48,7 @@ public class Resultados2 extends javax.swing.JPanel {
 
         jPanelResultados02 = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jListLista = new javax.swing.JList<>();
 
         setPreferredSize(new java.awt.Dimension(600, 260));
@@ -41,34 +58,32 @@ public class Resultados2 extends javax.swing.JPanel {
         jLabelTitulo.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabelTitulo.setText("OPCIONES SELECCIONADAS");
 
-        jListLista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { " ", " " };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jListLista);
+        jListLista.setModel(listModel);
+        jListLista.setMaximumSize(new java.awt.Dimension(100, 100));
+        jListLista.setMinimumSize(new java.awt.Dimension(100, 100));
+        jScrollPane1.setViewportView(jListLista);
 
         javax.swing.GroupLayout jPanelResultados02Layout = new javax.swing.GroupLayout(jPanelResultados02);
         jPanelResultados02.setLayout(jPanelResultados02Layout);
         jPanelResultados02Layout.setHorizontalGroup(
             jPanelResultados02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelResultados02Layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
-                .addContainerGap(136, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelResultados02Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelResultados02Layout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanelResultados02Layout.setVerticalGroup(
             jPanelResultados02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelResultados02Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabelTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -81,22 +96,15 @@ public class Resultados2 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelResultados02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void introducirValor(Opciones opciones){
-        listModel.clear(); // Limpia el modelo antes de añadir nuevos elementos
-        String[] opcionesList = opciones.toArrayString();
-        for (String op : opcionesList) {
-            listModel.addElement(op);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JList<String> jListLista;
     private javax.swing.JPanel jPanelResultados02;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

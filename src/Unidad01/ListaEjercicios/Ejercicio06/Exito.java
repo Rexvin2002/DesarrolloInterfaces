@@ -9,6 +9,8 @@ public class Exito extends javax.swing.JDialog {
 
     /**
      * Creates new form Exito
+     * @param parent
+     * @param modal
      */
     public Exito(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

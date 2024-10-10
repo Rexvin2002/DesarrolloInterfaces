@@ -198,10 +198,8 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AccesoDeportivo().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AccesoDeportivo().setVisible(true);
         });
     }
 

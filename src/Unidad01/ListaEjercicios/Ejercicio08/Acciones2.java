@@ -1,10 +1,6 @@
 
 package Unidad01.ListaEjercicios.Ejercicio08;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JCheckBox;
-
 /**
  *
  * @author kgv17
@@ -21,11 +17,6 @@ public class Acciones2 extends javax.swing.JPanel {
      */
     public Acciones2() {
         initComponents();
-        jCheckBoxEscalada.setSelected(escalada);
-        jCheckBoxSubmarinismo.setSelected(submarinismo);
-        jCheckBoxEsquiar.setSelected(esquiar);
-        jCheckBoxLeer.setSelected(leer);
-        opciones = new ArrayList<>();
     }
 
     /**
@@ -119,69 +110,23 @@ public class Acciones2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxEscaladaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEscaladaActionPerformed
-        toggleAction(jCheckBoxEscalada);
+
     }//GEN-LAST:event_jCheckBoxEscaladaActionPerformed
 
     private void jCheckBoxSubmarinismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSubmarinismoActionPerformed
-        toggleAction(jCheckBoxSubmarinismo);
+
     }//GEN-LAST:event_jCheckBoxSubmarinismoActionPerformed
 
     private void jCheckBoxEsquiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEsquiarActionPerformed
-        toggleAction(jCheckBoxEsquiar);
+
     }//GEN-LAST:event_jCheckBoxEsquiarActionPerformed
 
     private void jCheckBoxLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLeerActionPerformed
-        toggleAction(jCheckBoxLeer);
+
     }//GEN-LAST:event_jCheckBoxLeerActionPerformed
 
-
-    private List<String> opciones;
     
-    private void toggleAction(JCheckBox checkBox) {
-        String actionText = checkBox.getText();
-        boolean isSelected = checkBox.isSelected();
-        
-        // Actualiza el estado booleano correspondiente
-        switch (actionText) {
-            case "Escalada" -> {
-                escalada = isSelected;
-                if (isSelected) {
-                    opciones.add(actionText); // Agregar a la lista si está seleccionado
-                } else {
-                    opciones.remove(actionText); // Remover si no está seleccionado
-                }
-            }
-            case "Submarinismo" -> {
-                submarinismo = isSelected;
-                if (isSelected) {
-                    opciones.add(actionText);
-                } else {
-                    opciones.remove(actionText);
-                }
-            }
-            case "Esquiar" -> {
-                esquiar = isSelected;
-                if (isSelected) {
-                    opciones.add(actionText);
-                } else {
-                    opciones.remove(actionText);
-                }
-            }
-            case "Leer" -> {
-                leer = isSelected;
-                if (isSelected) {
-                    opciones.add(actionText);
-                } else {
-                    opciones.remove(actionText);
-                }
-            }
-        }
 
-        Opciones op = new Opciones(opciones);
-        
-        // Llama al método de Resultados2
-        Resultados2.introducirValor(op);
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBoxEscalada;

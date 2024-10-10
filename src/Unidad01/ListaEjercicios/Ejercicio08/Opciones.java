@@ -16,6 +16,7 @@ public class Opciones {
     private String opcion4;
 
     public Opciones(List<String> lista) {
+        // Asignar las opciones a la lista
         lista.set(0, opcion1);
         lista.set(1, opcion2);
         lista.set(2, opcion3);
