@@ -13,10 +13,10 @@ import javax.swing.JFrame;
  */
 public class Seleccion extends javax.swing.JFrame {
 
-    private Mezclador mn;
-    private AccesoDeportivo ad;
-    private AppMinisterio am;
-    private Imitador i;
+    private final Mezclador mn;
+    private final AccesoDeportivo ad;
+    private final AppMinisterio am;
+    private final Imitador i;
     
     /**
      * Creates new form Seleccion

@@ -2,6 +2,7 @@
 package Unidad01.ListaEjercicios.Ejercicio05;
 
 import Unidad01.ListaEjercicios.Ejercicio10.Menu;
+import Unidad01.ListaEjercicios.Ejercicio10.Seleccion;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.io.BufferedReader;
@@ -26,6 +27,7 @@ public class AppMinisterio extends javax.swing.JFrame {
     private Formulario form;
     private About about;
     private JFileChooser jfc = new JFileChooser(); // Mover fuera de los métodos, a nivel de clase
+    private Seleccion s ;
 
     
     /**
@@ -37,14 +39,13 @@ public class AppMinisterio extends javax.swing.JFrame {
         inicializarTabla();
         
         Menu m = new Menu();
-        m.setSize(999, 35);
+        m.setSize(1000, 35);
 
-        jPanelMinisterio.removeAll();
-        jPanelMinisterio.add(m, BorderLayout.CENTER);
-        jPanelMinisterio.revalidate();
-        jPanelMinisterio.repaint();
-        
-        jPanelMinisterio.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        jPanelMenuMinisterio.removeAll();
+        jPanelMenuMinisterio.add(m, BorderLayout.CENTER);
+        jPanelMenuMinisterio.revalidate();
+        jPanelMenuMinisterio.repaint();
+
     }
 
     private void inicializarTabla(){
@@ -90,9 +91,10 @@ public class AppMinisterio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelMenuMinisterio = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDatos = new javax.swing.JTable();
-        jPanelMinisterio = new javax.swing.JPanel();
         jMenuBarOpciones = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         jMenuItemSalir = new javax.swing.JMenuItem();
@@ -106,6 +108,49 @@ public class AppMinisterio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("App Ministerio");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(1015, 300));
+        setPreferredSize(new java.awt.Dimension(1000, 400));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1050, 400));
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                formWindowLostFocus(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeactivated(java.awt.event.WindowEvent evt) {
+                formWindowDeactivated(evt);
+            }
+            public void windowDeiconified(java.awt.event.WindowEvent evt) {
+                formWindowDeiconified(evt);
+            }
+        });
+
+        jPanelMenuMinisterio.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelMenuMinisterio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelMenuMinisterio.setMinimumSize(new java.awt.Dimension(1000, 100));
+        jPanelMenuMinisterio.setPreferredSize(new java.awt.Dimension(1000, 35));
+
+        javax.swing.GroupLayout jPanelMenuMinisterioLayout = new javax.swing.GroupLayout(jPanelMenuMinisterio);
+        jPanelMenuMinisterio.setLayout(jPanelMenuMinisterioLayout);
+        jPanelMenuMinisterioLayout.setHorizontalGroup(
+            jPanelMenuMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelMenuMinisterioLayout.setVerticalGroup(
+            jPanelMenuMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 320));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 320));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(960, 320));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(960, 320));
 
         jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,6 +160,8 @@ public class AppMinisterio extends javax.swing.JFrame {
                 "Profesión", "Nº Hermanos", "Edad", "Sexo", "Deporte", "Compras", "Televisión", "Cine"
             }
         ));
+        jTableDatos.setMinimumSize(new java.awt.Dimension(980, 320));
+        jTableDatos.setPreferredSize(new java.awt.Dimension(960, 320));
         jTableDatos.setShowHorizontalLines(true);
         jTableDatos.setShowVerticalLines(true);
         jScrollPane1.setViewportView(jTableDatos);
@@ -137,19 +184,25 @@ public class AppMinisterio extends javax.swing.JFrame {
             jTableDatos.getColumnModel().getColumn(7).setPreferredWidth(100);
         }
 
-        jPanelMinisterio.setMinimumSize(new java.awt.Dimension(100, 35));
-        jPanelMinisterio.setPreferredSize(new java.awt.Dimension(0, 35));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 988, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        javax.swing.GroupLayout jPanelMinisterioLayout = new javax.swing.GroupLayout(jPanelMinisterio);
-        jPanelMinisterio.setLayout(jPanelMinisterioLayout);
-        jPanelMinisterioLayout.setHorizontalGroup(
-            jPanelMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanelMinisterioLayout.setVerticalGroup(
-            jPanelMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
+        jMenuBarOpciones.setMinimumSize(new java.awt.Dimension(900, 23));
+        jMenuBarOpciones.setPreferredSize(new java.awt.Dimension(900, 23));
 
         jMenuArchivo.setText("Archivo");
 
@@ -216,19 +269,18 @@ public class AppMinisterio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jPanelMinisterio, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanelMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 32, Short.MAX_VALUE))
         );
 
         pack();
@@ -286,6 +338,18 @@ public class AppMinisterio extends javax.swing.JFrame {
             guardarDatosEnArchivo(selectedFile);
         }
     }//GEN-LAST:event_jMenuItemEscribirActionPerformed
+
+    private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
+        dispose();
+    }//GEN-LAST:event_formWindowDeactivated
+
+    private void formWindowDeiconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeiconified
+        
+    }//GEN-LAST:event_formWindowDeiconified
+
+    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
+        
+    }//GEN-LAST:event_formWindowLostFocus
 
     private void guardarDatosEnArchivo(File file) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
@@ -361,7 +425,8 @@ public class AppMinisterio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemLeer;
     private javax.swing.JMenuItem jMenuItemRealizarEncuesta;
     private javax.swing.JMenuItem jMenuItemSalir;
-    private javax.swing.JPanel jPanelMinisterio;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelMenuMinisterio;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDatos;
     // End of variables declaration//GEN-END:variables

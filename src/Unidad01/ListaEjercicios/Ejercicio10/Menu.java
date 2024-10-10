@@ -1,8 +1,7 @@
 
 package Unidad01.ListaEjercicios.Ejercicio10;
 
-import java.awt.FlowLayout;
-
+import Unidad01.ListaEjercicios.Ejercicio09.Imitador;
 
 /**
  *
@@ -11,11 +10,13 @@ import java.awt.FlowLayout;
 public class Menu extends javax.swing.JPanel {
 
     private Seleccion s;
+    private Imitador imitador;
     
     /**
      * Creates new form Menu
      */
     public Menu() {
+        this.imitador = imitador;
         initComponents();
     }
 
@@ -31,8 +32,11 @@ public class Menu extends javax.swing.JPanel {
         jPanelMenu = new javax.swing.JPanel();
         jButtonMenu = new javax.swing.JButton();
 
+        jPanelMenu.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelMenu.setMaximumSize(new java.awt.Dimension(32767, 35));
-        jPanelMenu.setMinimumSize(new java.awt.Dimension(400, 35));
+        jPanelMenu.setMinimumSize(new java.awt.Dimension(10, 40));
+        jPanelMenu.setPreferredSize(new java.awt.Dimension(990, 40));
 
         jButtonMenu.setText("Menu Principal");
         jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -46,32 +50,34 @@ public class Menu extends javax.swing.JPanel {
         jPanelMenuLayout.setHorizontalGroup(
             jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMenuLayout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(jButtonMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addContainerGap(868, Short.MAX_VALUE)
+                .addComponent(jButtonMenu)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanelMenuLayout.setVerticalGroup(
             jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(jButtonMenu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        // Mostrar el siguiente diálogo si es necesario
         s = new Seleccion();
+        s.dispose();
         s.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
 

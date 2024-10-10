@@ -24,7 +24,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         Menu m = new Menu();
-        m.setSize(326, 35);
+        m.setSize(335, 50);
 
         jPanelMenuDeportivo.removeAll();
         jPanelMenuDeportivo.add(m, BorderLayout.CENTER);
@@ -52,6 +52,15 @@ public class AccesoDeportivo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Acceso Deportivo");
+        setMinimumSize(new java.awt.Dimension(326, 218));
+        setPreferredSize(new java.awt.Dimension(350, 300));
+        setResizable(false);
+        setSize(new java.awt.Dimension(350, 300));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeactivated(java.awt.event.WindowEvent evt) {
+                formWindowDeactivated(evt);
+            }
+        });
 
         jToggleButtonAcceder.setText("Acceder");
         jToggleButtonAcceder.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +73,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         jLabelTitulo.setText("ACCESO DEPORTIVO");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setPreferredSize(new java.awt.Dimension(300, 95));
 
         jLabelUsuario.setText("Nombre Usuario:");
 
@@ -86,8 +96,8 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                     .addComponent(jLabelUsuario))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldUsuario)
-                    .addComponent(jPasswordFieldContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                    .addComponent(jPasswordFieldContraseña))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,7 +114,8 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(100, 35));
+        jPanelMenuDeportivo.setMinimumSize(new java.awt.Dimension(330, 35));
+        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(330, 35));
 
         javax.swing.GroupLayout jPanelMenuDeportivoLayout = new javax.swing.GroupLayout(jPanelMenuDeportivo);
         jPanelMenuDeportivo.setLayout(jPanelMenuDeportivoLayout);
@@ -114,7 +125,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         );
         jPanelMenuDeportivoLayout.setVerticalGroup(
             jPanelMenuDeportivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,24 +137,26 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButtonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToggleButtonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleButtonAcceder)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,6 +181,10 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     private void jPasswordFieldContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldContraseñaActionPerformed
+
+    private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
+        dispose();
+    }//GEN-LAST:event_formWindowDeactivated
 
     /**
      * @param args the command line arguments
