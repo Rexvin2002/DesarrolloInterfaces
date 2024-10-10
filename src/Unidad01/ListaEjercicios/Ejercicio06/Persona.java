@@ -9,16 +9,16 @@ public class Persona {
     
     private String nombre;
     private String apellidos;
+    private String fechaNacimiento;
     private String deporte;
     private String nivel;
-    private String fechaNacimiento;
 
-    public Persona(String nombre, String apellidos, String deporte, String nivel, String fechaNacimiento) {
+    public Persona(String nombre, String apellidos,String fechaNacimiento, String deporte, String nivel) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
         this.deporte = deporte;
         this.nivel = nivel;
-        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
@@ -37,6 +37,14 @@ public class Persona {
         this.apellidos = apellidos;
     }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getDeporte() {
         return deporte;
     }
@@ -52,22 +60,14 @@ public class Persona {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
     
     public String[] toArrayString(){
         String[] s = new String[5];
         s[0]=nombre;
         s[1]=apellidos;
-        s[2]=deporte;
-        s[3]=nivel;
-        s[4]=fechaNacimiento;
+        s[2]=fechaNacimiento;
+        s[3]=deporte;
+        s[4]=nivel;
         return s;
     }
     

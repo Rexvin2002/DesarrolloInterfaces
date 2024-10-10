@@ -12,10 +12,11 @@ public class Error extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-    public Error(java.awt.Frame parent, boolean modal) {
+    public Error(java.awt.Frame parent, boolean modal, String mensaje) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        jLabelMensaje.setText(mensaje);
     }
 
     /**
@@ -111,7 +112,7 @@ public class Error extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Error dialog = new Error(new javax.swing.JFrame(), true);
+                Error dialog = new Error(new javax.swing.JFrame(), true, "");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

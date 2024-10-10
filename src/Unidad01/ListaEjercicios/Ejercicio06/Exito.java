@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package Unidad01.ListaEjercicios.Ejercicio06;
 
 /**
@@ -83,7 +80,7 @@ public class Exito extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarActionPerformed
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_jButtonTerminarActionPerformed
 
     /**

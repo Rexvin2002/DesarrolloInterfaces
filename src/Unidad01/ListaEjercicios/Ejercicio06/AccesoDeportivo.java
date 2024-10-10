@@ -55,11 +55,6 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(326, 218));
         setResizable(false);
         setSize(new java.awt.Dimension(350, 300));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowDeactivated(java.awt.event.WindowEvent evt) {
-                formWindowDeactivated(evt);
-            }
-        });
 
         jToggleButtonAcceder.setText("Acceder");
         jToggleButtonAcceder.addActionListener(new java.awt.event.ActionListener() {
@@ -77,12 +72,6 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         jLabelUsuario.setText("Nombre Usuario:");
 
         jLabelContraseña.setText("Contraseña:");
-
-        jPasswordFieldContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldContraseñaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,26 +153,22 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     private void jToggleButtonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAccederActionPerformed
         char[] passwordIngresada = this.jPasswordFieldContraseña.getPassword();
         String contraseñaIngresada = new String(passwordIngresada);
+        
         if(this.jTextFieldUsuario.getText().isEmpty() || 
                 this.jPasswordFieldContraseña.getPassword().length == 0 || 
                 !this.jTextFieldUsuario.getText().equals(this.usuario) || 
                 !contraseñaIngresada.equals(this.contraseña)){
-            e = new Error(this, true);
+            
+            e = new Error(this, true, "El usuario o la contraseña son incorrectos.");
             e.setVisible(true);
+            
         }else{
+            dispose();
             r = new Registro(this, true);
             r.setVisible(true);
         }
         
     }//GEN-LAST:event_jToggleButtonAccederActionPerformed
-
-    private void jPasswordFieldContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldContraseñaActionPerformed
-
-    private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
-        
-    }//GEN-LAST:event_formWindowDeactivated
 
     /**
      * @param args the command line arguments

@@ -1,6 +1,7 @@
 
 package Unidad01.ListaEjercicios.Ejercicio06;
 
+import java.awt.Frame;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +15,7 @@ import javax.swing.SpinnerDateModel;
 public class AñadirHijo extends javax.swing.JDialog {
 
     private Registro r; 
+    private Error er;
     
     /**
      * Creates new form AñadirHijo
@@ -31,6 +33,8 @@ public class AñadirHijo extends javax.swing.JDialog {
         calendar.set(2000, Calendar.JANUARY, 1); // Por ejemplo, fecha inicial
         jSpinnerFecha.setModel(new SpinnerDateModel(calendar.getTime(), null, null, Calendar.DAY_OF_MONTH));
         jSpinnerFecha.setEditor(new JSpinner.DateEditor(jSpinnerFecha, "dd/MM/yyyy"));
+        
+        er = new Error((Frame) getParent(), true, "Por favor, complete los campos.");
     }
 
     /**
@@ -200,21 +204,29 @@ public class AñadirHijo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirActionPerformed
-        String nombre = jTextFieldNombre.getText();
+        // Obtener los valores de los campos
+        String nombre = jTextFieldNombre.getText().trim();  // Eliminar espacios al principio y al final
         String apellidos = jTextFieldApellidos.getText();
         String deporte = jComboBoxDeporte.getSelectedItem().toString();
         String nivel = jSpinnerNivel.getValue().toString();
-        
+
         // Obtener la fecha en el formato requerido
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = (Date) jSpinnerFecha.getValue();
         String fecha = sdf.format(fechaDate);
-        
-        Persona p = new Persona(nombre,apellidos,deporte, nivel, fecha);
-        
-        r.añadirPersona(p);
-        r.setVisible(true);
 
+        // Validar si el campo "nombre" está vacío
+        if (nombre.isEmpty()) {
+            er.setVisible(true);  // Mostrar mensaje de error
+        } else {
+            // Si el nombre no está vacío, crear el objeto Persona y continuar
+            Persona p = new Persona(nombre, apellidos, fecha, deporte, nivel);
+
+            dispose();  // Cerrar la ventana actual
+
+            r.añadirPersona(p);  // Añadir persona a la lista o registro
+            r.setVisible(true);  // Mostrar el registro actualizado
+        }
     }//GEN-LAST:event_jButtonAñadirActionPerformed
 
     /**
