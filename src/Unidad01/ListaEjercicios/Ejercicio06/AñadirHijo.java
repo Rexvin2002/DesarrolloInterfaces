@@ -14,8 +14,9 @@ import javax.swing.SpinnerDateModel;
  */
 public class AñadirHijo extends javax.swing.JDialog {
 
-    private Registro r; 
-    private Error er;
+    
+    private Registro r;
+    private final Error er;
     
     /**
      * Creates new form AñadirHijo
@@ -24,9 +25,9 @@ public class AñadirHijo extends javax.swing.JDialog {
      */
     public AñadirHijo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
         setLocationRelativeTo(null);
-        r = new Registro(parent, true);
         
         // Establecer fecha inicial en el JSpinner
         Calendar calendar = Calendar.getInstance();
@@ -219,14 +220,14 @@ public class AñadirHijo extends javax.swing.JDialog {
         if (nombre.isEmpty()) {
             er.setVisible(true);  // Mostrar mensaje de error
         } else {
+            r = new Registro((Frame) getParent(), true);
             // Si el nombre no está vacío, crear el objeto Persona y continuar
             Persona p = new Persona(nombre, apellidos, fecha, deporte, nivel);
-
-            dispose();  // Cerrar la ventana actual
-
-            r.añadirPersona(p);  // Añadir persona a la lista o registro
-            r.setVisible(true);  // Mostrar el registro actualizado
+            r.añadirPersona(p);
+            dispose();
+            r.setVisible(true);
         }
+        
     }//GEN-LAST:event_jButtonAñadirActionPerformed
 
     /**
