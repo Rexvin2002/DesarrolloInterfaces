@@ -8,7 +8,6 @@ import javax.swing.DefaultListModel;
  * @author kgv17
  */
 public final class Resultados2 extends javax.swing.JPanel {
-
     
     public DefaultListModel listModel = new DefaultListModel();
     
@@ -17,15 +16,6 @@ public final class Resultados2 extends javax.swing.JPanel {
      */
     public Resultados2() {
         initComponents();
-        agregarDato("kicee");
-  
-    }
-    
-    public DefaultListModel limpiarJList(){
-        listModel = new DefaultListModel(); 
-        jListLista.setModel(listModel);  
-        
-        return listModel;
     }
     
     public DefaultListModel agregarDato(String s){

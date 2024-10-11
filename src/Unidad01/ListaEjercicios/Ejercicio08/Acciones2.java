@@ -1,22 +1,24 @@
 
 package Unidad01.ListaEjercicios.Ejercicio08;
 
+import Unidad01.Ejemplo04.ClickListener;
+
 /**
  *
  * @author kgv17
  */
 public class Acciones2 extends javax.swing.JPanel {
     
-    private static boolean escalada;
-    private static boolean submarinismo;
-    private static boolean esquiar;
-    private static boolean leer;
+    private Resultados2 r;
     
     /**
      * Creates new form Acciones
      */
     public Acciones2() {
+        r = new Resultados2();
         initComponents();
+        
+        
     }
 
     /**
@@ -105,29 +107,26 @@ public class Acciones2 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jPanelAcciones01, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                .addComponent(jPanelAcciones01, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBoxEscaladaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEscaladaActionPerformed
-
-    }//GEN-LAST:event_jCheckBoxEscaladaActionPerformed
-
-    private void jCheckBoxSubmarinismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSubmarinismoActionPerformed
-
-    }//GEN-LAST:event_jCheckBoxSubmarinismoActionPerformed
-
-    private void jCheckBoxEsquiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEsquiarActionPerformed
-
-    }//GEN-LAST:event_jCheckBoxEsquiarActionPerformed
-
     private void jCheckBoxLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLeerActionPerformed
-
+        r.agregarDato("Leer");
     }//GEN-LAST:event_jCheckBoxLeerActionPerformed
 
-    
+    private void jCheckBoxEscaladaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEscaladaActionPerformed
+        r.agregarDato("Escalada");
+    }//GEN-LAST:event_jCheckBoxEscaladaActionPerformed
 
-    
+    private void jCheckBoxEsquiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEsquiarActionPerformed
+        r.agregarDato("Esquiar");
+    }//GEN-LAST:event_jCheckBoxEsquiarActionPerformed
+
+    private void jCheckBoxSubmarinismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSubmarinismoActionPerformed
+        r.agregarDato("Submarinismo");
+    }//GEN-LAST:event_jCheckBoxSubmarinismoActionPerformed
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBoxEscalada;
     private javax.swing.JCheckBox jCheckBoxEsquiar;
