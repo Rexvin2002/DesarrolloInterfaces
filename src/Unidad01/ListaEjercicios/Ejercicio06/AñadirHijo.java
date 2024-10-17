@@ -15,7 +15,7 @@ import javax.swing.SpinnerDateModel;
 public class AñadirHijo extends javax.swing.JDialog {
 
     
-    private Registro r;
+    public final LogicaPersonas logicaPersonas = Registro.logicaPersonas;
     private final Error er;
     
     /**
@@ -220,12 +220,10 @@ public class AñadirHijo extends javax.swing.JDialog {
         if (nombre.isEmpty()) {
             er.setVisible(true);  // Mostrar mensaje de error
         } else {
-            r = new Registro((Frame) getParent(), true);
             // Si el nombre no está vacío, crear el objeto Persona y continuar
             Persona p = new Persona(nombre, apellidos, fecha, deporte, nivel);
-            r.añadirPersona(p);
+            logicaPersonas.añadirPersona(p);
             dispose();
-            r.setVisible(true);
         }
         
     }//GEN-LAST:event_jButtonAñadirActionPerformed

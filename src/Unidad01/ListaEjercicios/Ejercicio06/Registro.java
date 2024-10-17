@@ -2,6 +2,7 @@
 package Unidad01.ListaEjercicios.Ejercicio06;
 
 import java.awt.Frame;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -12,6 +13,7 @@ public class Registro extends javax.swing.JDialog {
     private Exito ex;
     private final Error er;
     private AñadirHijo ah;
+    public static LogicaPersonas logicaPersonas = new LogicaPersonas();
     
     /**
      * Creates new form Registro
@@ -23,15 +25,7 @@ public class Registro extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         
-        // Definimos el modelo de la tabla con columnas específicas
-        DefaultTableModel modeloTabla = new DefaultTableModel(new String[] {"Nombre", "Apellidos", "Fecha", "Deporte", "Nivel"}, 0);
-
-        // Asignamos este modelo a la tabla (jTableHijos es el nombre de la JTable)
-        jTableTabla.setModel(modeloTabla);
-        jTableTabla.setVisible(false);
-        jScrollPane2.setVisible(false);
-        this.revalidate();         // Reorganiza el diseño del contenedor
-        this.repaint();            // Redibuja el contenedor
+        refrescarTabla();
         
         er = new Error((Frame) this.getParent(), true, "Por favor complete todos los campos.");
     }
@@ -124,14 +118,13 @@ public class Registro extends javax.swing.JDialog {
         });
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane2.setMaximumSize(new java.awt.Dimension(380, 60));
-        jScrollPane2.setMinimumSize(new java.awt.Dimension(357, 60));
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(357, 60));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(300, 60));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(300, 60));
 
-        jTableTabla.setAutoCreateRowSorter(true);
-        jTableTabla.setMaximumSize(new java.awt.Dimension(400, 60));
-        jTableTabla.setMinimumSize(new java.awt.Dimension(380, 60));
+        jTableTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTableTabla.setMaximumSize(new java.awt.Dimension(300, 99999));
+        jTableTabla.setMinimumSize(new java.awt.Dimension(300, 60));
         jTableTabla.setPreferredSize(new java.awt.Dimension(300, 60));
         jTableTabla.getTableHeader().setResizingAllowed(false);
         jScrollPane2.setViewportView(jTableTabla);
@@ -157,9 +150,9 @@ public class Registro extends javax.swing.JDialog {
                 .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVerOcultaTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         jSeparator1.setMaximumSize(new java.awt.Dimension(400, 3));
@@ -230,8 +223,8 @@ public class Registro extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jButtonMatricular.setText("MATRICULAR");
@@ -250,13 +243,11 @@ public class Registro extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -274,9 +265,22 @@ public class Registro extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    public void añadirPersona(Persona p){
-        DefaultTableModel modeloTabla = (DefaultTableModel) jTableTabla.getModel();
-        modeloTabla.addRow(p.toArrayString());
+    private void refrescarTabla(){
+        DefaultTableModel modeloTabla = new DefaultTableModel();
+        modeloTabla.setColumnIdentifiers(new String[] {"Nombre", "Apellidos", "Fecha", "Deporte", "Nivel"});
+        jTableTabla.setModel(modeloTabla);
+        
+        // Coje la lista de la clase LogicaNegocio y añade los clientes a la tabla
+        List<Persona> listaPersonas = logicaPersonas.getListaPersonas();
+        for (Persona persona : listaPersonas) {
+            modeloTabla.addRow(persona.toArrayString());
+        }
+        
+        jTableTabla.setVisible(false);
+        jScrollPane2.setVisible(false);
+        this.revalidate();         
+        this.repaint();           
+        
     }
     
     private void jButtonMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMatricularActionPerformed
@@ -317,9 +321,10 @@ public class Registro extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVerOcultaTablaActionPerformed
 
     private void jButtonAñadirHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirHijoActionPerformed
-        dispose();
+        // dispose();
         ah = new AñadirHijo((Frame) getParent(), true);
         ah.setVisible(true);
+        refrescarTabla();
     }//GEN-LAST:event_jButtonAñadirHijoActionPerformed
 
     /**

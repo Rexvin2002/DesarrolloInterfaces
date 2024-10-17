@@ -15,7 +15,6 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     private final String contraseña = "passwd";
     private Registro r;
     
-    
     /**
      * Creates new form AccesoDeportivo
      */
