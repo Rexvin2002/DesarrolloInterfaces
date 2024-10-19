@@ -65,93 +65,78 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     // Inicializa la tabla de pulsaciones
     private void inicializarTablaPulsaciones() {
-        DefaultTableModel modeloTabla = new DefaultTableModel(); // Se crea un modelo de tabla por defecto
+        
+        DefaultTableModel modeloTabla = new DefaultTableModel();
         modeloTabla.setColumnIdentifiers(new String[]{"Botón", "Pulsaciones"});
 
         ContadorPulsaciones contadorPulsaciones = new ContadorPulsaciones();
-        // Se itera sobre cada boton de contadorPulsaciones
+        
         for (Integer boton : contadorPulsaciones.getPulsacionesBoton().keySet()) {
-            Integer pulsaciones = contadorPulsaciones.getPulsacionesBoton().get(boton); // Se obtiene las pulsaciones
-            modeloTabla.addRow(new Object[]{boton, null}); // Se añade a la tabla    
+            
+            Integer pulsaciones = contadorPulsaciones.getPulsacionesBoton().get(boton); 
+            modeloTabla.addRow(new Object[]{boton, null});
+            
         }
-        jTablePulsaciones.setModel(modeloTabla); // Se aplica el modelo de tabla creado al componente jTablePersonas
+        
+        jTablePulsaciones.setModel(modeloTabla);
 
     }
     
     
     public void mostrarPanelAcciones() {
-        // Se obtiene un objeto de tipo CardLayout
+
         CardLayout cardLayout = (CardLayout) jPanelCentral.getLayout();
 
-        // Se vacia todos los componentes del panel central antes de añadir uno nuevo
         jPanelCentral.removeAll();
-
-        // Se añade el panel Acciones
         jPanelCentral.add(jPanelAccionesPanel, "Acciones");
-
-        // Se muestra el panel Acciones
         cardLayout.show(jPanelCentral, "Acciones");
 
-        // Se refresca el panel central para que los cambios se reflejen
-        jPanelCentral.revalidate(); // Se revalida el contenedor para que reconozca los cambios en los componentes
-        jPanelCentral.repaint(); // Se vuelve a dibujar el contenedor y sus componentes
+        jPanelCentral.revalidate(); 
+        jPanelCentral.repaint(); 
+        
     }
     public void mostrarAcciones() {
-        // Se verifica si el item seleccionado en el comboBox es Botones
+        
         if (jComboBoxCambiarAccion.getSelectedItem().equals("Botones")) {
-            // Se obtiene un objeto de tipo CardLayout
+            
             CardLayout cardLayout = (CardLayout) jPanelAcciones.getLayout();
 
-            // Se vacía todos los componentes del panel central de Acciones antes de añadir uno nuevo
             jPanelAcciones.removeAll();
-
-            // Se añade el panel Botones
             jPanelAcciones.add(jPanelBotones, "Botones");
-
-            // Se muestra el panel Botones
             cardLayout.show(jPanelAcciones, "Botones");
 
-            // Se refresca el panel SubAcciones para que los cambios se reflejen
-            jPanelCentral.revalidate(); // Se revalida el contenedor para que reconozca los cambios en los componentes
-            jPanelCentral.repaint(); // Se vuelve a dibujar el contenedor y sus componentes
+            jPanelCentral.revalidate(); 
+            jPanelCentral.repaint(); 
+            
         } else {
-            // Se obtiene un objeto de tipo CardLayout
+
             CardLayout cardLayout = (CardLayout) jPanelAcciones.getLayout();
 
-            // Se vacía todos los componentes del panel central antes de añadir uno nuevo
             jPanelAcciones.removeAll();
-
-            // Se añade el panel Opciones
             jPanelAcciones.add(jPanelOpciones, "Opciones");
-
-            // Se muestra el panel Opciones
             cardLayout.show(jPanelAcciones, "Opciones");
 
-            // Se refresca el panel SubAcciones para que los cambios se reflejen
-            jPanelCentral.revalidate(); // Se revalida el contenedor para que reconozca los cambios en los componentes
-            jPanelCentral.repaint(); // Se vuelve a dibujar el contenedor y sus componentes
+            jPanelCentral.revalidate(); 
+            jPanelCentral.repaint(); 
+            
         }
+        
     }
     
     public void mostrarPanelResultados() {
-        // Se obtiene un objeto de tipo CardLayout
+        
         CardLayout cardLayout = (CardLayout) jPanelCentral.getLayout();
 
-        // Se vacia todos los componentes del panel central antes de añadir uno nuevo
         jPanelCentral.removeAll();
-
-        // Se añade el panel Resultados
         jPanelCentral.add(jPanelResultadosPanel, "Resultados");
-
-        // Se muestra el panel Resultados
         cardLayout.show(jPanelCentral, "Resultados");
 
-        // Se refresca el panel central para que los cambios se reflejen
-        jPanelCentral.revalidate(); // Se revalida el contenedor para que reconozca los cambios en los componentes
-        jPanelCentral.repaint(); // Se vuelve a dibujar el contenedor y sus componentes
+        jPanelCentral.revalidate();
+        jPanelCentral.repaint();
+        
     }
     public void mostrarResultados() {
-        // Se verifica si el item seleccionado en el comboBox es Pulsaciones
+        
         if (jComboBoxCambiarResultado.getSelectedItem().equals("Pulsaciones")) {
             // Se obtiene un objeto de tipo CardLayout
             CardLayout cardLayout = (CardLayout) jPanelResultados.getLayout();
@@ -166,37 +151,40 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             jPanelCentral.revalidate(); // Se revalida el contenedor para que reconozca los cambios en los componentes
             jPanelCentral.repaint(); // Se vuelve a dibujar el contenedor y sus componentes
         } else {
-            // Se obtiene un objeto de tipo CardLayout
+            
             CardLayout cardLayout = (CardLayout) jPanelResultados.getLayout();
 
-            // Se añade el panel Selecciones
             jPanelResultados.add(jPanelSelecciones, "Selecciones");
-
-            // Se muestra el panel Selecciones
             cardLayout.show(jPanelResultados, "Selecciones");
 
-            // Se refresca el panel SubResultados para que los cambios se reflejen
-            jPanelCentral.revalidate(); // Se revalida el contenedor para que reconozca los cambios en los componentes
-            jPanelCentral.repaint(); // Se vuelve a dibujar el contenedor y sus componentes
+            jPanelCentral.revalidate(); 
+            jPanelCentral.repaint();
+            
         }
+        
     }
     
     
     // Actualiza las pulsaciones en la tabla
     public void actualizarPulsaciones(Integer boton, Integer valor) {
-        // Se itera sobre cada fila de la tabla
+        
         for (int i = 0; i < jTablePulsaciones.getRowCount(); i++) {
-            if (jTablePulsaciones.getValueAt(i, 0).equals(boton)) { // Se verifica si la fila coincide con la fila del botón pasado por parámetro
-                jTablePulsaciones.setValueAt(valor, i, 1); // Se actualiza el valor de la fila con el parámetro valor
+            
+            if (jTablePulsaciones.getValueAt(i, 0).equals(boton)) { 
+                
+                jTablePulsaciones.setValueAt(valor, i, 1); 
+                
             }
+            
         }
+        
     }
 
     // Métodos para obtener y actualizar las selecciones
     public String obtenerSelecciones() {
+        
         ArrayList<String> selecciones = new ArrayList<>();
 
-        // Se verifica checkbox a checkbox si está seleccionada y se añade al ArrayList
         if (jCheckBoxLeer.isSelected()) {
             selecciones.add(jCheckBoxLeer.getText());
         }
@@ -210,13 +198,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             selecciones.add(jCheckBoxSubmarinismo.getText());
         }
 
-        // Se convierte la lista de selecciones a una cadena
         String seleccionesTexto = String.join("\n", selecciones);
 
-        return seleccionesTexto; // Se devuelve la cadena con las selecciones
+        return seleccionesTexto; 
+        
     }
     public void actualizarTextPane(String selecciones){
-        jTextPaneSelecciones.setText(selecciones); // Se actualiza el texto de jTextPaneSelecicones
+        
+        jTextPaneSelecciones.setText(selecciones);
+        
     }
     
 
