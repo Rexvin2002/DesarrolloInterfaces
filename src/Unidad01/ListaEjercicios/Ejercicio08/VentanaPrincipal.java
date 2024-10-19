@@ -82,7 +82,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }
     
-    
+    // Muestra el panel de acciones principal
     public void mostrarPanelAcciones() {
 
         CardLayout cardLayout = (CardLayout) jPanelCentral.getLayout();
@@ -95,6 +95,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanelCentral.repaint(); 
         
     }
+    // Muestra las acciones de botones o opciones mediante JComboBox
     public void mostrarAcciones() {
         
         if (jComboBoxCambiarAccion.getSelectedItem().equals("Botones")) {
@@ -122,7 +123,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         
     }
-    
+    // Muestra el panel de resultados principal
     public void mostrarPanelResultados() {
         
         CardLayout cardLayout = (CardLayout) jPanelCentral.getLayout();
@@ -135,6 +136,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanelCentral.repaint();
         
     }
+    // Muestra los resultados de botones o opciones mediante JComboBox
     public void mostrarResultados() {
         
         if (jComboBoxCambiarResultado.getSelectedItem().equals("Pulsaciones")) {
