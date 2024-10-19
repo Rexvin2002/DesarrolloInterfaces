@@ -183,7 +183,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     
-    // Métodos para obtener y actualizar las selecciones
+    // Obtiene y actualiza las selecciones
     public String obtenerSelecciones() {
         
         ArrayList<String> selecciones = new ArrayList<>();

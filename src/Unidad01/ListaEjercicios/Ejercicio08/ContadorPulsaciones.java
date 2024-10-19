@@ -10,14 +10,15 @@ import java.util.Map;
  */
 public class ContadorPulsaciones {
 
-    private Map<Integer, Integer> pulsacionesBoton = new HashMap<>(); // Atributo para almacenar el botón pulsado junto sus pulsaciones
+    private Map<Integer, Integer> pulsacionesBoton = new HashMap<>();
 
-    // Constructor sin parámetros de la Clase ContadorPulsaciones
     public ContadorPulsaciones() {
+        
         pulsacionesBoton.put(1, 0);
         pulsacionesBoton.put(2, 0);
         pulsacionesBoton.put(3, 0);
         pulsacionesBoton.put(4, 0);
+        
     }
 
     // Método para incrementar el contador de pulsaciones de un botón

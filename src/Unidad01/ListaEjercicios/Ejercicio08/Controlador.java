@@ -7,20 +7,18 @@ package Unidad01.ListaEjercicios.Ejercicio08;
  */
 public class Controlador {
 
-    // Se inicializa un objeto de la clase ContadorPulsaciones
     private final ContadorPulsaciones contadorPulsaciones = new ContadorPulsaciones();
-
-    // Atributo que representa la Ventana Principal
     private final VentanaPrincipal ventanaPrincipal;
 
-    // Constructor por parámetros de la clase Controlador, se inicializa la ventana y se configuran los eventos
     public Controlador(VentanaPrincipal ventanaPrincipal) {
+        
         this.ventanaPrincipal = ventanaPrincipal;
         inicializarEventos();
+        
     }
 
-    // Método para configurar los eventos de las acciones de la ventana principal
     private void inicializarEventos() {
+        
         // Añade los métodos para mostrar los àneles a los JRadioButtons y al JComboBox
         ventanaPrincipal.addAccionesAction(e -> ventanaPrincipal.mostrarPanelAcciones());
         ventanaPrincipal.addResultadosAction(e -> ventanaPrincipal.mostrarPanelResultados());
@@ -45,17 +43,17 @@ public class Controlador {
     private void gestionarPulsaciones(Integer boton) {
         
         contadorPulsaciones.incrementarPulsaciones(boton);
-
         Integer pulsaciones = contadorPulsaciones.getPulsacionesBoton(boton);
-
         ventanaPrincipal.actualizarPulsaciones(boton, pulsaciones);
         
     }
 
     // Método para gestionar la selección de Checkboxs y actualizar el TextPane
     private void gestionarSelecciones() {
+        
         String selecciones = ventanaPrincipal.obtenerSelecciones();
         ventanaPrincipal.actualizarTextPane(selecciones);
+        
     }
 
 }
