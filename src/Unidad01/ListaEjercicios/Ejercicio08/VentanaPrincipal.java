@@ -219,7 +219,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jTextPaneSelecciones.setText(selecciones); // Se actualiza el texto de jTextPaneSelecicones
     }
     
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
