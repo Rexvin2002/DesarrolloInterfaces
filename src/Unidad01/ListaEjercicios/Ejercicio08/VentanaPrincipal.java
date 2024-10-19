@@ -19,68 +19,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         inicializarTablaPulsaciones();
     }
 
-    // Añadir Listener a los JRadios y JComboBoxs
-    public void addAccionesAction(ActionListener listener) {
-        jRadioButtonAcciones.addActionListener(listener);
-    }
-    public void addCambiarAccionAction(ActionListener listener) {
-        jComboBoxCambiarAccion.addActionListener(listener);
-    }
-    
-    public void addResultadosAction(ActionListener listener) {
-        jRadioButtonResultados.addActionListener(listener);
-    }
-    public void addCambiarResultadoAction(ActionListener listener) {
-        jComboBoxCambiarResultado.addActionListener(listener);
-    }
-    
-    
-    // Añade un listener a cada jButton
-    public void addButtonB1Action(ActionListener listener) {
-        jButtonB1.addActionListener(listener);
-    }
-    public void addButtonB2Action(ActionListener listener) {
-        jButtonB2.addActionListener(listener);
-    }
-    public void addButtonB3Action(ActionListener listener) {
-        jButtonB3.addActionListener(listener);
-    }
-    public void addButtonB4Action(ActionListener listener) {
-        jButtonB4.addActionListener(listener);
-    }
-
-    // Añade un listener a cada jCheckBox
-    public void addCheckBoxLeer(ActionListener listener) {
-        jCheckBoxLeer.addActionListener(listener);
-    }
-    public void addCheckBoxEscalada(ActionListener listener) {
-        jCheckBoxEscalada.addActionListener(listener);
-    }
-    public void addCheckBoxEsquiar(ActionListener listener) {
-        jCheckBoxEsquiar.addActionListener(listener);
-    }
-    public void addCheckBoxSubmarinismo(ActionListener listener) {
-        jCheckBoxSubmarinismo.addActionListener(listener);
-    }
-    
-    // Inicializa la tabla de pulsaciones
-    private void inicializarTablaPulsaciones() {
-        
-        DefaultTableModel modeloTabla = new DefaultTableModel();
-        modeloTabla.setColumnIdentifiers(new String[]{"Botón", "Pulsaciones"});
-
-        ContadorPulsaciones contadorPulsaciones = new ContadorPulsaciones();
-        
-        for (Integer boton : contadorPulsaciones.getPulsacionesBoton().keySet()) {
-            
-            Integer pulsaciones = contadorPulsaciones.getPulsacionesBoton().get(boton); 
-            modeloTabla.addRow(new Object[]{boton, null});
-            
-        }
-        
-        jTablePulsaciones.setModel(modeloTabla);
-
-    }
     
     // Muestra el panel de acciones principal
     public void mostrarPanelAcciones() {
@@ -167,7 +105,52 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     
-    // Actualiza las pulsaciones en la tabla
+    // Añade Listener a los JRadios y JComboBoxs tanto de acciones como resultados
+    public void addAccionesAction(ActionListener listener) {
+        jRadioButtonAcciones.addActionListener(listener);
+    }
+    public void addCambiarAccionAction(ActionListener listener) {
+        jComboBoxCambiarAccion.addActionListener(listener);
+    }
+    public void addResultadosAction(ActionListener listener) {
+        jRadioButtonResultados.addActionListener(listener);
+    }
+    public void addCambiarResultadoAction(ActionListener listener) {
+        jComboBoxCambiarResultado.addActionListener(listener);
+    }
+    
+   
+    // Añade un listener a cada jButton
+    public void addButtonB1Action(ActionListener listener) {
+        jButtonB1.addActionListener(listener);
+    }
+    public void addButtonB2Action(ActionListener listener) {
+        jButtonB2.addActionListener(listener);
+    }
+    public void addButtonB3Action(ActionListener listener) {
+        jButtonB3.addActionListener(listener);
+    }
+    public void addButtonB4Action(ActionListener listener) {
+        jButtonB4.addActionListener(listener);
+    }
+
+    
+    // Añade un listener a cada jCheckBox
+    public void addCheckBoxLeer(ActionListener listener) {
+        jCheckBoxLeer.addActionListener(listener);
+    }
+    public void addCheckBoxEscalada(ActionListener listener) {
+        jCheckBoxEscalada.addActionListener(listener);
+    }
+    public void addCheckBoxEsquiar(ActionListener listener) {
+        jCheckBoxEsquiar.addActionListener(listener);
+    }
+    public void addCheckBoxSubmarinismo(ActionListener listener) {
+        jCheckBoxSubmarinismo.addActionListener(listener);
+    }
+    
+
+    // Inicializa y actualiza las pulsaciones en la tabla
     public void actualizarPulsaciones(Integer boton, Integer valor) {
         
         for (int i = 0; i < jTablePulsaciones.getRowCount(); i++) {
@@ -181,7 +164,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         
     }
+    private void inicializarTablaPulsaciones() {
+        
+        DefaultTableModel modeloTabla = new DefaultTableModel();
+        modeloTabla.setColumnIdentifiers(new String[]{"Botón", "Pulsaciones"});
 
+        ContadorPulsaciones contadorPulsaciones = new ContadorPulsaciones();
+        
+        for (Integer boton : contadorPulsaciones.getPulsacionesBoton().keySet()) {
+            
+            Integer pulsaciones = contadorPulsaciones.getPulsacionesBoton().get(boton); 
+            modeloTabla.addRow(new Object[]{boton, null});
+            
+        }
+        
+        jTablePulsaciones.setModel(modeloTabla);
+
+    }
+
+    
     // Métodos para obtener y actualizar las selecciones
     public String obtenerSelecciones() {
         
