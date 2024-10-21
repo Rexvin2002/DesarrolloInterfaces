@@ -17,9 +17,11 @@ public class IngresarCantidad extends javax.swing.JDialog {
      * @param modal
      */
     public IngresarCantidad(java.awt.Frame parent, boolean modal) {
+        
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        
     }
 
     /**
@@ -82,13 +84,19 @@ public class IngresarCantidad extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonConvertirAPesetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertirAPesetasActionPerformed
+        
         try {
+            
             double euros = Double.parseDouble(jTextFieldEuros.getText());
             resultado = euros * 166.386;
             dispose();
+            
         } catch (NumberFormatException e) {
+            
             JOptionPane.showMessageDialog(this, "Por favor, introduce un número válido.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+            
         }
+        
     }//GEN-LAST:event_jButtonConvertirAPesetasActionPerformed
 
     /**

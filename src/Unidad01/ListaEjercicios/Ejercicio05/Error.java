@@ -15,6 +15,7 @@ public class Error extends javax.swing.JDialog {
      * @param modal
      */
     public Error(java.awt.Frame parent, boolean modal) {
+        
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -24,6 +25,7 @@ public class Error extends javax.swing.JDialog {
         // Eliminar las barras de desplazamiento
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        
     }
 
     /**
@@ -90,13 +92,16 @@ public class Error extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        
         dispose();
+        
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -121,18 +126,22 @@ public class Error extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Error dialog = new Error(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            
+            Error dialog = new Error(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+                
+            });
+            
+            dialog.setVisible(true);
+            
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

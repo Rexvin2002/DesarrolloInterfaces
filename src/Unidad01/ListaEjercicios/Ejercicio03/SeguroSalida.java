@@ -17,6 +17,7 @@ public class SeguroSalida extends javax.swing.JDialog {
      * @param modal
      */
     public SeguroSalida(java.awt.Frame parent, boolean modal) {
+        
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -26,6 +27,7 @@ public class SeguroSalida extends javax.swing.JDialog {
         jButtonSalir.setContentAreaFilled(false);
         jButtonVolver.setOpaque(true);
         jButtonSalir.setOpaque(true);
+        
     }
 
     /**
@@ -120,40 +122,55 @@ public class SeguroSalida extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        
         System.exit(0);
+        
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        
         dispose();
+        
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVolverMouseEntered
+        
         jButtonVolver.setBackground(Color.LIGHT_GRAY); // Cambiar color al pasar el ratón
         jButtonVolver.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Cambiar el cursor al pasar el ratón
+        
     }//GEN-LAST:event_jButtonVolverMouseEntered
 
     private void jButtonVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVolverMouseExited
+        
         jButtonVolver.setBackground(Color.WHITE); // Restaurar color cuando el ratón sale
         jButtonVolver.setCursor(new Cursor(Cursor.DEFAULT_CURSOR)); // Restaurar el cursor cuando el ratón sale
+        
     }//GEN-LAST:event_jButtonVolverMouseExited
 
     private void jButtonVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVolverMousePressed
+        
         jButtonVolver.setBackground(Color.GRAY); // Cambiar color al presionar el botón
-        // Cambiar la escala del botón al presionar
+        
     }//GEN-LAST:event_jButtonVolverMousePressed
 
     private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
+        
         jButtonSalir.setBackground(new Color(150, 0, 0)); // Cambiar color al pasar el ratón
         jButtonSalir.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Cambiar el cursor al pasar el ratón
+        
     }//GEN-LAST:event_jButtonSalirMouseEntered
 
     private void jButtonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseExited
+        
         jButtonSalir.setBackground(new Color(204, 0, 0)); // Restaurar color cuando el ratón sale
         jButtonSalir.setCursor(new Cursor(Cursor.DEFAULT_CURSOR)); // Restaurar el cursor cuando el ratón sale
+        
     }//GEN-LAST:event_jButtonSalirMouseExited
 
     private void jButtonSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMousePressed
+        
         jButtonSalir.setBackground(new Color(100, 0, 0)); // Restaurar color cuando el ratón sale
+        
     }//GEN-LAST:event_jButtonSalirMousePressed
 
     /**

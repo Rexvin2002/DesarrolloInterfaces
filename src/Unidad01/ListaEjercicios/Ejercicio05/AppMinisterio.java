@@ -26,14 +26,13 @@ public class AppMinisterio extends javax.swing.JFrame {
 
     private Formulario form;
     private About about;
-    private JFileChooser jfc = new JFileChooser(); // Mover fuera de los métodos, a nivel de clase
-    private Seleccion s ;
-
+    private final JFileChooser jfc = new JFileChooser(); // Mover fuera de los métodos, a nivel de clase
     
     /**
      * Creates new form MainFrame
      */
     public AppMinisterio() {
+        
         initComponents();
         setLocationRelativeTo(null);
         inicializarTabla();
@@ -49,6 +48,7 @@ public class AppMinisterio extends javax.swing.JFrame {
     }
 
     private void inicializarTabla(){
+        
         // Crear un renderizador para centrar las celdas de datos
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
@@ -66,20 +66,25 @@ public class AppMinisterio extends javax.swing.JFrame {
         // Aplicar el renderizador al header de la tabla
         JTableHeader header = jTableDatos.getTableHeader();
         header.setDefaultRenderer(headerRenderer);
+        
     }
     
     private void actualizarTabla(ArrayList<String[]> dataList) {
+        
         DefaultTableModel model = (DefaultTableModel) jTableDatos.getModel();
         model.setRowCount(0);  // Limpia la tabla
 
         for (String[] rowData : dataList) {
             model.addRow(rowData);
         }
+        
     }
     
     public void añadirPersona(Persona p){
+        
         DefaultTableModel modeloTabla = (DefaultTableModel) jTableDatos.getModel();
         modeloTabla.addRow(p.toArrayString());
+        
     }
 
     /**
@@ -270,9 +275,7 @@ public class AppMinisterio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,43 +290,59 @@ public class AppMinisterio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
+        
         System.exit(0);
+        
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void jMenuItemRealizarEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRealizarEncuestaActionPerformed
+        
         form = new Formulario(this, true);
         form.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItemRealizarEncuestaActionPerformed
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
+        
         this.about = new About(this, true);
         this.about.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItemAyudaActionPerformed
 
     private void jMenuItemLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeerActionPerformed
+        
         jfc.setMultiSelectionEnabled(true); // Activar selección múltiple
         int returnValue = jfc.showOpenDialog(this);
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File[] selectedFiles = jfc.getSelectedFiles(); // Obtener múltiples archivos
+            
             for (File file : selectedFiles) {
                 cargarDatosDesdeArchivo(file);
             }
+            
         }
+        
     }//GEN-LAST:event_jMenuItemLeerActionPerformed
 
     private void cargarDatosDesdeArchivo(File file) {
+        
         ArrayList<String[]> dataList = new ArrayList<>();  // ArrayList para almacenar los datos
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            
             String line;
+            
             while ((line = br.readLine()) != null) {
                 // Suponiendo que los datos están separados por comas (CSV)
                 String[] data = line.split(",");
                 dataList.add(data);
             }
+            
         } catch (IOException e) {
+            
             System.err.println("ERROR: "+e.getMessage());
+            
         }
 
         // Aquí actualizamos la tabla con los datos leídos
@@ -331,16 +350,20 @@ public class AppMinisterio extends javax.swing.JFrame {
     }
     
     private void jMenuItemEscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEscribirActionPerformed
+        
         int returnValue = jfc.showSaveDialog(this);
     
         if (returnValue == JFileChooser.APPROVE_OPTION) {
+            
             File selectedFile = jfc.getSelectedFile();
             guardarDatosEnArchivo(selectedFile);
+            
         }
+        
     }//GEN-LAST:event_jMenuItemEscribirActionPerformed
 
     private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
-        dispose();
+        
     }//GEN-LAST:event_formWindowDeactivated
 
     private void formWindowDeiconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeiconified
@@ -352,6 +375,7 @@ public class AppMinisterio extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowLostFocus
 
     private void guardarDatosEnArchivo(File file) {
+        
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             
             DefaultTableModel model = (DefaultTableModel) jTableDatos.getModel();
@@ -373,9 +397,13 @@ public class AppMinisterio extends javax.swing.JFrame {
                 bw.newLine();
                 
             }
+            
         } catch (IOException e) {
+            
             System.err.println("\nERROR: " + e.getMessage());
+            
         }
+        
     }
     
     /**
@@ -407,10 +435,8 @@ public class AppMinisterio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AppMinisterio().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AppMinisterio().setVisible(true);
         });
     }
 

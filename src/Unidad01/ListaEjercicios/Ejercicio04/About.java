@@ -9,11 +9,15 @@ public class About extends javax.swing.JDialog {
 
     /**
      * Creates new form About
+     * @param parent
+     * @param modal
      */
     public About(java.awt.Frame parent, boolean modal) {
+        
         super(parent, modal);
-        initComponents();
         setLocationRelativeTo(null);
+        initComponents();
+        
     }
 
     /**
@@ -38,7 +42,7 @@ public class About extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Unidad01/ListaEjercicios/Ejercicio04/Imagen.png"))); // NOI18N
+        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Unidad01/ListaEjercicios/Ejercicio05/images/Imagen.png"))); // NOI18N
 
         jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelTitulo.setText("Ejemplo de aplicación de escritorio");
@@ -96,7 +100,7 @@ public class About extends javax.swing.JDialog {
                                     .addComponent(jLabelVersionValue)
                                     .addComponent(jLabelURL)))
                             .addComponent(jLabelTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(75, Short.MAX_VALUE))
+                        .addContainerGap(95, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonCerrar)
@@ -130,14 +134,16 @@ public class About extends javax.swing.JDialog {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButtonCerrar))))
                     .addComponent(jLabelImagen))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
+        
         dispose();
+        
     }//GEN-LAST:event_jButtonCerrarActionPerformed
 
     /**
@@ -168,17 +174,15 @@ public class About extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                About dialog = new About(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            About dialog = new About(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

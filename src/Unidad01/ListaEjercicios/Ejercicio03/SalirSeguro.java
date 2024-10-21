@@ -13,8 +13,10 @@ public class SalirSeguro extends javax.swing.JFrame {
      * Creates new form SalirSeguro
      */
     public SalirSeguro() {
+        
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -79,8 +81,10 @@ public class SalirSeguro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        
         ss = new SeguroSalida(this, true);
         ss.setVisible(true);
+        
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
@@ -111,10 +115,8 @@ public class SalirSeguro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SalirSeguro().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new SalirSeguro().setVisible(true);
         });
     }
 

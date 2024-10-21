@@ -17,6 +17,7 @@ public class Persona {
     private String cine;
 
     public Persona(String profesion, Object hermanos, Object edad, String sexo, String deporte, int compras, int television, int cine) {
+        
         this.profesion = profesion;
         this.hermanos = String.valueOf(hermanos);
         this.edad = (String) edad;
@@ -25,73 +26,35 @@ public class Persona {
         this.compras = String.valueOf(compras);
         this.television = String.valueOf(television);
         this.cine = String.valueOf(cine);
+        
     }
 
-    public String getProfesion() {
-        return profesion;
-    }
-
-    public void setProfesion(String profesion) {
-        this.profesion = profesion;
-    }
-
-    public String getHermanos() {
-        return hermanos;
-    }
-
-    public void setHermanos(String hermanos) {
-        this.hermanos = hermanos;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getDeporte() {
-        return deporte;
-    }
-
-    public void setDeporte(String deporte) {
-        this.deporte = deporte;
-    }
-
-    public String getCompras() {
-        return compras;
-    }
-
-    public void setCompras(String compras) {
-        this.compras = compras;
-    }
-
-    public String getTelevision() {
-        return television;
-    }
-
-    public void setTelevision(String television) {
-        this.television = television;
-    }
-
-    public String getCine() {
-        return cine;
-    }
-
-    public void setCine(String cine) {
-        this.cine = cine;
-    }
+    public String getProfesion() { return this.profesion; }
+    public void setProfesion(String profesion) { this.profesion = profesion; }
+    
+    public String getHermanos() { return this.hermanos; }
+    public void setHermanos(String hermanos) { this.hermanos = hermanos; }
+    
+    public String getEdad() { return this.edad; }
+    public void setEdad(String edad) { this.edad = edad; }
+    
+    public String getSexo() { return this.sexo; }
+    public void setSexo(String sexo) { this.sexo = sexo; }
+    
+    public String getDeporte() { return this.deporte; }
+    public void setDeporte(String deporte) { this.deporte = deporte; }
+    
+    public String getCompras() { return this.compras; }
+    public void setCompras(String compras) { this.compras = compras; }
+    
+    public String getTelevision() { return this.television; }
+    public void setTelevision(String television) { this.television = television; }
+    
+    public String getCine() { return this.cine; }
+    public void setCine(String cine) { this.cine = cine; }
     
     public String[] toArrayString(){
+        
         String[] s = new String[8];
         s[0]=profesion;
         s[1]=hermanos;
@@ -102,5 +65,7 @@ public class Persona {
         s[6]=television;
         s[7]=cine;
         return s;
+        
     }
+    
 }

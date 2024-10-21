@@ -21,6 +21,7 @@ public class Mezclador extends javax.swing.JFrame {
      * Creates new form MezcladorNombre
      */
     public Mezclador() {
+        
         initComponents();
         setLocationRelativeTo(null);
         
@@ -38,6 +39,7 @@ public class Mezclador extends javax.swing.JFrame {
         jPanelMezclador.add(m, BorderLayout.CENTER);
         jPanelMezclador.revalidate();
         jPanelMezclador.repaint();
+        
     }
 
     /**
@@ -179,7 +181,7 @@ public class Mezclador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
-        dispose();
+        
     }//GEN-LAST:event_formWindowDeactivated
 
     private void jButtonMezclarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMezclarActionPerformed

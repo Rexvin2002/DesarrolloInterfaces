@@ -46,7 +46,7 @@
                           </Group>
                           <Component id="jLabelTexto" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace pref="95" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -93,7 +93,7 @@
                   </Group>
                   <Component id="jLabelImagen" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,7 +102,7 @@
     <Component class="javax.swing.JLabel" name="jLabelImagen">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Unidad01/ListaEjercicios/Ejercicio04/Imagen.png"/>
+          <Image iconType="3" name="/Unidad01/ListaEjercicios/Ejercicio05/images/Imagen.png"/>
         </Property>
       </Properties>
     </Component>

@@ -1,8 +1,6 @@
 
 package Unidad01.ListaEjercicios.Ejercicio02;
 
-import Unidad01.ListaEjercicios.Ejercicio02.IngresarCantidad;
-
 /**
  *
  * @author kgv17
@@ -15,8 +13,10 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
      * Creates new form ConvertidorEuroPeseta
      */
     public ConvertidorEuroPeseta() {
+        
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -82,9 +82,11 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIngresarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarCantidadActionPerformed
+        
         ic = new IngresarCantidad(this, true);
         ic.setVisible(true);
         jLabelPesetas.setText(String.valueOf(ic.resultado)+ " Pesetas");
+        
     }//GEN-LAST:event_jButtonIngresarCantidadActionPerformed
 
     /**
@@ -115,10 +117,8 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConvertidorEuroPeseta().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ConvertidorEuroPeseta().setVisible(true);
         });
     }
 
