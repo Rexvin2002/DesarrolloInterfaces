@@ -120,6 +120,7 @@ public class AppMinisterio extends javax.swing.JFrame {
         jPanelMenuMinisterio.setBackground(new java.awt.Color(57, 93, 122));
         jPanelMenuMinisterio.setMaximumSize(new java.awt.Dimension(32767, 35));
         jPanelMenuMinisterio.setMinimumSize(new java.awt.Dimension(1000, 35));
+        jPanelMenuMinisterio.setPreferredSize(new java.awt.Dimension(1000, 35));
         jPanelMenuMinisterio.setLayout(new javax.swing.BoxLayout(jPanelMenuMinisterio, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 320));
@@ -137,6 +138,7 @@ public class AppMinisterio extends javax.swing.JFrame {
                 "Profesión", "Nº Hermanos", "Edad", "Sexo", "Deporte", "Compras", "Televisión", "Cine"
             }
         ));
+        jTableDatos.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jTableDatos.setMinimumSize(new java.awt.Dimension(980, 320));
         jTableDatos.setPreferredSize(new java.awt.Dimension(960, 320));
         jTableDatos.setShowHorizontalLines(true);
@@ -166,16 +168,16 @@ public class AppMinisterio extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 988, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
 
         jMenuBarOpciones.setMinimumSize(new java.awt.Dimension(900, 23));
@@ -252,10 +254,10 @@ public class AppMinisterio extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
 
         pack();

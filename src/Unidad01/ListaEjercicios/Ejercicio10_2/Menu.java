@@ -30,12 +30,12 @@ public class Menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 0), new java.awt.Dimension(200, 0), new java.awt.Dimension(32767, 0));
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 0), new java.awt.Dimension(32767, 0), new java.awt.Dimension(32767, 0));
         jButtonMenu = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
 
         setBackground(new java.awt.Color(57, 93, 122));
-        setMaximumSize(new java.awt.Dimension(1100, 35));
+        setMaximumSize(new java.awt.Dimension(32767, 35));
         setMinimumSize(new java.awt.Dimension(330, 35));
         setPreferredSize(new java.awt.Dimension(330, 35));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
@@ -62,7 +62,6 @@ public class Menu extends javax.swing.JPanel {
         s.setVisible(true);
         
     }//GEN-LAST:event_jButtonMenuActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
