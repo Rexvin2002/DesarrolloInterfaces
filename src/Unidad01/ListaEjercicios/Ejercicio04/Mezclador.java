@@ -54,6 +54,7 @@ public class Mezclador extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jPanelMezclador = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jLabelPrimerNombre = new javax.swing.JLabel();
         jLabelSegundoNombre = new javax.swing.JLabel();
@@ -64,12 +65,17 @@ public class Mezclador extends javax.swing.JFrame {
         jButtonReiniciar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPaneNombresMezclados = new javax.swing.JTextPane();
-        jPanelMezclador = new javax.swing.JPanel();
 
         jScrollPane2.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mezclador de Nombres");
+
+        jPanelMezclador.setBackground(new java.awt.Color(57, 93, 122));
+        jPanelMezclador.setMaximumSize(new java.awt.Dimension(427, 35));
+        jPanelMezclador.setMinimumSize(new java.awt.Dimension(427, 35));
+        jPanelMezclador.setPreferredSize(new java.awt.Dimension(427, 35));
+        jPanelMezclador.setLayout(new javax.swing.BoxLayout(jPanelMezclador, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabelTitulo.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabelTitulo.setText("MEZCLADORA DE NOMBRES DE PAREJA");
@@ -103,22 +109,6 @@ public class Mezclador extends javax.swing.JFrame {
         jTextPaneNombresMezclados.setForeground(new java.awt.Color(0, 0, 204));
         jScrollPane3.setViewportView(jTextPaneNombresMezclados);
 
-        jPanelMezclador.setBackground(new java.awt.Color(57, 93, 122));
-        jPanelMezclador.setMaximumSize(new java.awt.Dimension(427, 40));
-        jPanelMezclador.setMinimumSize(new java.awt.Dimension(427, 40));
-        jPanelMezclador.setPreferredSize(new java.awt.Dimension(427, 40));
-
-        javax.swing.GroupLayout jPanelMezcladorLayout = new javax.swing.GroupLayout(jPanelMezclador);
-        jPanelMezclador.setLayout(jPanelMezcladorLayout);
-        jPanelMezcladorLayout.setHorizontalGroup(
-            jPanelMezcladorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanelMezcladorLayout.setVerticalGroup(
-            jPanelMezcladorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,7 +120,7 @@ public class Mezclador extends javax.swing.JFrame {
                     .addComponent(jTextFieldSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -146,14 +136,14 @@ public class Mezclador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonReiniciar)
                         .addGap(154, 154, 154)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanelMezclador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelMezclador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelPrimerNombre)
@@ -171,19 +161,23 @@ public class Mezclador extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonReiniciar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMezclarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonMezclarActionPerformed
+        
         if (jTextFieldPrimerNombre.getText().length() < 4 || jTextFieldSegundoNombre.getText().length() < 4) {
+            
             e = new Error(this, true);
             e.setVisible(true);
             jTextFieldPrimerNombre.setText("");
             jTextFieldSegundoNombre.setText("");
+            
         }else{
+            
             jTextFieldPrimerNombre.setEnabled(false);
             jTextFieldSegundoNombre.setEnabled(false);
             jButtonMezclar.setFocusPainted(false);
@@ -200,10 +194,13 @@ public class Mezclador extends javax.swing.JFrame {
             MixedNames mn = new MixedNames(jTextFieldPrimerNombre.getText(), jTextFieldSegundoNombre.getText());
             
             jTextPaneNombresMezclados.setText(mn.generateMixedNames());
+            
         }
+        
     }
 
     private void jButtonReiniciarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonReiniciarActionPerformed
+        
         jTextFieldPrimerNombre.setEnabled(true);
         jTextFieldSegundoNombre.setEnabled(true);
         jButtonMezclar.setEnabled(true);
@@ -214,6 +211,7 @@ public class Mezclador extends javax.swing.JFrame {
         jTextFieldPrimerNombre.setText("");
         jTextFieldSegundoNombre.setText("");
         jTextPaneNombresMezclados.setText("");
+        
     }
 
     /**

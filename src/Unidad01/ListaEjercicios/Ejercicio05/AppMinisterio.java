@@ -118,19 +118,9 @@ public class AppMinisterio extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1050, 400));
 
         jPanelMenuMinisterio.setBackground(new java.awt.Color(57, 93, 122));
-        jPanelMenuMinisterio.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jPanelMenuMinisterio.setMinimumSize(new java.awt.Dimension(1000, 40));
-
-        javax.swing.GroupLayout jPanelMenuMinisterioLayout = new javax.swing.GroupLayout(jPanelMenuMinisterio);
-        jPanelMenuMinisterio.setLayout(jPanelMenuMinisterioLayout);
-        jPanelMenuMinisterioLayout.setHorizontalGroup(
-            jPanelMenuMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanelMenuMinisterioLayout.setVerticalGroup(
-            jPanelMenuMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        jPanelMenuMinisterio.setMaximumSize(new java.awt.Dimension(32767, 35));
+        jPanelMenuMinisterio.setMinimumSize(new java.awt.Dimension(1000, 35));
+        jPanelMenuMinisterio.setLayout(new javax.swing.BoxLayout(jPanelMenuMinisterio, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 320));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 320));
@@ -262,8 +252,8 @@ public class AppMinisterio extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 27, Short.MAX_VALUE))
         );

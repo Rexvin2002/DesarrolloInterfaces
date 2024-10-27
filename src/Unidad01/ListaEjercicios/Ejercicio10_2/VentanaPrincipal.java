@@ -19,12 +19,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private final Imitador i;
     
     public VentanaPrincipal() {
+        
         initComponents();
         setLocationRelativeTo(null);
         am = new AppMinisterio();
         ad = new AccesoDeportivo();
         mn = new Mezclador();
         i = new Imitador();
+        
     }
 
     /**
@@ -44,13 +46,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabelTexto = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        filler18 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
+        filler18 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         jLabelNombre = new javax.swing.JLabel();
         filler13 = new javax.swing.Box.Filler(new java.awt.Dimension(25, 0), new java.awt.Dimension(25, 0), new java.awt.Dimension(25, 32767));
         jTextFieldNombre = new javax.swing.JTextField();
         filler16 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
         jPanel8 = new javax.swing.JPanel();
-        filler19 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
+        filler19 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         jLabelApellidos = new javax.swing.JLabel();
         filler17 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jTextFieldApellidos = new javax.swing.JTextField();
@@ -81,7 +83,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jDesktopPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1100, 700));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1100, 700));
         jDesktopPane1.setLayout(new javax.swing.BoxLayout(jDesktopPane1, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -90,7 +91,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel10.setPreferredSize(new java.awt.Dimension(400, 700));
         jPanel10.add(filler4);
 
-        jLabelTitulo.setFont(new java.awt.Font("MS PGothic", 1, 24)); // NOI18N
+        jLabelTitulo.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("SELECCIÓN DE APLICACIÓN");
@@ -100,10 +101,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel10.add(jLabelTitulo);
         jPanel10.add(filler1);
 
-        jLabelTexto.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelTexto.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 16)); // NOI18N
         jLabelTexto.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTexto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelTexto.setText("    Por favor, introduzca nombre y apellidos:");
+        jLabelTexto.setText("        Por favor, introduzca nombre y apellidos:");
         jLabelTexto.setMaximumSize(new java.awt.Dimension(400, 40));
         jLabelTexto.setMinimumSize(new java.awt.Dimension(400, 40));
         jLabelTexto.setPreferredSize(new java.awt.Dimension(400, 40));
@@ -121,16 +122,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
         jPanel7.add(filler18);
 
-        jLabelNombre.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelNombre.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 16)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre.setText("Nombre ");
         jPanel7.add(jLabelNombre);
         jPanel7.add(filler13);
 
         jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextFieldNombre.setMaximumSize(new java.awt.Dimension(250, 31));
-        jTextFieldNombre.setMinimumSize(new java.awt.Dimension(250, 31));
-        jTextFieldNombre.setPreferredSize(new java.awt.Dimension(250, 31));
+        jTextFieldNombre.setMaximumSize(new java.awt.Dimension(235, 31));
+        jTextFieldNombre.setMinimumSize(new java.awt.Dimension(235, 31));
+        jTextFieldNombre.setPreferredSize(new java.awt.Dimension(235, 31));
         jPanel7.add(jTextFieldNombre);
         jPanel7.add(filler16);
 
@@ -143,16 +144,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
         jPanel8.add(filler19);
 
-        jLabelApellidos.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelApellidos.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 16)); // NOI18N
         jLabelApellidos.setForeground(new java.awt.Color(0, 0, 0));
         jLabelApellidos.setText("Apellidos");
         jPanel8.add(jLabelApellidos);
         jPanel8.add(filler17);
 
         jTextFieldApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextFieldApellidos.setMaximumSize(new java.awt.Dimension(250, 31));
-        jTextFieldApellidos.setMinimumSize(new java.awt.Dimension(250, 31));
-        jTextFieldApellidos.setPreferredSize(new java.awt.Dimension(250, 31));
+        jTextFieldApellidos.setMaximumSize(new java.awt.Dimension(235, 31));
+        jTextFieldApellidos.setMinimumSize(new java.awt.Dimension(235, 31));
+        jTextFieldApellidos.setPreferredSize(new java.awt.Dimension(235, 31));
         jPanel8.add(jTextFieldApellidos);
 
         jPanel2.add(jPanel8);
@@ -172,9 +173,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 250));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 5));
 
-        jLabelOpciones.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelOpciones.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabelOpciones.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelOpciones.setText("     Opciones:");
+        jLabelOpciones.setText("     Opciones");
         jLabelOpciones.setMaximumSize(new java.awt.Dimension(400, 16));
         jLabelOpciones.setMinimumSize(new java.awt.Dimension(400, 16));
         jLabelOpciones.setPreferredSize(new java.awt.Dimension(400, 20));
@@ -186,7 +187,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(350, 50));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButtonMezclador.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonMezclador.setFont(new java.awt.Font("MS PGothic", 1, 14)); // NOI18N
         jButtonMezclador.setText("ACCEDER");
         jButtonMezclador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +197,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel5.add(jButtonMezclador);
         jPanel5.add(filler7);
 
-        jLabelMezclador.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelMezclador.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabelMezclador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMezclador.setText("Mezclador de Nombres");
         jPanel5.add(jLabelMezclador);
@@ -209,7 +210,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(350, 50));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButtonMinisterio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonMinisterio.setFont(new java.awt.Font("MS PGothic", 1, 14)); // NOI18N
         jButtonMinisterio.setText("ACCEDER");
         jButtonMinisterio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +220,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel4.add(jButtonMinisterio);
         jPanel4.add(filler8);
 
-        jLabelMinisterio.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelMinisterio.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabelMinisterio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMinisterio.setText("App Ministerio");
         jPanel4.add(jLabelMinisterio);
@@ -232,7 +233,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(350, 50));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButtonImitador.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonImitador.setFont(new java.awt.Font("MS PGothic", 1, 14)); // NOI18N
         jButtonImitador.setText("ACCEDER");
         jButtonImitador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +243,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel6.add(jButtonImitador);
         jPanel6.add(filler10);
 
-        jLabelImitador.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelImitador.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabelImitador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelImitador.setText("Imitador");
         jPanel6.add(jLabelImitador);
@@ -255,7 +256,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(350, 50));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButtonRegistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonRegistro.setFont(new java.awt.Font("MS PGothic", 1, 14)); // NOI18N
         jButtonRegistro.setText("ACCEDER");
         jButtonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,7 +266,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.add(jButtonRegistro);
         jPanel3.add(filler9);
 
-        jLabelRegistro.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabelRegistro.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegistro.setText("Registro Deportivo");
         jPanel3.add(jLabelRegistro);
@@ -284,9 +285,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
+                .addGap(211, 211, 211)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         jDesktopPane1.add(jPanel11);

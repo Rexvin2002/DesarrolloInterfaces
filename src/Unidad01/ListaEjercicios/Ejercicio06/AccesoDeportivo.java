@@ -19,6 +19,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
      * Creates new form AccesoDeportivo
      */
     public AccesoDeportivo() {
+        
         initComponents();
         setLocationRelativeTo(null);
         
@@ -29,6 +30,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         jPanelMenuDeportivo.add(m, BorderLayout.CENTER);
         jPanelMenuDeportivo.revalidate();
         jPanelMenuDeportivo.repaint();
+        
     }
 
     /**
@@ -40,27 +42,27 @@ public class AccesoDeportivo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButtonAcceder = new javax.swing.JToggleButton();
+        jPanelMenuDeportivo = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldUsuario = new javax.swing.JTextField();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelContraseña = new javax.swing.JLabel();
         jPasswordFieldContraseña = new javax.swing.JPasswordField();
-        jPanelMenuDeportivo = new javax.swing.JPanel();
+        jToggleButtonAcceder = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acceso Deportivo");
-        setMinimumSize(new java.awt.Dimension(326, 218));
+        setMinimumSize(new java.awt.Dimension(350, 300));
+        setPreferredSize(new java.awt.Dimension(350, 300));
         setResizable(false);
         setSize(new java.awt.Dimension(350, 300));
 
-        jToggleButtonAcceder.setText("Acceder");
-        jToggleButtonAcceder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtonAccederActionPerformed(evt);
-            }
-        });
+        jPanelMenuDeportivo.setBackground(new java.awt.Color(57, 93, 122));
+        jPanelMenuDeportivo.setMaximumSize(new java.awt.Dimension(32767, 35));
+        jPanelMenuDeportivo.setMinimumSize(new java.awt.Dimension(330, 35));
+        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(330, 35));
+        jPanelMenuDeportivo.setLayout(new javax.swing.BoxLayout(jPanelMenuDeportivo, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabelTitulo.setFont(new java.awt.Font("Arial Black", 2, 24)); // NOI18N
         jLabelTitulo.setText("ACCESO DEPORTIVO");
@@ -101,21 +103,12 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanelMenuDeportivo.setBackground(new java.awt.Color(57, 93, 122));
-        jPanelMenuDeportivo.setMaximumSize(new java.awt.Dimension(32767, 45));
-        jPanelMenuDeportivo.setMinimumSize(new java.awt.Dimension(330, 45));
-        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(330, 45));
-
-        javax.swing.GroupLayout jPanelMenuDeportivoLayout = new javax.swing.GroupLayout(jPanelMenuDeportivo);
-        jPanelMenuDeportivo.setLayout(jPanelMenuDeportivoLayout);
-        jPanelMenuDeportivoLayout.setHorizontalGroup(
-            jPanelMenuDeportivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanelMenuDeportivoLayout.setVerticalGroup(
-            jPanelMenuDeportivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jToggleButtonAcceder.setText("Acceder");
+        jToggleButtonAcceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonAccederActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,20 +131,21 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanelMenuDeportivo, 44, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButtonAcceder)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButtonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAccederActionPerformed
+        
         char[] passwordIngresada = this.jPasswordFieldContraseña.getPassword();
         String contraseñaIngresada = new String(passwordIngresada);
         
@@ -164,9 +158,11 @@ public class AccesoDeportivo extends javax.swing.JFrame {
             e.setVisible(true);
             
         }else{
+            
             dispose();
             r = new Registro(this, true);
             r.setVisible(true);
+            
         }
         
     }//GEN-LAST:event_jToggleButtonAccederActionPerformed
