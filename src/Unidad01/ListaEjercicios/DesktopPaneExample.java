@@ -1,4 +1,4 @@
-package Unidad01.ListaEjercicios.Ejercicio10_2;
+package Unidad01.ListaEjercicios;
 
 import javax.swing.*;
 import java.awt.*;

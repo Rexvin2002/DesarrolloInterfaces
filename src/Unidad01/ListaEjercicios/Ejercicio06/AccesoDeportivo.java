@@ -2,6 +2,7 @@
 package Unidad01.ListaEjercicios.Ejercicio06;
 
 import Unidad01.ListaEjercicios.Ejercicio10_2.Menu;
+import Unidad01.ListaEjercicios.Ejercicio10_2.VentanaPrincipal;
 import java.awt.BorderLayout;
 
 /**
@@ -161,7 +162,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
             
             dispose();
             r = new Registro(this, true);
-            r.setVisible(true);
+            VentanaPrincipal.abrirDialogo(r, "Registro deportivo");
             
         }
         

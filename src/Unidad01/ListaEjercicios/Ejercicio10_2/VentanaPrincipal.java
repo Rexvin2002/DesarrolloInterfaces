@@ -4,6 +4,8 @@ import Unidad01.ListaEjercicios.Ejercicio04.Mezclador;
 import Unidad01.ListaEjercicios.Ejercicio05.AppMinisterio;
 import Unidad01.ListaEjercicios.Ejercicio06.AccesoDeportivo;
 import Unidad01.ListaEjercicios.Ejercicio09.Imitador;
+import javax.swing.JDesktopPane;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
@@ -371,6 +373,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } catch (java.beans.PropertyVetoException e) {
             System.err.println("Error: " + e.getMessage());
         }
+    }
+
+    // Método para abrir un JDialog dentro de un JInternalFrame
+    public static void abrirDialogo(JDialog dialog, String titulo) {
+        
+        // Usar el JDesktopPane del contexto actual
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+        JDesktopPane jDesktopPane = ventanaPrincipal.jDesktopPane1;
+
+        // Verificar si ya existe un JInternalFrame con el mismo título
+        for (JInternalFrame existingFrame : jDesktopPane.getAllFrames()) {
+            if (existingFrame.getTitle().equals(titulo)) {
+                try {
+                    // Restaurar la ventana si está minimizada
+                    if (existingFrame.isIcon()) {
+                        existingFrame.setIcon(false);
+                    }
+                    // Seleccionar la ventana existente
+                    existingFrame.setSelected(true);
+                } catch (java.beans.PropertyVetoException e) {
+                    System.err.println("Error: " + e.getMessage());
+                }
+                return; // Salir del método para evitar abrir una nueva ventana
+            }
+        }
+
+        // Crear un nuevo JInternalFrame si no existe uno con el mismo título
+        JInternalFrame internalFrame = new JInternalFrame(titulo, true, true, true, true);
+        internalFrame.setSize(400, 300);
+
+        // Calcular posición para centrar el JInternalFrame
+        int x = (jDesktopPane.getWidth() - internalFrame.getWidth()) / 2;
+        int y = (jDesktopPane.getHeight() - internalFrame.getHeight()) / 2;
+        internalFrame.setLocation(x, y);
+
+        // Agregar el contenido del JDialog al JInternalFrame
+        internalFrame.setContentPane(dialog.getContentPane());
+
+        // Agregar el JMenuBar del JDialog al JInternalFrame
+        if (dialog.getJMenuBar() != null) {
+            internalFrame.setJMenuBar(dialog.getJMenuBar());
+        }
+
+        internalFrame.setVisible(true);
+
+        // Añadir el JInternalFrame al jDesktopPane
+        jDesktopPane.add(internalFrame);
+        try {
+            internalFrame.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        
     }
 
     /**
