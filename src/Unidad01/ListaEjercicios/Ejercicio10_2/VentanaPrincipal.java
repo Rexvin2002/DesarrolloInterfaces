@@ -1,4 +1,3 @@
-
 package Unidad01.ListaEjercicios.Ejercicio10_2;
 
 import Unidad01.ListaEjercicios.Ejercicio04.Mezclador;
@@ -6,6 +5,7 @@ import Unidad01.ListaEjercicios.Ejercicio05.AppMinisterio;
 import Unidad01.ListaEjercicios.Ejercicio06.AccesoDeportivo;
 import Unidad01.ListaEjercicios.Ejercicio09.Imitador;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -17,16 +17,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private final AccesoDeportivo ad;
     private final AppMinisterio am;
     private final Imitador i;
-    
+
     public VentanaPrincipal() {
-        
+
         initComponents();
         setLocationRelativeTo(null);
+
         am = new AppMinisterio();
         ad = new AccesoDeportivo();
         mn = new Mezclador();
         i = new Imitador();
-        
+
     }
 
     /**
@@ -38,7 +39,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel10 = new javax.swing.JPanel();
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 45), new java.awt.Dimension(400, 45), new java.awt.Dimension(400, 45));
         jLabelTitulo = new javax.swing.JLabel();
@@ -56,6 +56,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabelApellidos = new javax.swing.JLabel();
         filler17 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jTextFieldApellidos = new javax.swing.JTextField();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabelOpciones = new javax.swing.JLabel();
@@ -80,10 +81,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setTitle("Selector de ventanas");
         setMinimumSize(new java.awt.Dimension(1100, 700));
         setPreferredSize(new java.awt.Dimension(1100, 700));
-
-        jDesktopPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jDesktopPane1.setMinimumSize(new java.awt.Dimension(1100, 700));
-        jDesktopPane1.setLayout(new javax.swing.BoxLayout(jDesktopPane1, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setMaximumSize(new java.awt.Dimension(400, 32767));
@@ -160,7 +158,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel10.add(jPanel2);
 
-        jDesktopPane1.add(jPanel10);
+        getContentPane().add(jPanel10);
+
+        jDesktopPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jDesktopPane1.setMinimumSize(new java.awt.Dimension(700, 700));
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(700, 700));
 
         jPanel11.setMaximumSize(new java.awt.Dimension(700, 444444444));
         jPanel11.setMinimumSize(new java.awt.Dimension(700, 700));
@@ -287,21 +289,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(211, 211, 211)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jDesktopPane1.add(jPanel11);
+        jDesktopPane1.setLayer(jPanel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        getContentPane().add(jDesktopPane1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -311,7 +315,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMezcladorActionPerformed
 
     private void jButtonMinisterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinisterioActionPerformed
-         abrirVentana(am, "App Ministerio");
+        abrirVentana(am, "App Ministerio");
     }//GEN-LAST:event_jButtonMinisterioActionPerformed
 
     private void jButtonImitadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImitadorActionPerformed
@@ -322,21 +326,53 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         abrirVentana(ad, "Acceso Deportivo");
     }//GEN-LAST:event_jButtonRegistroActionPerformed
 
-    private void abrirVentana(JFrame ventana, String tituloBase) {
-        setTitle(getTitle() + ": " + ventana.getTitle());
-        ventana.setTitle(tituloBase);
-
-        String nombre = jTextFieldNombre.getText().trim();
-        String apellidos = jTextFieldApellidos.getText().trim();
-
-        if (!nombre.isEmpty() || !apellidos.isEmpty()) {
-            ventana.setTitle(nombre + " " + apellidos + ": " + ventana.getTitle());
+    // Método para abrir un JInternalFrame dentro del jDesktopPane1 y centrarlo
+    private void abrirVentana(JFrame frame, String titulo) {
+        // Verificar si ya existe un JInternalFrame con el mismo título
+        for (JInternalFrame existingFrame : jDesktopPane1.getAllFrames()) {
+            if (existingFrame.getTitle().equals(titulo)) {
+                try {
+                    // Restaurar la ventana si está minimizada
+                    if (existingFrame.isIcon()) {
+                        existingFrame.setIcon(false);
+                    }
+                    // Seleccionar la ventana existente
+                    existingFrame.setSelected(true);
+                } catch (java.beans.PropertyVetoException e) {
+                    System.err.println("Error: " + e.getMessage());
+                }
+                return; // Salir del método para evitar abrir una nueva ventana
+            }
         }
 
-        ventana.setVisible(true);
-        dispose();
+        // Crear un nuevo JInternalFrame si no existe uno con el mismo título
+        JInternalFrame internalFrame = new JInternalFrame(titulo, true, true, true, true);
+        internalFrame.setSize(frame.getWidth(), frame.getHeight());
+
+        // Calcular posición para centrar el JInternalFrame
+        int x = (jDesktopPane1.getWidth() - internalFrame.getWidth()) / 2;
+        int y = (jDesktopPane1.getHeight() - internalFrame.getHeight()) / 2;
+        internalFrame.setLocation(x, y);
+
+        // Agregar el contenido de JFrame al JInternalFrame
+        internalFrame.setContentPane(frame.getContentPane());
+
+        // Agregar el JMenuBar del JFrame al JInternalFrame
+        if (frame.getJMenuBar() != null) {
+            internalFrame.setJMenuBar(frame.getJMenuBar());
+        }
+
+        internalFrame.setVisible(true);
+
+        // Añadir el JInternalFrame al jDesktopPane1
+        jDesktopPane1.add(internalFrame);
+        try {
+            internalFrame.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
-    
+
     /**
      * @param args the command line arguments
      */
