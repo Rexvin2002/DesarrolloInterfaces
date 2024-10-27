@@ -1,7 +1,7 @@
 
 package Unidad01.ListaEjercicios.Ejercicio06;
 
-import Unidad01.ListaEjercicios.Ejercicio10.Menu;
+import Unidad01.ListaEjercicios.Ejercicio10_2.Menu;
 import java.awt.BorderLayout;
 
 /**
@@ -49,7 +49,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         jPasswordFieldContraseña = new javax.swing.JPasswordField();
         jPanelMenuDeportivo = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acceso Deportivo");
         setMinimumSize(new java.awt.Dimension(326, 218));
         setResizable(false);
@@ -101,8 +101,10 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanelMenuDeportivo.setMinimumSize(new java.awt.Dimension(330, 35));
-        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(330, 35));
+        jPanelMenuDeportivo.setBackground(new java.awt.Color(57, 93, 122));
+        jPanelMenuDeportivo.setMaximumSize(new java.awt.Dimension(32767, 45));
+        jPanelMenuDeportivo.setMinimumSize(new java.awt.Dimension(330, 45));
+        jPanelMenuDeportivo.setPreferredSize(new java.awt.Dimension(330, 45));
 
         javax.swing.GroupLayout jPanelMenuDeportivoLayout = new javax.swing.GroupLayout(jPanelMenuDeportivo);
         jPanelMenuDeportivo.setLayout(jPanelMenuDeportivoLayout);
@@ -112,7 +114,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         );
         jPanelMenuDeportivoLayout.setVerticalGroup(
             jPanelMenuDeportivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,14 +138,14 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanelMenuDeportivo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelMenuDeportivo, 44, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButtonAcceder)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();

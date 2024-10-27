@@ -1,10 +1,8 @@
 
 package Unidad01.ListaEjercicios.Ejercicio05;
 
-import Unidad01.ListaEjercicios.Ejercicio10.Menu;
-import Unidad01.ListaEjercicios.Ejercicio10.Seleccion;
+import Unidad01.ListaEjercicios.Ejercicio10_2.Menu;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -111,33 +109,17 @@ public class AppMinisterio extends javax.swing.JFrame {
         jMenuItemLeer = new javax.swing.JMenuItem();
         jMenuItemEscribir = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("App Ministerio");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1015, 300));
         setPreferredSize(new java.awt.Dimension(1000, 400));
         setResizable(false);
         setSize(new java.awt.Dimension(1050, 400));
-        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-                formWindowLostFocus(evt);
-            }
-        });
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowDeactivated(java.awt.event.WindowEvent evt) {
-                formWindowDeactivated(evt);
-            }
-            public void windowDeiconified(java.awt.event.WindowEvent evt) {
-                formWindowDeiconified(evt);
-            }
-        });
 
-        jPanelMenuMinisterio.setBackground(new java.awt.Color(0, 0, 0));
-        jPanelMenuMinisterio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelMenuMinisterio.setMinimumSize(new java.awt.Dimension(1000, 100));
-        jPanelMenuMinisterio.setPreferredSize(new java.awt.Dimension(1000, 35));
+        jPanelMenuMinisterio.setBackground(new java.awt.Color(57, 93, 122));
+        jPanelMenuMinisterio.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jPanelMenuMinisterio.setMinimumSize(new java.awt.Dimension(1000, 40));
 
         javax.swing.GroupLayout jPanelMenuMinisterioLayout = new javax.swing.GroupLayout(jPanelMenuMinisterio);
         jPanelMenuMinisterio.setLayout(jPanelMenuMinisterioLayout);
@@ -147,7 +129,7 @@ public class AppMinisterio extends javax.swing.JFrame {
         );
         jPanelMenuMinisterioLayout.setVerticalGroup(
             jPanelMenuMinisterioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 320));
@@ -280,10 +262,10 @@ public class AppMinisterio extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelMenuMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 27, Short.MAX_VALUE))
         );
 
         pack();
@@ -361,18 +343,6 @@ public class AppMinisterio extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jMenuItemEscribirActionPerformed
-
-    private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
-        
-    }//GEN-LAST:event_formWindowDeactivated
-
-    private void formWindowDeiconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeiconified
-        
-    }//GEN-LAST:event_formWindowDeiconified
-
-    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
-        
-    }//GEN-LAST:event_formWindowLostFocus
 
     private void guardarDatosEnArchivo(File file) {
         

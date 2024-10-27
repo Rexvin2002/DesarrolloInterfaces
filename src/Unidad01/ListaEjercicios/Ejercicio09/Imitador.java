@@ -1,8 +1,7 @@
 
 package Unidad01.ListaEjercicios.Ejercicio09;
 
-import Unidad01.ListaEjercicios.Ejercicio10.Menu;
-import Unidad01.ListaEjercicios.Ejercicio10.Seleccion;
+import Unidad01.ListaEjercicios.Ejercicio10_2.Menu;
 import java.awt.BorderLayout;
 
 /**
@@ -60,16 +59,8 @@ public class Imitador extends javax.swing.JFrame {
         jCheckBoxOpcion4Espejo = new javax.swing.JCheckBox();
         jPanelMenuImitador = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Imitador");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
-            public void windowDeactivated(java.awt.event.WindowEvent evt) {
-                formWindowDeactivated(evt);
-            }
-        });
 
         jLabelOriginal.setText("Original");
 
@@ -164,6 +155,8 @@ public class Imitador extends javax.swing.JFrame {
         jCheckBoxOpcion4Espejo.setText("Opcion 4");
         jCheckBoxOpcion4Espejo.setEnabled(false);
 
+        jPanelMenuImitador.setBackground(new java.awt.Color(57, 93, 122));
+        jPanelMenuImitador.setMaximumSize(new java.awt.Dimension(32767, 40));
         jPanelMenuImitador.setMinimumSize(new java.awt.Dimension(400, 40));
         jPanelMenuImitador.setPreferredSize(new java.awt.Dimension(400, 40));
 
@@ -175,7 +168,7 @@ public class Imitador extends javax.swing.JFrame {
         );
         jPanelMenuImitadorLayout.setVerticalGroup(
             jPanelMenuImitadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 53, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,12 +211,8 @@ public class Imitador extends javax.swing.JFrame {
                             .addComponent(jTextFieldNombreEspejo)
                             .addComponent(jComboBoxEspejo, 0, 0, Short.MAX_VALUE)
                             .addComponent(jSpinnerEspejo, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelEspejo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelOriginal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabelEspejo)
+                    .addComponent(jLabelOriginal))
                 .addGap(38, 38, 38))
             .addComponent(jPanelMenuImitador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -234,10 +223,10 @@ public class Imitador extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelMenuImitador, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelOriginal)
+                .addComponent(jPanelMenuImitador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jLabelOriginal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonOpcion1Original)
                     .addComponent(jTextFieldNombreOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,14 +316,6 @@ public class Imitador extends javax.swing.JFrame {
     private void jSpinnerOriginalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerOriginalStateChanged
         jSpinnerEspejo.setValue(jSpinnerOriginal.getValue());
     }//GEN-LAST:event_jSpinnerOriginalStateChanged
-
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // s.setTitle("Todos para uno y uno para todos");
-    }//GEN-LAST:event_formWindowClosed
-
-    private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
-        dispose();
-    }//GEN-LAST:event_formWindowDeactivated
 
     /**
      * @param args the command line arguments

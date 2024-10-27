@@ -1,7 +1,4 @@
-
 package Unidad01.ListaEjercicios.Ejercicio10_2;
-
-import Unidad01.ListaEjercicios.Ejercicio09.Imitador;
 
 /**
  *
@@ -10,13 +7,11 @@ import Unidad01.ListaEjercicios.Ejercicio09.Imitador;
 public class Menu extends javax.swing.JPanel {
 
     private VentanaPrincipal s;
-    private Imitador imitador;
-    
+
     /**
      * Creates new form Menu
      */
     public Menu() {
-        this.imitador = imitador;
         initComponents();
     }
 
@@ -29,18 +24,12 @@ public class Menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelMenu = new javax.swing.JPanel();
         jButtonMenu = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(32767, 40));
-        setMinimumSize(new java.awt.Dimension(1100, 40));
-        setPreferredSize(new java.awt.Dimension(1100, 40));
-
-        jPanelMenu.setBackground(new java.awt.Color(0, 0, 0));
-        jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelMenu.setMaximumSize(new java.awt.Dimension(32767, 35));
-        jPanelMenu.setMinimumSize(new java.awt.Dimension(10, 40));
-        jPanelMenu.setPreferredSize(new java.awt.Dimension(990, 40));
+        setBackground(new java.awt.Color(57, 93, 122));
+        setMaximumSize(new java.awt.Dimension(1100, 35));
+        setMinimumSize(new java.awt.Dimension(220, 35));
+        setPreferredSize(new java.awt.Dimension(220, 35));
 
         jButtonMenu.setText("Menu Principal");
         jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -49,45 +38,37 @@ public class Menu extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
-        jPanelMenu.setLayout(jPanelMenuLayout);
-        jPanelMenuLayout.setHorizontalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMenuLayout.createSequentialGroup()
-                .addContainerGap(923, Short.MAX_VALUE)
-                .addComponent(jButtonMenu)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
-        jPanelMenuLayout.setVerticalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(jButtonMenu)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addComponent(jButtonMenu)
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonMenu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+
+        java.awt.Window window = javax.swing.SwingUtilities.getWindowAncestor(this);
+        if (window instanceof javax.swing.JFrame jFrame) {
+            jFrame.dispose();
+        }
         // Mostrar el siguiente diálogo si es necesario
         s = new VentanaPrincipal();
-        s.dispose();
         s.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonMenu;
-    private javax.swing.JPanel jPanelMenu;
     // End of variables declaration//GEN-END:variables
 }
