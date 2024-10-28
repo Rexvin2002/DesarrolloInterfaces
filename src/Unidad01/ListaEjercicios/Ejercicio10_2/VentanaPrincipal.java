@@ -164,7 +164,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jDesktopPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(700, 700));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(700, 700));
 
         jPanel11.setMaximumSize(new java.awt.Dimension(700, 444444444));
         jPanel11.setMinimumSize(new java.awt.Dimension(700, 700));
