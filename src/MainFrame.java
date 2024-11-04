@@ -25,7 +25,7 @@ public class MainFrame extends JFrame {
         // Añadir el JInternalFrame al JDesktopPane
         desktopPane.add(internalFrame);
     }
-
+dsd
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             MainFrame frame = new MainFrame();
