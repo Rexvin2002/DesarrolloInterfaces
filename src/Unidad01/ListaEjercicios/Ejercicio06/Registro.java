@@ -42,27 +42,29 @@ public class Registro extends javax.swing.JDialog {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelSeleccionDeporte = new javax.swing.JPanel();
-        jComboBoxDeportes = new javax.swing.JComboBox<>();
-        jLabelDeporte = new javax.swing.JLabel();
-        jSpinnerNivel = new javax.swing.JSpinner();
-        jLabelTurno = new javax.swing.JLabel();
-        jLabelRenovación = new javax.swing.JLabel();
-        jRadioButtonMañana = new javax.swing.JRadioButton();
-        jRadioButtonTarde = new javax.swing.JRadioButton();
-        jCheckBoxAnual = new javax.swing.JCheckBox();
-        jCheckBoxTrimestral = new javax.swing.JCheckBox();
         jPanelHijos = new javax.swing.JPanel();
         jButtonAñadirHijo = new javax.swing.JButton();
         jButtonVerOcultaTabla = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableTabla = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelDeporte = new javax.swing.JLabel();
+        jComboBoxDeportes = new javax.swing.JComboBox<>();
+        jLabelTurno = new javax.swing.JLabel();
+        jRadioButtonMañana = new javax.swing.JRadioButton();
+        jRadioButtonTarde = new javax.swing.JRadioButton();
+        jLabelRenovación = new javax.swing.JLabel();
         jLabelNivel = new javax.swing.JLabel();
+        jCheckBoxAnual = new javax.swing.JCheckBox();
+        jCheckBoxTrimestral = new javax.swing.JCheckBox();
+        jSpinnerNivel = new javax.swing.JSpinner();
         jButtonMatricular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro Deportivo");
+        setMaximumSize(new java.awt.Dimension(500, 500));
         setMinimumSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(500, 500));
         setSize(new java.awt.Dimension(500, 500));
 
         jLabelTitulo.setFont(new java.awt.Font("Arial Black", 3, 24)); // NOI18N
@@ -72,30 +74,14 @@ public class Registro extends javax.swing.JDialog {
         jLabelTitulo.setPreferredSize(new java.awt.Dimension(325, 35));
 
         jPanelSeleccionDeporte.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selección deporte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
-        jPanelSeleccionDeporte.setMinimumSize(new java.awt.Dimension(430, 350));
-        jPanelSeleccionDeporte.setPreferredSize(new java.awt.Dimension(430, 350));
-
-        jComboBoxDeportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tenis", "Padel", "Squash" }));
-
-        jLabelDeporte.setText("Deporte");
-
-        jSpinnerNivel.setModel(new javax.swing.SpinnerListModel(new String[] {"Inicial", "Medio", "Avanzado", "Profesional"}));
-
-        jLabelTurno.setText("Turno");
-
-        jLabelRenovación.setText("Renovación");
-
-        buttonGroup1.add(jRadioButtonMañana);
-        jRadioButtonMañana.setText("Mañana");
-
-        buttonGroup1.add(jRadioButtonTarde);
-        jRadioButtonTarde.setText("Tarde");
-
-        jCheckBoxAnual.setText("Anual");
-
-        jCheckBoxTrimestral.setText("Trimestral");
+        jPanelSeleccionDeporte.setMaximumSize(new java.awt.Dimension(480, 350));
+        jPanelSeleccionDeporte.setMinimumSize(new java.awt.Dimension(480, 350));
+        jPanelSeleccionDeporte.setPreferredSize(new java.awt.Dimension(480, 350));
 
         jPanelHijos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hijos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
+        jPanelHijos.setMaximumSize(new java.awt.Dimension(460, 80));
+        jPanelHijos.setMinimumSize(new java.awt.Dimension(460, 80));
+        jPanelHijos.setPreferredSize(new java.awt.Dimension(460, 80));
 
         jButtonAñadirHijo.setText("Añadir Hijo");
         jButtonAñadirHijo.setMaximumSize(new java.awt.Dimension(100, 23));
@@ -118,12 +104,11 @@ public class Registro extends javax.swing.JDialog {
         });
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setMaximumSize(new java.awt.Dimension(380, 60));
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(300, 60));
         jScrollPane2.setMinimumSize(new java.awt.Dimension(300, 60));
         jScrollPane2.setPreferredSize(new java.awt.Dimension(300, 60));
 
-        jTableTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTableTabla.setMaximumSize(new java.awt.Dimension(300, 99999));
+        jTableTabla.setMaximumSize(new java.awt.Dimension(300, 60));
         jTableTabla.setMinimumSize(new java.awt.Dimension(300, 60));
         jTableTabla.setPreferredSize(new java.awt.Dimension(300, 60));
         jTableTabla.getTableHeader().setResizingAllowed(false);
@@ -135,12 +120,12 @@ public class Registro extends javax.swing.JDialog {
             jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHijosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelHijosLayout.createSequentialGroup()
-                        .addComponent(jButtonVerOcultaTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(157, 157, 157)
-                        .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonVerOcultaTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelHijosLayout.setVerticalGroup(
@@ -150,81 +135,110 @@ public class Registro extends javax.swing.JDialog {
                 .addGroup(jPanelHijosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVerOcultaTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAñadirHijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jSeparator1.setMaximumSize(new java.awt.Dimension(400, 3));
-        jSeparator1.setMinimumSize(new java.awt.Dimension(400, 3));
-        jSeparator1.setPreferredSize(new java.awt.Dimension(400, 3));
+        jPanel1.setMaximumSize(new java.awt.Dimension(450, 130));
+        jPanel1.setMinimumSize(new java.awt.Dimension(450, 130));
+        jPanel1.setPreferredSize(new java.awt.Dimension(450, 130));
+
+        jLabelDeporte.setText("Deporte");
+
+        jComboBoxDeportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tenis", "Padel", "Squash" }));
+
+        jLabelTurno.setText("Turno");
+
+        buttonGroup1.add(jRadioButtonMañana);
+        jRadioButtonMañana.setText("Mañana");
+
+        buttonGroup1.add(jRadioButtonTarde);
+        jRadioButtonTarde.setText("Tarde");
+
+        jLabelRenovación.setText("Renovación");
 
         jLabelNivel.setText("Nivel");
+
+        jCheckBoxAnual.setText("Anual");
+
+        jCheckBoxTrimestral.setText("Trimestral");
+
+        jSpinnerNivel.setModel(new javax.swing.SpinnerListModel(new String[] {"Inicial", "Medio", "Avanzado", "Profesional"}));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelDeporte)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonMañana)
+                            .addComponent(jRadioButtonTarde)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabelRenovación)))
+                        .addGap(5, 5, 5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabelTurno)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabelNivel)
+                        .addGap(6, 6, 6)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBoxTrimestral)
+                    .addComponent(jCheckBoxAnual, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDeporte)
+                    .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelRenovación)
+                    .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTurno)
+                    .addComponent(jLabelNivel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonMañana)
+                    .addComponent(jCheckBoxAnual))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jRadioButtonTarde)
+                    .addComponent(jCheckBoxTrimestral))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanelSeleccionDeporteLayout = new javax.swing.GroupLayout(jPanelSeleccionDeporte);
         jPanelSeleccionDeporte.setLayout(jPanelSeleccionDeporteLayout);
         jPanelSeleccionDeporteLayout.setHorizontalGroup(
             jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
             .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                        .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                        .addComponent(jLabelDeporte)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButtonTarde)
-                                            .addComponent(jRadioButtonMañana))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelNivel))
-                            .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabelTurno)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelRenovación)
-                            .addComponent(jCheckBoxTrimestral)
-                            .addComponent(jCheckBoxAnual)
-                            .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanelHijos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSeleccionDeporteLayout.setVerticalGroup(
             jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSeleccionDeporteLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDeporte)
-                    .addComponent(jComboBoxDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNivel)
-                    .addComponent(jSpinnerNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTurno)
-                    .addComponent(jLabelRenovación))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonMañana)
-                    .addComponent(jCheckBoxTrimestral))
-                .addGap(5, 5, 5)
-                .addGroup(jPanelSeleccionDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonTarde)
-                    .addComponent(jCheckBoxAnual))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jPanelHijos, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jButtonMatricular.setText("MATRICULAR");
@@ -242,12 +256,14 @@ public class Registro extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -255,13 +271,13 @@ public class Registro extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelSeleccionDeporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,7 +313,6 @@ public class Registro extends javax.swing.JDialog {
         else {
             ex = new Exito((Frame) this.getParent(), true);
             ex.setVisible(true);
-            dispose();  
         }
         
     }//GEN-LAST:event_jButtonMatricularActionPerformed
@@ -382,12 +397,12 @@ public class Registro extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelRenovación;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelTurno;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelHijos;
     private javax.swing.JPanel jPanelSeleccionDeporte;
     private javax.swing.JRadioButton jRadioButtonMañana;
     private javax.swing.JRadioButton jRadioButtonTarde;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinnerNivel;
     private javax.swing.JTable jTableTabla;
     // End of variables declaration//GEN-END:variables
