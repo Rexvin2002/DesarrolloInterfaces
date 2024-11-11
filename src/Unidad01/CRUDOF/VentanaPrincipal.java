@@ -1,6 +1,6 @@
-
 package Unidad01.CRUDOF;
 
+import java.util.Comparator;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -9,34 +9,41 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author kgv17
  */
-public class VentanaPrincipal extends javax.swing.JFrame {
-    
-    private DefaultTableModel model;
-    
-    
+public final class VentanaPrincipal extends javax.swing.JFrame {
+
+    public DefaultTableModel model;
+    private final AñadirModificar am;
+    private Datos datos;
+    private String campo;
+    private String orden;
+    private Vector<Vector> originalData = new Vector<>();
+
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        this.am = new AñadirModificar(this, false);
         initTableModel();
+        setLocationRelativeTo(null);
+        cargarDatosIniciales();
+        storeOriginalData();
     }
-    
-    
+
     private void initTableModel() {
         // Define el modelo de la tabla con columnas para los datos de socios
-        model = new DefaultTableModel(new Object[]{"Name", "Age", "Monthly Fee", "Membership Type"}, 0);
-        jTable1.setModel(model);
+        model = new DefaultTableModel(new Object[]{"Nombre", "Edad", "Mensualidad", "Membresía"}, 0);
+        jTableSocios.setModel(model);
     }
 
     // Método para añadir un nuevo socio a la tabla
-    private void addSocio(String name, int age, double monthlyFee, String membershipType) {
-        model.addRow(new Object[]{name, age, monthlyFee, membershipType});
+    public void addSocio(String nombre, int edad, double mensualidad, String membershipType) {
+        model.addRow(new Object[]{nombre, edad, mensualidad, membershipType});
     }
 
     // Método para eliminar el socio seleccionado
     private void deleteSocio() {
-        int selectedRow = jTable1.getSelectedRow();
+        int selectedRow = jTableSocios.getSelectedRow();
         if (selectedRow != -1) {
             model.removeRow(selectedRow);
         } else {
@@ -45,38 +52,65 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Método para actualizar el socio seleccionado
-    private void updateSocio(String name, int age, double monthlyFee, String membershipType) {
-        int selectedRow = jTable1.getSelectedRow();
-        if (selectedRow != -1) {
-            model.setValueAt(name, selectedRow, 0);
-            model.setValueAt(age, selectedRow, 1);
-            model.setValueAt(monthlyFee, selectedRow, 2);
-            model.setValueAt(membershipType, selectedRow, 3);
-        } else {
-            JOptionPane.showMessageDialog(this, "Please select a row to update.");
-        }
+    public void updateSocio(String nombre, int edad, double mensualidad, String membershipType) {
+        int selectedRow = jTableSocios.getSelectedRow();
+        
+        this.model.setValueAt(nombre, selectedRow, 0);
+        this.model.setValueAt(edad, selectedRow, 1);
+        this.model.setValueAt(mensualidad, selectedRow, 2);
+        this.model.setValueAt(membershipType, selectedRow, 3);
     }
 
     // Método para consultar los datos de un socio
     private void viewSocio() {
-        int selectedRow = jTable1.getSelectedRow();
+        int selectedRow = jTableSocios.getSelectedRow();
         if (selectedRow != -1) {
-            String name = (String) model.getValueAt(selectedRow, 0);
-            int age = (int) model.getValueAt(selectedRow, 1);
-            double monthlyFee = (double) model.getValueAt(selectedRow, 2);
+            String nombre = (String) model.getValueAt(selectedRow, 0);
+            int edad = (int) model.getValueAt(selectedRow, 1);
+            double mensualidad = (double) model.getValueAt(selectedRow, 2);
             String membershipType = (String) model.getValueAt(selectedRow, 3);
 
-            JOptionPane.showMessageDialog(this, "Socio Details:\n" +
-                    "Name: " + name + "\nAge: " + age + "\nMonthly Fee: " + monthlyFee + "\nMembership Type: " + membershipType);
+            JOptionPane.showMessageDialog(this, "Socio Details:\n"
+                    + "Nombre: " + nombre + "\nEdad: " + edad + "\nMensualidad: " + mensualidad + "\nTipo de membresía: " + membershipType);
         } else {
-            JOptionPane.showMessageDialog(this, "Please select a row to view.");
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una fila para ver.");
         }
     }
 
-    // Método para ordenar los datos por nombre
-    private void sortSociosByName() {
-        model.getDataVector().sort((o1, o2) -> ((String) ((Vector<?>) o1).get(0)).compareToIgnoreCase((String) ((Vector<?>) o2).get(0)));
-        model.fireTableDataChanged();
+    // Getter para obtener el nombre del socio seleccionado
+    public String getSelectedSocioName() {
+        int selectedRow = jTableSocios.getSelectedRow();
+        if (selectedRow != -1) {
+            return (String) model.getValueAt(selectedRow, 0);
+        }
+        return null;
+    }
+
+    // Getter para obtener la edad del socio seleccionado
+    public Integer getSelectedSocioAge() {
+        int selectedRow = jTableSocios.getSelectedRow();
+        if (selectedRow != -1) {
+            return (Integer) model.getValueAt(selectedRow, 1);
+        }
+        return null;
+    }
+
+    // Getter para obtener la cuota mensual del socio seleccionado
+    public Double getSelectedSocioMensualidad() {
+        int selectedRow = jTableSocios.getSelectedRow();
+        if (selectedRow != -1) {
+            return (Double) model.getValueAt(selectedRow, 2);
+        }
+        return null;
+    }
+
+    // Getter para obtener el tipo de membresía del socio seleccionado
+    public String getSelectedSocioTipoMembresia() {
+        int selectedRow = jTableSocios.getSelectedRow();
+        if (selectedRow != -1) {
+            return (String) model.getValueAt(selectedRow, 3);
+        }
+        return null;
     }
 
     /**
@@ -89,20 +123,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableSocios = new javax.swing.JTable();
+        jComboBoxCampo = new javax.swing.JComboBox<>();
+        jComboBoxOrden = new javax.swing.JComboBox<>();
+        jTextFieldFiltro = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonMostrarDatos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuArchivo = new javax.swing.JMenu();
-        jMenuItemOrdenarPorNombre = new javax.swing.JMenuItem();
         jMenuEditar = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemAñadirSocio = new javax.swing.JMenuItem();
         jMenuEliminarSocio = new javax.swing.JMenuItem();
         jMenuItemEditarSocio = new javax.swing.JMenuItem();
         jMenuVer = new javax.swing.JMenu();
         jMenuVerSocio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Socios del Club");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSocios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -113,29 +151,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableSocios);
 
-        jMenuArchivo.setText("Archivo");
-
-        jMenuItemOrdenarPorNombre.setText("Ordenar por Nombre");
-        jMenuItemOrdenarPorNombre.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxCampo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Edad", "Mensualidad", "Membresía" }));
+        jComboBoxCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemOrdenarPorNombreActionPerformed(evt);
+                jComboBoxCampoActionPerformed(evt);
             }
         });
-        jMenuArchivo.add(jMenuItemOrdenarPorNombre);
 
-        jMenuBar1.add(jMenuArchivo);
+        jComboBoxOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alfabeticamente", "De Menor a Mayor", "De Mayor a Menor" }));
+        jComboBoxOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxOrdenActionPerformed(evt);
+            }
+        });
+
+        jTextFieldFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFiltroActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Filtro:");
+
+        jButtonMostrarDatos.setText("Mostrar Datos");
+        jButtonMostrarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMostrarDatosActionPerformed(evt);
+            }
+        });
 
         jMenuEditar.setText("Editar");
 
-        jMenuItem1.setText("Añadir Socio");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemAñadirSocio.setText("Añadir Socio");
+        jMenuItemAñadirSocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemAñadirSocioActionPerformed(evt);
             }
         });
-        jMenuEditar.add(jMenuItem1);
+        jMenuEditar.add(jMenuItemAñadirSocio);
 
         jMenuEliminarSocio.setText("Eliminar Socio");
         jMenuEliminarSocio.addActionListener(new java.awt.event.ActionListener() {
@@ -175,39 +230,220 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonMostrarDatos)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonMostrarDatos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemOrdenarPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOrdenarPorNombreActionPerformed
-        sortSociosByName();
-    }//GEN-LAST:event_jMenuItemOrdenarPorNombreActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        addSocio("Kevin", 22, 2.0, "pro");
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jMenuItemAñadirSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAñadirSocioActionPerformed
+        this.am.setTitle("Añadir Socio");
+        this.am.jLabelTitulo.setText("Añadir Socio");
+        this.am.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAñadirSocioActionPerformed
 
     private void jMenuEliminarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEliminarSocioActionPerformed
         deleteSocio();
     }//GEN-LAST:event_jMenuEliminarSocioActionPerformed
 
     private void jMenuItemEditarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarSocioActionPerformed
-        updateSocio("Kevin", 22, 2.0, "Pro");
+        int selectedRow = jTableSocios.getSelectedRow();
+        if (selectedRow != -1) {
+            this.am.setTitle("Editar Socio");
+            this.am.jLabelTitulo.setText("Editar Socio");
+            this.am.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una fila para actualizar.");
+        }
+
     }//GEN-LAST:event_jMenuItemEditarSocioActionPerformed
 
     private void jMenuVerSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVerSocioActionPerformed
-        viewSocio();
+        
+        int selectedRow = jTableSocios.getSelectedRow();
+        String nombre = (String) jTableSocios.getValueAt(selectedRow, 0);
+        this.datos = new Datos(this, false, nombre);
+        
+        if (selectedRow != -1) {
+            
+            this.datos.setTitle("Datos: "+nombre);
+            this.datos.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor seleccione una fila para ver los datos.");
+        }
     }//GEN-LAST:event_jMenuVerSocioActionPerformed
+
+    private void jComboBoxCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCampoActionPerformed
+        this.campo = this.jComboBoxCampo.getSelectedItem().toString();
+
+        if (!this.campo.equals("Sin campo") && !this.campo.equals("Sin orden")) {
+            ordenarFilas();
+        }
+    }//GEN-LAST:event_jComboBoxCampoActionPerformed
+
+    private void jComboBoxOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOrdenActionPerformed
+        this.orden = this.jComboBoxOrden.getSelectedItem().toString();
+
+        if (!this.campo.equals("Sin campo") && !this.campo.equals("Sin orden")) {
+            ordenarFilas();
+        }
+    }//GEN-LAST:event_jComboBoxOrdenActionPerformed
+
+    private void jTextFieldFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFiltroActionPerformed
+        
+        filterTable();
+    }//GEN-LAST:event_jTextFieldFiltroActionPerformed
+
+    private void jButtonMostrarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarDatosActionPerformed
+        int selectedRow = jTableSocios.getSelectedRow();
+        String nombre = (String) jTableSocios.getValueAt(selectedRow, 0);
+        this.datos = new Datos(this, false, nombre);
+       
+        if (selectedRow != -1) {
+            
+            this.datos.setTitle("Datos: "+nombre);
+            this.datos.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor seleccione una fila para ver los datos.");
+        }
+        
+    }//GEN-LAST:event_jButtonMostrarDatosActionPerformed
+
+    private void ordenarFilas() {
+        Vector<Vector> data = model.getDataVector();
+
+        switch (campo) {
+            case "Nombre" -> {
+                if ("Alfabeticamente".equals(orden)) {
+                    data.sort(Comparator.comparing(o -> ((String) o.get(0)).toLowerCase()));
+                }
+            }
+            case "Edad" -> {
+                if ("De Mayor a Menor".equals(orden)) {
+                    data.sort((o1, o2) -> Integer.compare((Integer) o2.get(1), (Integer) o1.get(1)));
+                } else if ("De Menor a Mayor".equals(orden)) {
+                    data.sort(Comparator.comparingInt(o -> (Integer) o.get(1)));
+                }
+            }
+            case "Mes" -> {
+                if ("De Mayor a Menor".equals(orden)) {
+                    data.sort((o1, o2) -> Double.compare((Double) o2.get(2), (Double) o1.get(2)));
+                } else if ("De Menor a Mayor".equals(orden)) {
+                    data.sort(Comparator.comparingDouble(o -> (Double) o.get(2)));
+                }
+            }
+            case "Membresía" -> {
+                if ("Alfabeticamente".equals(orden)) {
+                    data.sort(Comparator.comparing(o -> ((String) o.get(3)).toLowerCase()));
+                }
+            }
+        }
+
+        model.fireTableDataChanged(); // Notifica a la tabla que los datos han cambiado
+    }
+
+    // Método para filtrar la tabla
+    private void filterTable() {
+        String filter = jTextFieldFiltro.getText().toLowerCase(); // Obtener el texto del filtro
+        String selectedField = jComboBoxCampo.getSelectedItem().toString(); // Campo seleccionado para filtrar
+
+        // Crear una lista de los datos filtrados
+        Vector<Vector> filteredData = new Vector<>();
+
+        // Si el filtro está vacío, restauramos los datos originales
+        if (filter.isEmpty()) {
+            filteredData = originalData; // Asignar los datos originales
+        } else {
+            // Si no está vacío, proceder con el filtrado
+            for (int i = 0; i < model.getRowCount(); i++) {
+                String value = "";
+
+                // Determinar el valor de la columna seleccionada para cada fila
+                switch (selectedField) {
+                    case "Nombre":
+                        value = (String) model.getValueAt(i, 0);
+                        break;
+                    case "Edad":
+                        value = String.valueOf(model.getValueAt(i, 1));
+                        break;
+                    case "Mensualidad":
+                        value = String.valueOf(model.getValueAt(i, 2));
+                        break;
+                    case "Membresía":
+                        value = (String) model.getValueAt(i, 3);
+                        break;
+                }
+
+                // Si el valor contiene el texto del filtro, lo agregamos a la lista filtrada
+                if (value.toLowerCase().contains(filter)) {
+                    filteredData.add((Vector) model.getDataVector().get(i));
+                }
+            }
+        }
+
+        // Actualizar la tabla con los datos filtrados
+        // Convierte el Vector<Vector> a un Object[][]
+        Object[][] data = new Object[filteredData.size()][];
+        for (int i = 0; i < filteredData.size(); i++) {
+            data[i] = filteredData.get(i).toArray();
+        }
+
+        // Llama a setDataVector con el arreglo bidimensional
+        // Y un Vector de nombres de columnas
+        Vector<String> columnNames = new Vector<>();
+        columnNames.add("Nombre");
+        columnNames.add("Edad");
+        columnNames.add("Mensualidad");
+        columnNames.add("Membresía");
+
+        // Usamos la segunda sobrecarga de setDataVector
+        model.setDataVector(filteredData, columnNames);
+    }
+
+    private void cargarDatosIniciales() {
+        // Ejemplo de datos iniciales
+        model.addRow(new Object[]{"Alice", 25, 50.0, "Gold"});
+        model.addRow(new Object[]{"Bob", 30, 60.0, "Silver"});
+        model.addRow(new Object[]{"Charlie", 28, 70.0, "Bronze"});
+        model.addRow(new Object[]{"Diana", 22, 80.0, "Platinum"});
+    }
+
+    public void storeOriginalData() {
+        // Copiar los datos originales al vector global
+        originalData.clear(); // Limpiar los datos antes de llenarlos
+        for (int i = 0; i < model.getRowCount(); i++) {
+            originalData.add((Vector) model.getDataVector().get(i));
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -245,16 +481,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenuArchivo;
+    private javax.swing.JButton jButtonMostrarDatos;
+    private javax.swing.JComboBox<String> jComboBoxCampo;
+    private javax.swing.JComboBox<String> jComboBoxOrden;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuEditar;
     private javax.swing.JMenuItem jMenuEliminarSocio;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemAñadirSocio;
     private javax.swing.JMenuItem jMenuItemEditarSocio;
-    private javax.swing.JMenuItem jMenuItemOrdenarPorNombre;
     private javax.swing.JMenu jMenuVer;
     private javax.swing.JMenuItem jMenuVerSocio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTableSocios;
+    private javax.swing.JTextField jTextFieldFiltro;
     // End of variables declaration//GEN-END:variables
 }
