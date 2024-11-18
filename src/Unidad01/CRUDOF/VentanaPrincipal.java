@@ -1,6 +1,7 @@
 package Unidad01.CRUDOF;
 
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,11 +17,8 @@ public final class VentanaPrincipal extends javax.swing.JFrame {
     private Datos datos;
     private String campo;
     private String orden;
-    private final Vector<Vector> originalData = new Vector<>();
+    private final List<List<Object>> originalData = new ArrayList<>();
 
-    /**
-     * Creates new form VentanaPrincipal
-     */
     public VentanaPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -28,7 +26,6 @@ public final class VentanaPrincipal extends javax.swing.JFrame {
         this.am = new AñadirModificar(this, false);
     }
 
-    // INICIALIZA EL MODELO DE LA TABLA
     private void initTableModel() {
         this.model = new DefaultTableModel(new Object[]{"Nombre", "Edad", "Mensualidad", "Membresía"}, 0);
         this.jTableSocios.setModel(this.model);
@@ -36,204 +33,195 @@ public final class VentanaPrincipal extends javax.swing.JFrame {
         storeOriginalData();
     }
 
-    // AÑADE FILAS A LA TABLA CON SOCIOS DE EJEMPLO
     private void cargarDatosIniciales() {
-        // Ejemplo de datos iniciales
-        this.model.addRow(new Object[]{"Alice", 25, 50.0, "Gold"});
-        this.model.addRow(new Object[]{"Bob", 30, 60.0, "Silver"});
-        this.model.addRow(new Object[]{"Charlie", 28, 70.0, "Bronze"});
-        this.model.addRow(new Object[]{"Diana", 22, 80.0, "Platinum"});
+        model.addRow(new Object[]{"Alice", 25, 50.0, "Gold"});
+        model.addRow(new Object[]{"Bob", 30, 60.0, "Silver"});
+        model.addRow(new Object[]{"Charlie", 28, 70.0, "Bronze"});
+        model.addRow(new Object[]{"Diana", 22, 80.0, "Platinum"});
     }
 
-    // ALMACENA LOS DATOS ORIGINALES EN EL VECTOR GLOBAL
     public void storeOriginalData() {
         this.originalData.clear();
-        for (int i = 0; i < this.model.getRowCount(); i++) {
-            this.originalData.add((Vector) this.model.getDataVector().get(i));
+        for (int i = 0; i < model.getRowCount(); i++) {
+            originalData.add((Vector) model.getDataVector().get(i));
         }
     }
 
-    // COMPRUEBA SI HAY SOCIO SELECCIONADO
     private boolean isSelected(int selectedRow) {
-        boolean b = false;
-        if (selectedRow != -1) {
-            b = true;
-            return b;
-        } else {
-            return b;
-        }
+        return selectedRow != -1;
     }
 
-    // AÑADE UN SOCIO A LA TABLA
     public void addSocio(String nombre, int edad, double mensualidad, String membershipType) {
-        this.model.addRow(new Object[]{nombre, edad, mensualidad, membershipType});
+        model.addRow(new Object[]{nombre, edad, mensualidad, membershipType});
     }
 
-    // ACTUALIZA SOCIO SELECCIONADO
     public void updateSocio(String nombre, int edad, double mensualidad, String membershipType) {
-        int selectedRow = this.jTableSocios.getSelectedRow();
+        int selectedRow = jTableSocios.getSelectedRow();
         if (isSelected(selectedRow)) {
-            this.model.setValueAt(nombre, selectedRow, 0);
-            this.model.setValueAt(edad, selectedRow, 1);
-            this.model.setValueAt(mensualidad, selectedRow, 2);
-            this.model.setValueAt(membershipType, selectedRow, 3);
+            model.setValueAt(nombre, selectedRow, 0);
+            model.setValueAt(edad, selectedRow, 1);
+            model.setValueAt(mensualidad, selectedRow, 2);
+            model.setValueAt(membershipType, selectedRow, 3);
         } else {
             JOptionPane.showMessageDialog(this, "Please select a row to update.");
         }
     }
 
-    // ELIMINA SOCIO SELECCIONADO
     private void deleteSocio() {
-        int selectedRow = this.jTableSocios.getSelectedRow();
+        int selectedRow = jTableSocios.getSelectedRow();
         if (isSelected(selectedRow)) {
-            this.model.removeRow(selectedRow);
+            model.removeRow(selectedRow);
         } else {
             JOptionPane.showMessageDialog(this, "Please select a row to delete.");
         }
     }
 
-    /**
-     * // Método para consultar los datos de un socio private void viewSocio()
-     * { int selectedRow = jTableSocios.getSelectedRow(); if (selectedRow != -1)
-     * { String nombre = (String) model.getValueAt(selectedRow, 0); int edad =
-     * (int) model.getValueAt(selectedRow, 1); double mensualidad = (double)
-     * model.getValueAt(selectedRow, 2); String membershipType = (String)
-     * model.getValueAt(selectedRow, 3);
-     *
-     * JOptionPane.showMessageDialog(this, "Socio Details:\n" + "Nombre: " +
-     * nombre + "\nEdad: " + edad + "\nMensualidad: " + mensualidad + "\nTipo de
-     * membresía: " + membershipType); } else {
-     * JOptionPane.showMessageDialog(this, "Por favor, seleccione una fila para
-     * ver."); } }
-     *
-     * @return
-     */
-    // OBTIENE EL NOMBRE DEL SOCIO SELECCIONADO
     public String getSelectedSocioName() {
-        int selectedRow = this.jTableSocios.getSelectedRow();
-        if (isSelected(selectedRow)) {
-            return (String) this.model.getValueAt(selectedRow, 0);
-        }
-        return null;
+        int selectedRow = jTableSocios.getSelectedRow();
+        return isSelected(selectedRow) ? (String) model.getValueAt(selectedRow, 0) : null;
     }
 
-    // OBTIENE LA EDAD DEL SOCIO SELECCIONADO
     public Integer getSelectedSocioAge() {
-        int selectedRow = this.jTableSocios.getSelectedRow();
-        if (isSelected(selectedRow)) {
-            return (Integer) this.model.getValueAt(selectedRow, 1);
-        }
-        return null;
+        int selectedRow = jTableSocios.getSelectedRow();
+        return isSelected(selectedRow) ? (Integer) model.getValueAt(selectedRow, 1) : null;
     }
 
-    // OBTIENE LE CUOTA MENSUAL DEL SOCIO SELECCIONADO
     public Double getSelectedSocioMensualidad() {
-        int selectedRow = this.jTableSocios.getSelectedRow();
-        if (isSelected(selectedRow)) {
-            return (Double) this.model.getValueAt(selectedRow, 2);
-        }
-        return null;
+        int selectedRow = jTableSocios.getSelectedRow();
+        return isSelected(selectedRow) ? (Double) model.getValueAt(selectedRow, 2) : null;
     }
 
-    // OBTIENE EL TIPO DE MEMBRESÍA DEL SOCIO SELECCIONADO
     public String getSelectedSocioTipoMembresia() {
-        int selectedRow = this.jTableSocios.getSelectedRow();
-        if (isSelected(selectedRow)) {
-            return (String) this.model.getValueAt(selectedRow, 3);
-        }
-        return null;
+        int selectedRow = jTableSocios.getSelectedRow();
+        return isSelected(selectedRow) ? (String) model.getValueAt(selectedRow, 3) : null;
     }
 
-    // ORDENA LAS FILAS SEGÚN LA SELECCIÓN DE LOS COMBOBOX
     private void ordenarFilas() {
-        Vector<Vector> data = this.model.getDataVector();
+        try {
+            if (model == null) {
+                return;
+            }
 
-        switch (this.campo) {
-            case "Nombre" -> {
-                if ("Alfabeticamente".equals(this.orden)) {
-                    data.sort(Comparator.comparing(o -> ((String) o.get(0)).toLowerCase()));
+            // Valores por defecto
+            if (campo == null || campo.isEmpty()) {
+                campo = "Nombre";
+            }
+            if (orden == null || orden.isEmpty()) {
+                orden = "Alfabeticamente";
+            }
+
+            Vector<Vector> data = model.getDataVector();
+            switch (campo) {
+                case "Nombre" -> {
+                    if ("Alfabeticamente".equals(orden)) {
+                        data.sort((o1, o2) -> compareStrings((String) o1.get(0), (String) o2.get(0)));
+                    }
+                }
+                case "Edad" -> {
+                    if (!"Alfabeticamente".equals(orden)) {
+                        data.sort((o1, o2) -> compareIntegers((Integer) o1.get(1), (Integer) o2.get(1), orden.equals("De Mayor a Menor")));
+                    }
+                }
+                case "Mensualidad" -> {
+                    if (!"Alfabeticamente".equals(orden)) {
+                        data.sort((o1, o2) -> compareDoubles((Double) o1.get(2), (Double) o2.get(2), orden.equals("De Mayor a Menor")));
+                    }
+                }
+                case "Membresia" -> {
+                    if ("Alfabeticamente".equals(orden)) {
+                        data.sort((o1, o2) -> compareStrings((String) o1.get(3), (String) o2.get(3)));
+                    }
                 }
             }
-            case "Edad" -> {
-                if ("De Mayor a Menor".equals(this.orden)) {
-                    data.sort((o1, o2) -> Integer.compare((Integer) o2.get(1), (Integer) o1.get(1)));
-                } else if ("De Menor a Mayor".equals(this.orden)) {
-                    data.sort(Comparator.comparingInt(o -> (Integer) o.get(1)));
-                }
-            }
-            case "Mensualidad" -> {
-                if ("De Mayor a Menor".equals(this.orden)) {
-                    data.sort((o1, o2) -> Double.compare((Double) o2.get(2), (Double) o1.get(2)));
-                } else if ("De Menor a Mayor".equals(this.orden)) {
-                    data.sort(Comparator.comparingDouble(o -> (Double) o.get(2)));
-                }
-            }
-            case "Membresía" -> {
-                if ("Alfabeticamente".equals(this.orden)) {
-                    data.sort(Comparator.comparing(o -> ((String) o.get(3)).toLowerCase()));
-                }
-            }
-            default -> {
-                System.out.println("F");
-            }
-                
+            model.fireTableDataChanged();
+        } catch (Exception e) {
+            logError("Error al ordenar", e);
         }
-
-        this.model.fireTableDataChanged(); // Notifica a la tabla que los datos han cambiado
     }
 
-    // FILTRA LA TABLA
+    private int compareStrings(String s1, String s2) {
+        return (s1 == null ? "" : s1).compareToIgnoreCase(s2 == null ? "" : s2);
+    }
+
+    private int compareIntegers(Integer n1, Integer n2, boolean descending) {
+        if (n1 == null || n2 == null) {
+            return 0;
+        }
+        return descending ? n2.compareTo(n1) : n1.compareTo(n2);
+    }
+
+    private int compareDoubles(Double d1, Double d2, boolean descending) {
+        if (d1 == null || d2 == null) {
+            return 0;
+        }
+        return descending ? d2.compareTo(d1) : d1.compareTo(d2);
+    }
+
+    private void logError(String mensaje, Exception e) {
+        System.err.println(mensaje);
+        if (e != null) {
+        }
+    }
+
     private void filterTable() {
-        String filter = this.jTextFieldFiltro.getText().toLowerCase(); // Obtener el texto del filtro
-        String selectedField = this.jComboBoxCampo.getSelectedItem().toString(); // Campo seleccionado para filtrar
+        try {
+            if (jTextFieldFiltro == null || jComboBoxCampo == null || model == null) {
+                return;
+            }
 
-        // Crear una lista de los datos filtrados
-        Vector<Vector> filteredData = new Vector<>();
+            String filter = jTextFieldFiltro.getText().toLowerCase().trim();
+            String selectedField = jComboBoxCampo.getSelectedItem().toString();
+            List<List<Object>> filteredData = new ArrayList<>();
 
-        // Si el filtro está vacío, restauramos los datos originales
-        if (filter.isEmpty()) {
-            filteredData = this.originalData; // Asignar los datos originales
-        } else {
-            // Si no está vacío, proceder con el filtrado
-            for (int i = 0; i < this.model.getRowCount(); i++) {
-                String value = "";
-
-                // Determinar el valor de la columna seleccionada para cada fila
-                switch (selectedField) {
-                    case "Nombre" ->
-                        value = (String) this.model.getValueAt(i, 0);
-                    case "Edad" ->
-                        value = String.valueOf(this.model.getValueAt(i, 1));
-                    case "Mensualidad" ->
-                        value = String.valueOf(this.model.getValueAt(i, 2));
-                    case "Membresía" ->
-                        value = (String) this.model.getValueAt(i, 3);
-                }
-
-                // Si el valor contiene el texto del filtro, lo agregamos a la lista filtrada
-                if (value.toLowerCase().contains(filter)) {
-                    filteredData.add((Vector) this.model.getDataVector().get(i));
+            if (filter.isEmpty()) {
+                filteredData = new ArrayList<>(originalData);
+            } else {
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    String value = getValueAsString(i, selectedField);
+                    if (value.toLowerCase().contains(filter)) {
+                        filteredData.add(getRowAsList(i));
+                    }
                 }
             }
+            updateModelWithFilteredData(filteredData);
+        } catch (Exception e) {
+            logError("Error al filtrar", e);
+            restoreOriginalData();
         }
+    }
 
-        // Actualizar la tabla con los datos filtrados
-        // Convierte el Vector<Vector> a un Object[][]
-        Object[][] data = new Object[filteredData.size()][];
-        for (int i = 0; i < filteredData.size(); i++) {
-            data[i] = filteredData.get(i).toArray();
+    private String getValueAsString(int row, String selectedField) {
+        int columnIndex = switch (selectedField) {
+            case "Nombre" ->
+                0;
+            case "Edad" ->
+                1;
+            case "Mensualidad" ->
+                2;
+            case "Membresía" ->
+                3;
+            default ->
+                -1;
+        };
+        return columnIndex != -1 ? String.valueOf(model.getValueAt(row, columnIndex)) : "";
+    }
+
+    private List<Object> getRowAsList(int row) {
+        List<Object> rowList = new ArrayList<>();
+        for (int j = 0; j < model.getColumnCount(); j++) {
+            rowList.add(model.getValueAt(row, j));
         }
+        return rowList;
+    }
 
-        // Llama a setDataVector con el arreglo bidimensional
-        // Y un Vector de nombres de columnas
-        Vector<String> columnNames = new Vector<>();
-        columnNames.add("Nombre");
-        columnNames.add("Edad");
-        columnNames.add("Mensualidad");
-        columnNames.add("Membresía");
+    private void updateModelWithFilteredData(List<List<Object>> filteredData) {
+        model.setRowCount(0);
+        filteredData.forEach(row -> model.addRow(row.toArray()));
+        model.fireTableDataChanged();
+    }
 
-        // Usamos la segunda sobrecarga de setDataVector
-        this.model.setDataVector(filteredData, columnNames);
+    private void restoreOriginalData() {
+        updateModelWithFilteredData(new ArrayList<>(originalData));
     }
 
     /**
@@ -263,7 +251,7 @@ public final class VentanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Socios del Club");
 
-        jComboBoxCampo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Edad", "Mensualidad", "Membresía" }));
+        jComboBoxCampo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Edad", "Mensualidad", "Membresia" }));
         jComboBoxCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCampoActionPerformed(evt);
@@ -445,7 +433,6 @@ public final class VentanaPrincipal extends javax.swing.JFrame {
         // Validar si hay una fila seleccionada
         if (isSelected(selectedRow)) {
             String nombre = (String) this.jTableSocios.getValueAt(selectedRow, 0);
-            System.out.println("Fila seleccionada: " + selectedRow);
 
             this.datos = new Datos(this, false, nombre);
             this.datos.setTitle("Datos: " + nombre);

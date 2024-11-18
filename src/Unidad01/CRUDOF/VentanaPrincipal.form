@@ -127,7 +127,7 @@
             <StringItem index="0" value="Nombre"/>
             <StringItem index="1" value="Edad"/>
             <StringItem index="2" value="Mensualidad"/>
-            <StringItem index="3" value="Membres&#xed;a"/>
+            <StringItem index="3" value="Membresia"/>
           </StringArray>
         </Property>
       </Properties>
