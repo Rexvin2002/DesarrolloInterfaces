@@ -1,0 +1,1 @@
+JPanel al cual se le puede poner una imagen
