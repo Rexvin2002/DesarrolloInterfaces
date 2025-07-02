@@ -1,0 +1,3 @@
+Realizar el informe del enlace: https://adictosaltrabajo.com/2007/10/19/subreport/
+
+Subir el archivo .sql (para la creación de tablas e inserción de datos) y el informe y subinforme creados.
