@@ -1,5 +1,8 @@
 package botoncambiante;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;

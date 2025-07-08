@@ -1,25 +1,42 @@
-Componente Visual: Botón Cambiante (ColorChangingButton)
-Descripción del Componente
-El ColorChangingButton es un botón personalizado en Java Swing que alterna su color de fondo cada vez que se hace clic en él. Tiene las siguientes características:
+# Botón Cambiante de Color
 
-Color por defecto:
+## Descripción
+Este programa implementa un botón personalizado (`ColorChangingButton`) que cambia de color al ser clickeado. El botón también muestra un cursor de mano cuando el ratón pasa sobre él para mejorar la experiencia de usuario.
 
-Si no se especifica, usa el color normal de un JButton.
+## Características principales
+- Botón que alterna entre dos colores (color por defecto y color secundario) al hacer clic
+- Cursor personalizado (mano) cuando el ratón está sobre el botón
+- Configuración personalizable de colores
+- Posibilidad de activar/desactivar el cambio de color
 
-Se puede configurar mediante una propiedad (defaultColor).
+## Uso básico
+1. Crea una instancia de `ColorChangingButton`:
+   ```java
+   ColorChangingButton myButton = new ColorChangingButton();
+   ```
 
-Alternancia de color:
+2. Personaliza los colores si es necesario:
+   ```java
+   myButton.setDefaultColor(Color.BLUE);
+   myButton.setSecondaryColor(Color.GREEN);
+   ```
 
-Si está activado (colorChangeEnabled = true), cambia de color al hacer clic.
+3. Añade el botón a tu interfaz gráfica como cualquier otro JButton.
 
-Si está desactivado (colorChangeEnabled = false), funciona como un botón normal.
+## Métodos disponibles
+- `getDefaultColor()` / `setDefaultColor(Color)`: Obtiene/establece el color inicial del botón
+- `getSecondaryColor()` / `setSecondaryColor(Color)`: Obtiene/establece el color alternativo
+- `isChangeColor()` / `setChangeColor(boolean)`: Habilita/deshabilita la función de cambio de color
 
-Color secundario:
+## Requisitos
+- Java 8 o superior
+- Entorno de desarrollo compatible con Swing
 
-Si el cambio de color está activado, se puede definir un secondaryColor.
+## Autor
+Kevin Gómez Valderas - 2º DAM
 
-Si no se define, usará un color aleatorio.
+## Notas
+El color por defecto del botón es el mismo que un JButton estándar, y el color secundario por defecto es rojo. Estos pueden modificarse según sea necesario.
 
-Nombre del componente:
-
-ColorChangingButton (extiende JButton).
+## Licencia
+Este código se proporciona libremente para fines educativos. Se permite su uso y modificación siempre que se mantenga esta nota de atribución.
