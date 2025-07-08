@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Beans/BeanInfo.java to edit this template
- */
 package jpanelimagen;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.beans.*;
 
-/**
- *
- * @author aguilera
- */
 public class JPanelImagenBeanInfo extends SimpleBeanInfo {
 
     // Bean descriptor//GEN-FIRST:BeanDescriptor
@@ -856,7 +851,7 @@ public class JPanelImagenBeanInfo extends SimpleBeanInfo {
     @Override
     public java.awt.Image getIcon(int iconKind) {
         switch (iconKind) {
-            case ICON_COLOR_16x16:
+            case ICON_COLOR_16x16 -> {
                 if (iconNameC16 == null) {
                     return null;
                 } else {
@@ -865,7 +860,8 @@ public class JPanelImagenBeanInfo extends SimpleBeanInfo {
                     }
                     return iconColor16;
                 }
-            case ICON_COLOR_32x32:
+            }
+            case ICON_COLOR_32x32 -> {
                 if (iconNameC32 == null) {
                     return null;
                 } else {
@@ -874,7 +870,8 @@ public class JPanelImagenBeanInfo extends SimpleBeanInfo {
                     }
                     return iconColor32;
                 }
-            case ICON_MONO_16x16:
+            }
+            case ICON_MONO_16x16 -> {
                 if (iconNameM16 == null) {
                     return null;
                 } else {
@@ -883,7 +880,8 @@ public class JPanelImagenBeanInfo extends SimpleBeanInfo {
                     }
                     return iconMono16;
                 }
-            case ICON_MONO_32x32:
+            }
+            case ICON_MONO_32x32 -> {
                 if (iconNameM32 == null) {
                     return null;
                 } else {
@@ -892,9 +890,11 @@ public class JPanelImagenBeanInfo extends SimpleBeanInfo {
                     }
                     return iconMono32;
                 }
-            default:
+            }
+            default -> {
                 return null;
+            }
         }
     }
-    
+
 }

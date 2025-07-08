@@ -1,15 +1,16 @@
 package jpanelimagen;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.io.File;
 import java.io.Serializable;
 
-/**
- *
- * @author aguilera
- */
 public class PropiedadesImagen implements Serializable {
-    private File rutaImagen;    // v.PROPIEDADES File para fichero
+
+    private File rutaImagen;
     private Float opacidad;
+    private boolean ajustarTamaño = true; // Valor por defecto
 
     public PropiedadesImagen(File rutaImagen, Float opacidad) {
         this.rutaImagen = rutaImagen;
@@ -31,6 +32,12 @@ public class PropiedadesImagen implements Serializable {
     public void setOpacidad(Float opacidad) {
         this.opacidad = opacidad;
     }
-    
-    
+
+    public boolean isAjustarTamaño() {
+        return ajustarTamaño;
+    }
+
+    public void setAjustarTamaño(boolean ajustarTamaño) {
+        this.ajustarTamaño = ajustarTamaño;
+    }
 }

@@ -1,12 +1,11 @@
 package component;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.awt.Color;
 import java.io.Serializable;
 
-/**
- *
- * @author kgv17
- */
 public class LimitedText implements Serializable {
 
     private Color foregroundSinSuperarLimite;

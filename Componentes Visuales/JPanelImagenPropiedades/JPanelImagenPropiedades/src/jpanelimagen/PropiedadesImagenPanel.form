@@ -19,6 +19,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jCheckBoxAjustar" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -50,7 +51,9 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jSliderOpacidad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="122" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jCheckBoxAjustar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,9 +68,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="- elija ruta de la imagen -"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldRutaImagenActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonRutaImagen">
       <Properties>
@@ -83,6 +83,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="jSliderOpacidad">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxAjustar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ajustar Imagen"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

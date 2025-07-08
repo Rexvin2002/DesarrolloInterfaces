@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Beans/BeanInfo.java to edit this template
- */
 package component;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.beans.*;
 
-/**
- *
- * @author kgv17
- */
 public class LimitedJTextFieldBeanInfo extends SimpleBeanInfo {
 
     // Bean descriptor//GEN-FIRST:BeanDescriptor
@@ -1039,5 +1034,5 @@ public class LimitedJTextFieldBeanInfo extends SimpleBeanInfo {
                 return null;
         }
     }
-    
+
 }

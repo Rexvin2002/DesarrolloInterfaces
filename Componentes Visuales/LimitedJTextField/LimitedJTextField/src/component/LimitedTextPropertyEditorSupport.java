@@ -1,13 +1,12 @@
 package component;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.awt.Color;
 import java.awt.Component;
 import java.beans.PropertyEditorSupport;
 
-/**
- *
- * @author kgv17
- */
 public class LimitedTextPropertyEditorSupport extends PropertyEditorSupport {
 
     private LimitedTextProperties propiedades = new LimitedTextProperties();

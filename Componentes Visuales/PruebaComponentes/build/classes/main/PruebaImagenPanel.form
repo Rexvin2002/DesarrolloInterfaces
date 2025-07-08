@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1000, 500]"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-12,0,0,3,-24"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+    <Property name="horizontalGap" type="int" value="0"/>
+    <Property name="verticalGap" type="int" value="0"/>
+  </Layout>
+  <SubComponents>
+    <Container class="jpanelimagen.JPanelImagen" name="jPanelImagen1">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1000, 500]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1000, 500]"/>
+        </Property>
+        <Property name="propiedadesImagen" type="jpanelimagen.PropiedadesImagen" editor="jpanelimagen.PropiedadesImagenPropertyEditorSupport">
+          <SerializedValue value="-84,-19,0,5,115,114,0,30,106,112,97,110,101,108,105,109,97,103,101,110,46,80,114,111,112,105,101,100,97,100,101,115,73,109,97,103,101,110,34,-85,-77,-9,100,16,-71,64,2,0,3,90,0,14,97,106,117,115,116,97,114,84,97,109,97,-61,-79,111,76,0,8,111,112,97,99,105,100,97,100,116,0,17,76,106,97,118,97,47,108,97,110,103,47,70,108,111,97,116,59,76,0,10,114,117,116,97,73,109,97,103,101,110,116,0,14,76,106,97,118,97,47,105,111,47,70,105,108,101,59,120,112,1,115,114,0,15,106,97,118,97,46,108,97,110,103,46,70,108,111,97,116,-38,-19,-55,-94,-37,60,-16,-20,2,0,1,70,0,5,118,97,108,117,101,120,114,0,16,106,97,118,97,46,108,97,110,103,46,78,117,109,98,101,114,-122,-84,-107,29,11,-108,-32,-117,2,0,0,120,112,63,0,0,0,115,114,0,12,106,97,118,97,46,105,111,46,70,105,108,101,4,45,-92,69,14,13,-28,-1,3,0,1,76,0,4,112,97,116,104,116,0,18,76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59,120,112,116,0,119,67,58,92,85,115,101,114,115,92,107,103,118,49,55,92,79,110,101,68,114,105,118,101,92,68,111,99,117,109,101,110,116,115,92,71,105,116,72,117,98,92,68,101,115,97,114,114,111,108,108,111,73,110,116,101,114,102,97,99,101,115,92,67,111,109,112,111,110,101,110,116,101,115,32,86,105,115,117,97,108,101,115,92,80,114,117,101,98,97,67,111,109,112,111,110,101,110,116,101,115,92,115,114,99,92,115,114,99,92,105,109,97,103,101,46,106,112,101,103,119,2,0,92,120"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="1000" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="500" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+  </SubComponents>
+</Form>

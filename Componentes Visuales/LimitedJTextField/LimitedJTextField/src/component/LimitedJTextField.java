@@ -1,5 +1,8 @@
 package component;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.awt.Color;
 import java.io.Serializable;
 import javax.swing.JTextField;
@@ -8,10 +11,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class LimitedJTextField extends JTextField implements Serializable {
+
     private LimitedText limitedTextConfig;
 
     public LimitedJTextField() {
-        // Initialize with default settings
         this.limitedTextConfig = new LimitedText(Color.BLACK, Color.WHITE, Color.WHITE, Color.BLACK, 5);
 
         getDocument().addDocumentListener(new DocumentListener() {
@@ -31,7 +34,6 @@ public class LimitedJTextField extends JTextField implements Serializable {
             }
         });
 
-        // Initial color update
         SwingUtilities.invokeLater(this::updateColors);
     }
 
@@ -48,7 +50,9 @@ public class LimitedJTextField extends JTextField implements Serializable {
     }
 
     private void updateColors() {
-        if (limitedTextConfig == null) return;
+        if (limitedTextConfig == null) {
+            return;
+        }
 
         boolean exceedsLimit = getText().length() > limitedTextConfig.getTextLimit();
 
