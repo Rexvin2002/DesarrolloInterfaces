@@ -17,12 +17,13 @@ public class PruebaImagenPanel extends javax.swing.JFrame {
         jPanelImagen1 = new jpanelimagen.JPanelImagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PruebaImagenPanel");
         setMinimumSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jPanelImagen1.setMinimumSize(new java.awt.Dimension(1000, 500));
         jPanelImagen1.setPreferredSize(new java.awt.Dimension(1000, 500));
-        jPanelImagen1.setPropiedadesImagen(new jpanelimagen.PropiedadesImagen(new java.io.File("C:\\Users\\kgv17\\OneDrive\\Documents\\GitHub\\DesarrolloInterfaces\\Componentes Visuales\\PruebaComponentes\\src\\src\\image.jpeg"), 0.5f));
+        jPanelImagen1.setPropiedadesImagen(new jpanelimagen.PropiedadesImagen(new java.io.File("C:\\Program Files\\NetBeans-21\\- elija ruta de la imagen -"), 0.5f));
 
         javax.swing.GroupLayout jPanelImagen1Layout = new javax.swing.GroupLayout(jPanelImagen1);
         jPanelImagen1.setLayout(jPanelImagen1Layout);

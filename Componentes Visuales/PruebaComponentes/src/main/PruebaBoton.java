@@ -21,22 +21,36 @@ public class PruebaBoton extends javax.swing.JFrame {
         colorChangingButton1 = new botoncambiante.ColorChangingButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(500, 300));
+        setTitle("PruebaBoton");
+        setMaximumSize(new java.awt.Dimension(500, 250));
+        setMinimumSize(new java.awt.Dimension(500, 250));
+        setPreferredSize(new java.awt.Dimension(500, 250));
+        setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setMaximumSize(new java.awt.Dimension(400, 200));
-        jPanel1.setMinimumSize(new java.awt.Dimension(400, 200));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 200));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setMaximumSize(new java.awt.Dimension(500, 250));
+        jPanel1.setMinimumSize(new java.awt.Dimension(500, 250));
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 250));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("0");
-        jLabel1.setMaximumSize(new java.awt.Dimension(390, 150));
-        jLabel1.setMinimumSize(new java.awt.Dimension(390, 150));
-        jLabel1.setPreferredSize(new java.awt.Dimension(390, 150));
+        jLabel1.setMaximumSize(new java.awt.Dimension(450, 150));
+        jLabel1.setMinimumSize(new java.awt.Dimension(450, 150));
+        jLabel1.setPreferredSize(new java.awt.Dimension(450, 150));
         jPanel1.add(jLabel1);
 
+        colorChangingButton1.setBackground(new java.awt.Color(51, 51, 51));
+        colorChangingButton1.setForeground(new java.awt.Color(255, 255, 255));
         colorChangingButton1.setText("PÚLSAME");
+        colorChangingButton1.setDefaultColor(new java.awt.Color(51, 51, 51));
+        colorChangingButton1.setMaximumSize(new java.awt.Dimension(450, 23));
+        colorChangingButton1.setMinimumSize(new java.awt.Dimension(450, 23));
+        colorChangingButton1.setPreferredSize(new java.awt.Dimension(450, 23));
+        colorChangingButton1.setSecondaryColor(new java.awt.Color(0, 51, 102));
         colorChangingButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChangingButton1ActionPerformed(evt);
@@ -44,16 +58,7 @@ public class PruebaBoton extends javax.swing.JFrame {
         });
         jPanel1.add(colorChangingButton1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

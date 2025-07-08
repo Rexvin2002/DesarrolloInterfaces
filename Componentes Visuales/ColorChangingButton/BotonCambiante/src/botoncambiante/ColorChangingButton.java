@@ -1,15 +1,18 @@
-
-package Unidad03.BotonCambiante;
+package botoncambiante;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 public class ColorChangingButton extends JButton {
-    private Color defaultColor = new JButton().getBackground(); // Color predeterminado del botón
-    private Color secondaryColor = Color.RED; // Color secundario por defecto
-    private boolean changeColor = true; // Determina si el color cambiará o no
-    private boolean isDefault = true; // Estado actual del botón
+
+    private Color defaultColor = new JButton().getBackground();
+    private Color secondaryColor = Color.RED; 
+    private boolean changeColor = true; 
+    private boolean isDefault = true; 
 
     public ColorChangingButton() {
         this.setBackground(defaultColor);
@@ -18,8 +21,21 @@ public class ColorChangingButton extends JButton {
                 toggleColor();
             }
         });
+        
+        // Añadir MouseListener para cambiar el cursor
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e) {
+                setCursor(Cursor.getDefaultCursor());
+            }
+        });
     }
-    
+
     private void toggleColor() {
         if (isDefault) {
             setBackground(secondaryColor);
@@ -53,5 +69,4 @@ public class ColorChangingButton extends JButton {
     public void setChangeColor(boolean changeColor) {
         this.changeColor = changeColor;
     }
-    
 }

@@ -21,6 +21,7 @@ public class PruebaLimitedTextField extends javax.swing.JFrame {
         limitedJTextField5 = new component.LimitedJTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PruebaLimitedTextField");
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(220, 218));
