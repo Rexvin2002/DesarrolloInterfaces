@@ -16,17 +16,31 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jButtonIngresarCantidad = new javax.swing.JButton();
         jLabelPesetas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor de Euros a Pesetas");
-        setSize(new java.awt.Dimension(300, 400));
+        setMaximumSize(new java.awt.Dimension(350, 350));
+        setMinimumSize(new java.awt.Dimension(350, 350));
+        setPreferredSize(new java.awt.Dimension(350, 350));
+        setSize(new java.awt.Dimension(350, 300));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jPanel1.setMaximumSize(new java.awt.Dimension(350, 350));
+        jPanel1.setMinimumSize(new java.awt.Dimension(350, 350));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 350));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 40));
+
+        jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("CONVERSOR DE EUROS A PESETAS");
+        jLabelTitulo.setMaximumSize(new java.awt.Dimension(300, 50));
+        jLabelTitulo.setMinimumSize(new java.awt.Dimension(300, 50));
+        jLabelTitulo.setPreferredSize(new java.awt.Dimension(300, 50));
+        jPanel1.add(jLabelTitulo);
 
         jButtonIngresarCantidad.setText("INGRESA CANTIDAD");
         jButtonIngresarCantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -34,37 +48,17 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
                 jButtonIngresarCantidadActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonIngresarCantidad);
 
+        jLabelPesetas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabelPesetas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPesetas.setText("  ");
+        jLabelPesetas.setMaximumSize(new java.awt.Dimension(300, 50));
+        jLabelPesetas.setMinimumSize(new java.awt.Dimension(300, 50));
+        jLabelPesetas.setPreferredSize(new java.awt.Dimension(300, 50));
+        jPanel1.add(jLabelPesetas);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
-                .addComponent(jButtonIngresarCantidad)
-                .addGap(0, 81, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                .addContainerGap(15, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelPesetas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
-                .addGap(80, 80, 80)
-                .addComponent(jButtonIngresarCantidad)
-                .addGap(50, 50, 50)
-                .addComponent(jLabelPesetas)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,5 +90,6 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
     private javax.swing.JButton jButtonIngresarCantidad;
     private javax.swing.JLabel jLabelPesetas;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

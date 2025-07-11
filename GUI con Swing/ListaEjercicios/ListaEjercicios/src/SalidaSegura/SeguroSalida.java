@@ -25,20 +25,46 @@ public class SeguroSalida extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jLabelMensaje = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jButtonVolver = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Seguro Salida");
+        setMaximumSize(new java.awt.Dimension(230, 140));
+        setMinimumSize(new java.awt.Dimension(230, 140));
+        setPreferredSize(new java.awt.Dimension(230, 140));
         setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel2.setMaximumSize(new java.awt.Dimension(230, 50));
+        jPanel2.setMinimumSize(new java.awt.Dimension(230, 50));
+        jPanel2.setPreferredSize(new java.awt.Dimension(230, 50));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
 
         jLabelMensaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMensaje.setText("¿Está seguro que desea salir?");
+        jLabelMensaje.setMaximumSize(new java.awt.Dimension(230, 40));
+        jLabelMensaje.setMinimumSize(new java.awt.Dimension(230, 40));
+        jLabelMensaje.setPreferredSize(new java.awt.Dimension(230, 40));
+        jPanel2.add(jLabelMensaje);
+
+        getContentPane().add(jPanel2);
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(230, 50));
+        jPanel1.setMinimumSize(new java.awt.Dimension(230, 50));
+        jPanel1.setPreferredSize(new java.awt.Dimension(230, 50));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 0));
 
         jButtonVolver.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVolver.setText("VOLVER");
         jButtonVolver.setBorder(null);
+        jButtonVolver.setMaximumSize(new java.awt.Dimension(60, 20));
+        jButtonVolver.setMinimumSize(new java.awt.Dimension(60, 20));
+        jButtonVolver.setPreferredSize(new java.awt.Dimension(60, 20));
         jButtonVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonVolverMouseEntered(evt);
@@ -55,12 +81,16 @@ public class SeguroSalida extends javax.swing.JDialog {
                 jButtonVolverActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonVolver);
 
         jButtonSalir.setBackground(new java.awt.Color(204, 0, 0));
         jButtonSalir.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalir.setText("SALIR");
         jButtonSalir.setBorder(null);
+        jButtonSalir.setMaximumSize(new java.awt.Dimension(60, 20));
+        jButtonSalir.setMinimumSize(new java.awt.Dimension(60, 20));
+        jButtonSalir.setPreferredSize(new java.awt.Dimension(60, 20));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonSalirMouseEntered(evt);
@@ -77,32 +107,9 @@ public class SeguroSalida extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonSalir);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabelMensaje)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,5 +179,7 @@ public class SeguroSalida extends javax.swing.JDialog {
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabelMensaje;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

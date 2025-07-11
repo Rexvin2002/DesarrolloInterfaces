@@ -19,17 +19,39 @@ public class IngresarCantidad extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTitulo = new javax.swing.JLabel();
         jLabelCantidad = new javax.swing.JLabel();
         jTextFieldEuros = new javax.swing.JTextField();
-        jLabelTitulo = new javax.swing.JLabel();
         jButtonConvertirAPesetas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabelCantidad.setText("Cantidad en euros:");
+        setTitle("Convertidor de Pesetas");
+        setMaximumSize(new java.awt.Dimension(250, 250));
+        setMinimumSize(new java.awt.Dimension(250, 250));
+        setPreferredSize(new java.awt.Dimension(250, 250));
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
 
         jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("INGRESAR CANTIDAD");
+        jLabelTitulo.setMaximumSize(new java.awt.Dimension(180, 25));
+        jLabelTitulo.setMinimumSize(new java.awt.Dimension(180, 25));
+        jLabelTitulo.setPreferredSize(new java.awt.Dimension(180, 25));
+        getContentPane().add(jLabelTitulo);
+
+        jLabelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCantidad.setText("Cantidad en euros:");
+        jLabelCantidad.setMaximumSize(new java.awt.Dimension(180, 25));
+        jLabelCantidad.setMinimumSize(new java.awt.Dimension(180, 25));
+        jLabelCantidad.setPreferredSize(new java.awt.Dimension(180, 25));
+        getContentPane().add(jLabelCantidad);
+
+        jTextFieldEuros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldEuros.setMaximumSize(new java.awt.Dimension(180, 30));
+        jTextFieldEuros.setMinimumSize(new java.awt.Dimension(180, 30));
+        jTextFieldEuros.setPreferredSize(new java.awt.Dimension(180, 30));
+        getContentPane().add(jTextFieldEuros);
 
         jButtonConvertirAPesetas.setText("CONVERTIR A PESETAS");
         jButtonConvertirAPesetas.addActionListener(new java.awt.event.ActionListener() {
@@ -37,34 +59,7 @@ public class IngresarCantidad extends javax.swing.JDialog {
                 jButtonConvertirAPesetasActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonConvertirAPesetas)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelCantidad)
-                        .addComponent(jTextFieldEuros)))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
-                .addGap(25, 25, 25)
-                .addComponent(jLabelCantidad)
-                .addGap(20, 20, 20)
-                .addComponent(jTextFieldEuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(jButtonConvertirAPesetas)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButtonConvertirAPesetas);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

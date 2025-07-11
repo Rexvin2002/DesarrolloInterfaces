@@ -3,9 +3,6 @@ package AccesoDeportivo;
 /**
  * Kevin Gómez Valderas 2ºDAM
  */
-// import Unidad01.ListaEjercicios.Ejercicio10.Menu;
-// import java.awt.BorderLayout;
-
 public class AccesoDeportivo extends javax.swing.JFrame {
 
     private Error e;
@@ -17,11 +14,7 @@ public class AccesoDeportivo extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
-        // Menu m = new Menu();
-        // m.setSize(350, 50);
-
         jPanelMenuDeportivo.removeAll();
-        // jPanelMenuDeportivo.add(m, BorderLayout.CENTER);
         jPanelMenuDeportivo.revalidate();
         jPanelMenuDeportivo.repaint();
     }

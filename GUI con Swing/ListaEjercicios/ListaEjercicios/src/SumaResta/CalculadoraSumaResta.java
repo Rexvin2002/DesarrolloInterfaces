@@ -16,13 +16,36 @@ public class CalculadoraSumaResta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jTextFieldN1 = new javax.swing.JTextField();
-        jTextFieldN2 = new javax.swing.JTextField();
         jButtonSumar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jTextFieldN2 = new javax.swing.JTextField();
         jButtonRestar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jLabelResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(440, 200));
+        setMinimumSize(new java.awt.Dimension(440, 200));
+        setPreferredSize(new java.awt.Dimension(440, 200));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(420, 100));
+        jPanel3.setMinimumSize(new java.awt.Dimension(420, 100));
+        jPanel3.setPreferredSize(new java.awt.Dimension(420, 100));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 20));
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(200, 100));
+        jPanel1.setMinimumSize(new java.awt.Dimension(200, 100));
+        jPanel1.setPreferredSize(new java.awt.Dimension(200, 100));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 0, 10));
+
+        jTextFieldN1.setMaximumSize(new java.awt.Dimension(200, 22));
+        jTextFieldN1.setMinimumSize(new java.awt.Dimension(200, 22));
+        jTextFieldN1.setPreferredSize(new java.awt.Dimension(200, 22));
+        jPanel1.add(jTextFieldN1);
 
         jButtonSumar.setText("SUMAR");
         jButtonSumar.addActionListener(new java.awt.event.ActionListener() {
@@ -30,6 +53,19 @@ public class CalculadoraSumaResta extends javax.swing.JFrame {
                 jButtonSumarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonSumar);
+
+        jPanel3.add(jPanel1);
+
+        jPanel2.setMaximumSize(new java.awt.Dimension(200, 100));
+        jPanel2.setMinimumSize(new java.awt.Dimension(200, 100));
+        jPanel2.setPreferredSize(new java.awt.Dimension(200, 100));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 10));
+
+        jTextFieldN2.setMaximumSize(new java.awt.Dimension(200, 22));
+        jTextFieldN2.setMinimumSize(new java.awt.Dimension(200, 22));
+        jTextFieldN2.setPreferredSize(new java.awt.Dimension(200, 22));
+        jPanel2.add(jTextFieldN2);
 
         jButtonRestar.setText("RESTAR");
         jButtonRestar.addActionListener(new java.awt.event.ActionListener() {
@@ -37,42 +73,25 @@ public class CalculadoraSumaResta extends javax.swing.JFrame {
                 jButtonRestarActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonRestar);
 
+        jPanel3.add(jPanel2);
+
+        getContentPane().add(jPanel3);
+
+        jPanel4.setMaximumSize(new java.awt.Dimension(400, 50));
+        jPanel4.setMinimumSize(new java.awt.Dimension(400, 50));
+        jPanel4.setPreferredSize(new java.awt.Dimension(400, 50));
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+
+        jLabelResultado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelResultado.setText("El resultado de la operación es: ");
+        jLabelResultado.setMaximumSize(new java.awt.Dimension(400, 50));
+        jLabelResultado.setMinimumSize(new java.awt.Dimension(400, 50));
+        jLabelResultado.setPreferredSize(new java.awt.Dimension(400, 50));
+        jPanel4.add(jLabelResultado);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonSumar)
-                            .addComponent(jTextFieldN1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldN2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonRestar)))
-                    .addComponent(jLabelResultado))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldN2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSumar)
-                    .addComponent(jButtonRestar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelResultado)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel4);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,6 +151,10 @@ public class CalculadoraSumaResta extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRestar;
     private javax.swing.JButton jButtonSumar;
     private javax.swing.JLabel jLabelResultado;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextFieldN1;
     private javax.swing.JTextField jTextFieldN2;
     // End of variables declaration//GEN-END:variables
