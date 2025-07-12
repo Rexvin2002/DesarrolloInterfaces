@@ -1,13 +1,16 @@
-
 package AccesoProgramas.Ejercicio10_1;
 
 /**
  * Kevin Gómez Valderas 2ºDAM
  */
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Seleccion extends javax.swing.JFrame {
-    
+
     public Seleccion() {
         initComponents();
         setLocationRelativeTo(null);
@@ -180,40 +183,57 @@ public class Seleccion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMinisterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinisterioActionPerformed
-        ejecutarJar("AppMinisterio.jar");
+        ejecutarJar("src\\AccesoProgramas\\Ejercicio10_1\\Programas\\AppMinisterio.jar");
     }//GEN-LAST:event_jButtonMinisterioActionPerformed
 
     private void jButtonDeportivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeportivoActionPerformed
-        ejecutarJar("AccesoDeportivo.jar");
+        ejecutarJar("src\\AccesoProgramas\\Ejercicio10_1\\Programas\\AccesoDeportivo.jar");
     }//GEN-LAST:event_jButtonDeportivoActionPerformed
 
     private void jButtonMezcladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMezcladorActionPerformed
-        ejecutarJar("MezcladorNombres.jar");
+        ejecutarJar("src\\AccesoProgramas\\Ejercicio10_1\\Programas\\MezcladorNombres.jar");
     }//GEN-LAST:event_jButtonMezcladorActionPerformed
 
     private void jButtonImitadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImitadorActionPerformed
-        ejecutarJar("Imitador.jar");
+        ejecutarJar("src\\AccesoProgramas\\Ejercicio10_1\\Programas\\Imitador.jar");
     }//GEN-LAST:event_jButtonImitadorActionPerformed
 
     private void ejecutarJar(String nombreJar) {
         String nombre = jTextFieldNombre.getText().trim();
         String apellidos = jTextFieldApellidos.getText().trim();
-        String comando = "java -jar " + nombreJar;
-        
-        if (!nombre.isEmpty() || !apellidos.isEmpty()) {
-            comando += " " + nombre + " " + apellidos;
+
+        // Verify JAR exists
+        File jarFile = new File(nombreJar);
+        if (!jarFile.exists()) {
+            JOptionPane.showMessageDialog(this,
+                    "El archivo " + nombreJar + " no se encuentra",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        
+
+        // Build command safely
+        List<String> command = new ArrayList<>();
+        command.add("java");
+        command.add("-jar");
+        command.add(nombreJar);
+
+        if (!nombre.isEmpty()) {
+            command.add(nombre);
+        }
+        if (!apellidos.isEmpty()) {
+            command.add(apellidos);
+        }
+
         try {
-            Runtime.getRuntime().exec(comando);
-            dispose(); // Cierra la ventana actual
+            new ProcessBuilder(command).start();
+            dispose();
         } catch (IOException ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                "Error al ejecutar el programa: " + ex.getMessage(),
-                "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,
+                    "Error al ejecutar: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

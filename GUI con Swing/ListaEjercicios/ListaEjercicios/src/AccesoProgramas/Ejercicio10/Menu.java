@@ -1,11 +1,11 @@
 
 package AccesoProgramas.Ejercicio10;
 
-import javax.swing.JFrame;
-
 /**
  * Kevin Gómez Valderas 2ºDAM
  */
+import javax.swing.JFrame;
+
 public class Menu extends javax.swing.JPanel {
 
     private Seleccion s;

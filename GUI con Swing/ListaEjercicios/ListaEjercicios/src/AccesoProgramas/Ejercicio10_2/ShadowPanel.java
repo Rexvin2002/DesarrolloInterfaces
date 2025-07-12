@@ -1,5 +1,8 @@
 package AccesoProgramas.Ejercicio10_2;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;

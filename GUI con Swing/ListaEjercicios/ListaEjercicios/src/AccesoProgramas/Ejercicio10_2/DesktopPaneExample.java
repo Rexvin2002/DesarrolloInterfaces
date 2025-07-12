@@ -1,13 +1,11 @@
 package AccesoProgramas.Ejercicio10_2;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DesktopPaneExample extends JFrame {
 
-    private JDesktopPane desktopPane;
+    private final JDesktopPane DESKTOPPANE;
 
     public DesktopPaneExample() {
         // Configuración del JFrame principal
@@ -16,8 +14,8 @@ public class DesktopPaneExample extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Crear el JDesktopPane
-        desktopPane = new JDesktopPane();
-        add(desktopPane);
+        DESKTOPPANE = new JDesktopPane();
+        add(DESKTOPPANE);
 
         // Crear la barra de menú
         JMenuBar menuBar = new JMenuBar();
@@ -31,11 +29,8 @@ public class DesktopPaneExample extends JFrame {
         fileMenu.add(newWindowItem);
 
         // Acción para abrir una nueva ventana interna
-        newWindowItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createInternalFrame();
-            }
+        newWindowItem.addActionListener((ActionEvent e) -> {
+            createInternalFrame();
         });
 
         // Añadir la barra de menú al JFrame
@@ -49,12 +44,12 @@ public class DesktopPaneExample extends JFrame {
         internalFrame.setVisible(true);
 
         // Añadir el JInternalFrame al JDesktopPane
-        desktopPane.add(internalFrame);
+        DESKTOPPANE.add(internalFrame);
 
         try {
             internalFrame.setSelected(true); // Selecciona la nueva ventana
         } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
         }
     }
 
