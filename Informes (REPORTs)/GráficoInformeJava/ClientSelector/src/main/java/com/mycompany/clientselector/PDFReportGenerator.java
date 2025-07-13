@@ -1,10 +1,12 @@
 package com.mycompany.clientselector;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -19,7 +21,7 @@ public class PDFReportGenerator {
             ResultSet rs = DatabaseConnection.getClienteById(idCliente);
             if (rs.next()) {
                 // Crear el archivo PDF
-                String fileName = "C:\\Users\\kgv17\\Desktop\\" + idCliente + ".pdf";
+                String fileName = "src\\main\\java\\com\\mycompany\\clientselector\\pdf\\" + idCliente + ".pdf";
                 Document document = new Document();
                 PdfWriter.getInstance(document, new FileOutputStream(fileName));
 
@@ -42,14 +44,14 @@ public class PDFReportGenerator {
 
                 System.out.println("Informe generado con éxito: " + fileName);
             } else {
-                System.out.println("No se encontró el cliente con ID: " + idCliente);
+                System.err.println("No se encontró el cliente con ID: " + idCliente);
             }
         } catch (SQLException e) {
-            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
+            System.err.println("Error al acceder a la base de datos: " + e.getMessage());
         } catch (DocumentException e) {
-            System.out.println("Error al generar el informe: " + e.getMessage());
-        } catch (FileNotFoundException e){
-            System.out.println("Error al encontrar el informe: " + e.getMessage());
+            System.err.println("Error al generar el informe: " + e.getMessage());
+        } catch (FileNotFoundException e) {
+            System.err.println("Error al encontrar el informe: " + e.getMessage());
         }
     }
 }

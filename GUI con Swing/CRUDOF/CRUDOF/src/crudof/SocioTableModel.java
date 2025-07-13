@@ -1,57 +1,60 @@
-
-package Unidad01.CRUDOF;
+package crudof;
 
 /**
- *
- * @author kgv17
+ * Kevin Gómez Valderas 2ºDAM
  */
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SocioTableModel extends AbstractTableModel {
-    private String[] columnNames = { "Name", "Age", "Monthly Fee", "Membership Type" };
-    private List<Socio> socios;
+
+    private final String[] NOMBRECOLUMNAS = {"Name", "Age", "Monthly Fee", "Membership Type"};
+    private final List<Socio> SOCIOS;
 
     public SocioTableModel() {
-        socios = new ArrayList<>();
+        SOCIOS = new ArrayList<>();
     }
 
     @Override
     public int getRowCount() {
-        return socios.size();
+        return SOCIOS.size();
     }
 
     @Override
     public int getColumnCount() {
-        return columnNames.length;
+        return NOMBRECOLUMNAS.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Socio socio = socios.get(rowIndex);
-        switch (columnIndex) {
-            case 0: return socio.getName();
-            case 1: return socio.getAge();
-            case 2: return socio.getMonthlyFee();
-            case 3: return socio.getMembershipType();
-            default: return null;
-        }
+        Socio socio = SOCIOS.get(rowIndex);
+        return switch (columnIndex) {
+            case 0 -> socio.getName();
+            case 1 -> socio.getAge();
+            case 2 -> socio.getMonthlyFee();
+            case 3 -> socio.getMembershipType();
+            default -> null;
+        };
     }
 
     @Override
     public String getColumnName(int column) {
-        return columnNames[column];
+        return NOMBRECOLUMNAS[column];
     }
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Socio socio = socios.get(rowIndex);
+        Socio socio = SOCIOS.get(rowIndex);
         switch (columnIndex) {
-            case 0: socio.setName((String) aValue); break;
-            case 1: socio.setAge((int) aValue); break;
-            case 2: socio.setMonthlyFee((double) aValue); break;
-            case 3: socio.setMembershipType((String) aValue); break;
+            case 0 ->
+                socio.setName((String) aValue);
+            case 1 ->
+                socio.setAge((int) aValue);
+            case 2 ->
+                socio.setMonthlyFee((double) aValue);
+            case 3 ->
+                socio.setMembershipType((String) aValue);
         }
         fireTableCellUpdated(rowIndex, columnIndex);
     }
@@ -62,27 +65,27 @@ public class SocioTableModel extends AbstractTableModel {
     }
 
     public void addSocio(Socio socio) {
-        socios.add(socio);
-        fireTableRowsInserted(socios.size() - 1, socios.size() - 1);
+        SOCIOS.add(socio);
+        fireTableRowsInserted(SOCIOS.size() - 1, SOCIOS.size() - 1);
     }
 
     public void removeSocio(int rowIndex) {
-        socios.remove(rowIndex);
+        SOCIOS.remove(rowIndex);
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
 
     public Socio getSocio(int rowIndex) {
-        return socios.get(rowIndex);
+        return SOCIOS.get(rowIndex);
     }
 
     public void updateSocio(int rowIndex, Socio socio) {
-        socios.set(rowIndex, socio);
+        SOCIOS.set(rowIndex, socio);
         fireTableRowsUpdated(rowIndex, rowIndex);
     }
 
     public List<Socio> filterByMembershipType(String membershipType) {
         List<Socio> filteredSocios = new ArrayList<>();
-        for (Socio socio : socios) {
+        for (Socio socio : SOCIOS) {
             if (socio.getMembershipType().equalsIgnoreCase(membershipType)) {
                 filteredSocios.add(socio);
             }
@@ -91,8 +94,7 @@ public class SocioTableModel extends AbstractTableModel {
     }
 
     public void sortByName() {
-        socios.sort((s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
+        SOCIOS.sort((s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
         fireTableDataChanged();
     }
 }
-

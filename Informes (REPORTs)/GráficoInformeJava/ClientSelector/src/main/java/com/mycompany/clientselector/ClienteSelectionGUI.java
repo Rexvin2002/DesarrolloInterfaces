@@ -1,6 +1,8 @@
-
 package com.mycompany.clientselector;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -8,15 +10,12 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author kgv17
- */
 public class ClienteSelectionGUI {
+
     public static void main(String[] args) throws JRException {
         DatabaseConnection.connect();
 
-        String archivo = "C:\\Users\\kgv17\\Documents\\NetBeansProjects\\JavaClientSelector\\src\\informes\\Grafico.jrxml";
+        String archivo = "src\\main\\java\\com\\mycompany\\clientselector\\Ejercicio02\\Grafico.jrxml";
         JasperReport jr = JasperCompileManager.compileReport(archivo);
         JasperPrint jp = JasperFillManager.fillReport(jr, null);
         JasperViewer.viewReport(jp);

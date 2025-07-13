@@ -1,15 +1,14 @@
 package com.mycompany.clientselector;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author kgv17
- */
 public class DatabaseConnection {
 
     public static Connection connect() {
@@ -19,7 +18,7 @@ public class DatabaseConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Definir la URL de conexión
-            String url = "jdbc:mysql://localhost/clientestrabajosempleados";
+            String url = "jdbc:mysql://localhost/club_socios";
             String usuario = "root"; // Reemplazar con el nombre de usuario de la base de datos
             String contrasena = "passwd"; // Reemplazar con la contraseña de la base de datos
 
@@ -27,9 +26,9 @@ public class DatabaseConnection {
             conn = DriverManager.getConnection(url, usuario, contrasena);
             System.out.println("Conexión exitosa");
         } catch (SQLException e) {
-            System.out.println("Error en la conexión: " + e.getMessage());
+            System.err.println("Error en la conexión: " + e.getMessage());
         } catch (ClassNotFoundException e) {
-            System.out.println("Driver no encontrado: " + e.getMessage());
+            System.err.println("Driver no encontrado: " + e.getMessage());
         }
         return conn;
     }
@@ -43,11 +42,11 @@ public class DatabaseConnection {
             PreparedStatement pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = pstmt.executeQuery();
         } catch (SQLException e) {
-            System.out.println("Error al obtener clientes: " + e.getMessage());
+            System.err.println("Error al obtener clientes: " + e.getMessage());
         }
         return rs;
     }
-    
+
     // Método para obtener información de un cliente específico
     public static ResultSet getClienteById(int idCliente) {
         String sql = "SELECT * FROM Cliente WHERE IDCliente = ?";
@@ -58,7 +57,7 @@ public class DatabaseConnection {
             pstmt.setInt(1, idCliente);
             rs = pstmt.executeQuery();
         } catch (SQLException e) {
-            System.out.println("Error al obtener cliente: " + e.getMessage());
+            System.err.println("Error al obtener cliente: " + e.getMessage());
         }
         return rs;
     }

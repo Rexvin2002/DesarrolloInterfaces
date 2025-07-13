@@ -1,9 +1,11 @@
 package com.mycompany.clientselector;
 
+/**
+ * Kevin Gómez Valderas 2ºDAM
+ */
 import java.io.File;
 import java.sql.Connection;
 import java.util.HashMap;
-
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -11,12 +13,8 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 
-/**
- * Generador de informes con JasperReports.
- * 
- * @author kgv17
- */
 public class ClientSelector {
+
     public static void main(String[] args) {
         try {
             // Establecer la conexión a la base de datos
@@ -27,7 +25,7 @@ public class ClientSelector {
             new File(outputDir).mkdirs();
 
             // Directorio base para subinformes (relativo al directorio de trabajo)
-            String baseDir = "src/main/java/com/mycompany/clientselector/Ejercicio02/";
+            String baseDir = "src\\main\\java\\com\\mycompany\\clientselector\\Ejercicio02\\";
 
             /* 
                 // Compilar subinformes
@@ -48,8 +46,7 @@ public class ClientSelector {
                     System.err.println("Error: Empleados.jasper no se generó correctamente.");
                     return;
                 }
-            */
-
+             */
             // Compilar informe principal
             JasperReport jasperReport = JasperCompileManager.compileReport(baseDir + "Grafico.jrxml");
 
@@ -67,7 +64,6 @@ public class ClientSelector {
             System.out.println("Informe generado correctamente: " + outputPath);
         } catch (JRException e) {
             System.err.println("Error al generar el informe: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }
