@@ -134,7 +134,6 @@ public class SeguroSalida extends javax.swing.JDialog {
 
     private void jButtonVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVolverMousePressed
         jButtonVolver.setBackground(Color.GRAY); // Cambiar color al presionar el botón
-        // Cambiar la escala del botón al presionar
     }//GEN-LAST:event_jButtonVolverMousePressed
 
     private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered

@@ -9,10 +9,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro extends javax.swing.JDialog {
 
-    private Exito ex;
-    private final Error ER;
-    private AñadirHijo ah;
-    public static LogicaPersonas logicaPersonas = new LogicaPersonas();
+    private final AñadirHijo AÑADIRHIJO = new AñadirHijo((Frame) getParent(), true);
+    public final static LogicaPersonas LOGICAPERSONAS = new LogicaPersonas();
+    private final Exito EXITO1 = new Exito((Frame) this.getParent(), true);
+    private final Error ERROR3 = new Error((Frame) this.getParent(), true, "Por favor complete todos los campos.");
 
     public Registro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -20,8 +20,6 @@ public class Registro extends javax.swing.JDialog {
         setLocationRelativeTo(null);
 
         refrescarTabla();
-
-        ER = new Error((Frame) this.getParent(), true, "Por favor complete todos los campos.");
     }
 
     @SuppressWarnings("unchecked")
@@ -293,7 +291,7 @@ public class Registro extends javax.swing.JDialog {
         jTableTabla.setModel(modeloTabla);
 
         // Coje la lista de la clase LogicaNegocio y añade los clientes a la tabla
-        List<Persona> listaPersonas = logicaPersonas.getListaPersonas();
+        List<Persona> listaPersonas = LOGICAPERSONAS.getListaPersonas();
         for (Persona persona : listaPersonas) {
             modeloTabla.addRow(persona.toArrayString());
         }
@@ -308,14 +306,13 @@ public class Registro extends javax.swing.JDialog {
     private void jButtonMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMatricularActionPerformed
 
         if (buttonGroup1.getSelection() == null) {
-            ER.setVisible(true);
+            ERROR3.setVisible(true);
 
         } else if (!jCheckBoxAnual.isSelected() && !jCheckBoxTrimestral.isSelected()) {
-            ER.setVisible(true);
+            ERROR3.setVisible(true);
 
         } else {
-            ex = new Exito((Frame) this.getParent(), true);
-            ex.setVisible(true);
+            EXITO1.setVisible(true);
             dispose();
         }
 
@@ -342,9 +339,7 @@ public class Registro extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVerOcultaTablaActionPerformed
 
     private void jButtonAñadirHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirHijoActionPerformed
-        // dispose();
-        ah = new AñadirHijo((Frame) getParent(), true);
-        ah.setVisible(true);
+        AÑADIRHIJO.setVisible(true);
         refrescarTabla();
     }//GEN-LAST:event_jButtonAñadirHijoActionPerformed
 

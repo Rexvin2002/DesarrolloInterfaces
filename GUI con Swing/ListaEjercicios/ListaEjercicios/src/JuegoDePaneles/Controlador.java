@@ -5,12 +5,12 @@ package JuegoDePaneles;
  */
 public class Controlador {
 
-    private final ContadorPulsaciones contadorPulsaciones = new ContadorPulsaciones();
-    private final VentanaPrincipal ventanaPrincipal;
+    private final ContadorPulsaciones CONTADORPULSACIONES = new ContadorPulsaciones();
+    private final VentanaPrincipal VENTANAPRINCIPAL;
 
     public Controlador(VentanaPrincipal ventanaPrincipal) {
 
-        this.ventanaPrincipal = ventanaPrincipal;
+        this.VENTANAPRINCIPAL = ventanaPrincipal;
         inicializarEventos();
 
     }
@@ -18,39 +18,39 @@ public class Controlador {
     private void inicializarEventos() {
 
         // Añade los métodos para mostrar los àneles a los JRadioButtons y al JComboBox
-        ventanaPrincipal.addAccionesAction(e -> ventanaPrincipal.mostrarPanelAcciones());
-        ventanaPrincipal.addResultadosAction(e -> ventanaPrincipal.mostrarPanelResultados());
-        ventanaPrincipal.addCambiarAccionAction(e -> ventanaPrincipal.mostrarAcciones());
-        ventanaPrincipal.addCambiarResultadoAction(e -> ventanaPrincipal.mostrarResultados());
+        VENTANAPRINCIPAL.addAccionesAction(e -> VENTANAPRINCIPAL.mostrarPanelAcciones());
+        VENTANAPRINCIPAL.addResultadosAction(e -> VENTANAPRINCIPAL.mostrarPanelResultados());
+        VENTANAPRINCIPAL.addCambiarAccionAction(e -> VENTANAPRINCIPAL.mostrarAcciones());
+        VENTANAPRINCIPAL.addCambiarResultadoAction(e -> VENTANAPRINCIPAL.mostrarResultados());
 
         // Añade el método para contar las pulsaciones de cada botón
-        ventanaPrincipal.addButtonB1Action(e -> gestionarPulsaciones(1));
-        ventanaPrincipal.addButtonB2Action(e -> gestionarPulsaciones(2));
-        ventanaPrincipal.addButtonB3Action(e -> gestionarPulsaciones(3));
-        ventanaPrincipal.addButtonB4Action(e -> gestionarPulsaciones(4));
+        VENTANAPRINCIPAL.addButtonB1Action(e -> gestionarPulsaciones(1));
+        VENTANAPRINCIPAL.addButtonB2Action(e -> gestionarPulsaciones(2));
+        VENTANAPRINCIPAL.addButtonB3Action(e -> gestionarPulsaciones(3));
+        VENTANAPRINCIPAL.addButtonB4Action(e -> gestionarPulsaciones(4));
 
         // Añade el método para obtener y añadir cada checkbox al TextPane
-        ventanaPrincipal.addCheckBoxLeer(e -> gestionarSelecciones());
-        ventanaPrincipal.addCheckBoxEscalada(e -> gestionarSelecciones());
-        ventanaPrincipal.addCheckBoxEsquiar(e -> gestionarSelecciones());
-        ventanaPrincipal.addCheckBoxSubmarinismo(e -> gestionarSelecciones());
+        VENTANAPRINCIPAL.addCheckBoxLeer(e -> gestionarSelecciones());
+        VENTANAPRINCIPAL.addCheckBoxEscalada(e -> gestionarSelecciones());
+        VENTANAPRINCIPAL.addCheckBoxEsquiar(e -> gestionarSelecciones());
+        VENTANAPRINCIPAL.addCheckBoxSubmarinismo(e -> gestionarSelecciones());
 
     }
 
     // Método para incrementar las pulsaciones en la Tabla de Pulsaciones
     private void gestionarPulsaciones(Integer boton) {
 
-        contadorPulsaciones.incrementarPulsaciones(boton);
-        Integer pulsaciones = contadorPulsaciones.getPulsacionesBoton(boton);
-        ventanaPrincipal.actualizarPulsaciones(boton, pulsaciones);
+        CONTADORPULSACIONES.incrementarPulsaciones(boton);
+        Integer pulsaciones = CONTADORPULSACIONES.getPulsacionesBoton(boton);
+        VENTANAPRINCIPAL.actualizarPulsaciones(boton, pulsaciones);
 
     }
 
     // Método para gestionar la selección de Checkboxs y actualizar el TextPane
     private void gestionarSelecciones() {
 
-        String selecciones = ventanaPrincipal.obtenerSelecciones();
-        ventanaPrincipal.actualizarTextPane(selecciones);
+        String selecciones = VENTANAPRINCIPAL.obtenerSelecciones();
+        VENTANAPRINCIPAL.actualizarTextPane(selecciones);
 
     }
 

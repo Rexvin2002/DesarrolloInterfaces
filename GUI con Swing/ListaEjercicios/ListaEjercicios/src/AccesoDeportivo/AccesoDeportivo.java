@@ -5,10 +5,10 @@ package AccesoDeportivo;
  */
 public class AccesoDeportivo extends javax.swing.JFrame {
 
-    private Error e;
     private final String USUARIO = "user";
     private final String CONTRASEÑA = "passwd";
-    private Registro r;
+    private final Registro REGISTRO = new Registro(this, true);
+    private final Error ERROR1 = new Error(this, true, "El usuario o la contraseña son incorrectos.");
 
     public AccesoDeportivo() {
         initComponents();
@@ -131,13 +131,11 @@ public class AccesoDeportivo extends javax.swing.JFrame {
                 || !this.jTextFieldUsuario.getText().equals(this.USUARIO)
                 || !contraseñaIngresada.equals(this.CONTRASEÑA)) {
 
-            e = new Error(this, true, "El usuario o la contraseña son incorrectos.");
-            e.setVisible(true);
+            ERROR1.setVisible(true);
 
         } else {
             dispose();
-            r = new Registro(this, true);
-            r.setVisible(true);
+            REGISTRO.setVisible(true);
         }
 
     }//GEN-LAST:event_jToggleButtonAccederActionPerformed

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class ShadowPanel extends JPanel {
+
     private static final int SHADOW_SIZE = 10; // Tamaño de la sombra
 
     public ShadowPanel() {
@@ -23,7 +24,7 @@ public class ShadowPanel extends JPanel {
         // Crear la sombra
         BufferedImage shadowImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2dShadow = shadowImage.createGraphics();
-        
+
         // Establecer el color de la sombra
         g2dShadow.setColor(new Color(0, 0, 0, 50)); // Color negro con 50 de opacidad
         g2dShadow.fillRect(0, 0, getWidth(), getHeight());
@@ -33,7 +34,7 @@ public class ShadowPanel extends JPanel {
 
         // Limpia el Graphics2D para dibujar el contenido del panel
         g2dShadow.dispose();
-        
+
         // Dibuja el contenido normal del panel
         g2d.setColor(Color.LIGHT_GRAY);
         g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -49,4 +50,3 @@ public class ShadowPanel extends JPanel {
         frame.setVisible(true);
     }
 }
-

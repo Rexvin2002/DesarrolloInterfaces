@@ -1,4 +1,3 @@
-
 package AccesoProgramas.Ejercicio10;
 
 /**
@@ -16,7 +15,7 @@ public class Seleccion extends javax.swing.JFrame {
     private final AccesoDeportivo ad;
     private final AppMinisterio am;
     private final Imitador i;
-    
+
     public Seleccion() {
         initComponents();
         setLocationRelativeTo(null);
@@ -222,7 +221,7 @@ public class Seleccion extends javax.swing.JFrame {
         ventana.setVisible(true);
         dispose();
     }
-    
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

@@ -7,11 +7,11 @@ import javax.swing.JFrame;
 
 public class Menu extends javax.swing.JPanel {
 
-    private JFrame f;
+    private final JFrame VENTANA;
 
-    public Menu(JFrame f) {
+    public Menu(JFrame VENTANA) {
         initComponents();
-        this.f = f;
+        this.VENTANA = VENTANA;
     }
 
     @SuppressWarnings("unchecked")
@@ -49,7 +49,7 @@ public class Menu extends javax.swing.JPanel {
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         // Mostrar el siguiente diálogo si es necesario
-        f.dispose();
+        VENTANA.dispose();
     }//GEN-LAST:event_jButtonMenuActionPerformed
 
 

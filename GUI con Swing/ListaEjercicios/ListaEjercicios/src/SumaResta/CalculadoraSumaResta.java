@@ -1,10 +1,10 @@
 package SumaResta;
 
-import javax.swing.JOptionPane;
-
 /**
  * Kevin Gómez Valderas 2ºDAM
  */
+import javax.swing.JOptionPane;
+
 public class CalculadoraSumaResta extends javax.swing.JFrame {
 
     public CalculadoraSumaResta() {

@@ -41,7 +41,6 @@ public class ColorPanel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 300));
         setMinimumSize(new java.awt.Dimension(550, 300));
-        setPreferredSize(new java.awt.Dimension(550, 300));
 
         jPanelMain.setMaximumSize(new java.awt.Dimension(550, 300));
         jPanelMain.setMinimumSize(new java.awt.Dimension(550, 300));

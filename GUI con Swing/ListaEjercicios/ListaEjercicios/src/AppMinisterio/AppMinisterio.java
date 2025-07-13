@@ -18,8 +18,8 @@ import javax.swing.table.JTableHeader;
 
 public class AppMinisterio extends javax.swing.JFrame {
 
-    private Formulario form;
-    private About about;
+    private final Formulario FORM = new Formulario(this, true);
+    private final About ABOUT = new About(this, true);
     private final JFileChooser JFC = new JFileChooser();
 
     public AppMinisterio() {
@@ -197,13 +197,12 @@ public class AppMinisterio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void jMenuItemRealizarEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRealizarEncuestaActionPerformed
-        form = new Formulario(this, true);
-        form.setVisible(true);
+        FORM.setVisible(true);
     }//GEN-LAST:event_jMenuItemRealizarEncuestaActionPerformed
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
-        this.about = new About(this, true);
-        this.about.setVisible(true);
+
+        ABOUT.setVisible(true);
     }//GEN-LAST:event_jMenuItemAyudaActionPerformed
 
     private void jMenuItemLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeerActionPerformed

@@ -5,7 +5,7 @@ package SalidaSegura;
  */
 public class SalirSeguro extends javax.swing.JFrame {
 
-    private SeguroSalida ss;
+    private SeguroSalida SEGUROSALIDA;
 
     public SalirSeguro() {
         initComponents();
@@ -25,7 +25,6 @@ public class SalirSeguro extends javax.swing.JFrame {
         setTitle("Salida Segura");
         setMaximumSize(new java.awt.Dimension(200, 150));
         setMinimumSize(new java.awt.Dimension(200, 150));
-        setPreferredSize(new java.awt.Dimension(200, 150));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -57,8 +56,8 @@ public class SalirSeguro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        ss = new SeguroSalida(this, true);
-        ss.setVisible(true);
+        SEGUROSALIDA = new SeguroSalida(this, true);
+        SEGUROSALIDA.setVisible(true);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     public static void main(String args[]) {

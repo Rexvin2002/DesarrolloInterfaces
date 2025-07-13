@@ -54,9 +54,6 @@ public class Imitador extends javax.swing.JFrame {
         setTitle("Imitador");
         setMinimumSize(new java.awt.Dimension(500, 400));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
             public void windowDeactivated(java.awt.event.WindowEvent evt) {
                 formWindowDeactivated(evt);
             }
@@ -461,10 +458,6 @@ public class Imitador extends javax.swing.JFrame {
     private void jSpinnerOriginalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerOriginalStateChanged
         jSpinnerEspejo.setValue(jSpinnerOriginal.getValue());
     }//GEN-LAST:event_jSpinnerOriginalStateChanged
-
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // s.setTitle("Todos para uno y uno para todos");
-    }//GEN-LAST:event_formWindowClosed
 
     private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
         dispose();

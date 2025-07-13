@@ -5,7 +5,7 @@ package ConversorEuroPesetas;
  */
 public class ConvertidorEuroPeseta extends javax.swing.JFrame {
 
-    private IngresarCantidad ic;
+    private IngresarCantidad INGRESARCANTIDAD;
 
     public ConvertidorEuroPeseta() {
         initComponents();
@@ -25,7 +25,6 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
         setTitle("Conversor de Euros a Pesetas");
         setMaximumSize(new java.awt.Dimension(350, 350));
         setMinimumSize(new java.awt.Dimension(350, 350));
-        setPreferredSize(new java.awt.Dimension(350, 350));
         setSize(new java.awt.Dimension(350, 300));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -64,9 +63,9 @@ public class ConvertidorEuroPeseta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIngresarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarCantidadActionPerformed
-        ic = new IngresarCantidad(this, true);
-        ic.setVisible(true);
-        jLabelPesetas.setText(String.valueOf(ic.resultado) + " Pesetas");
+        INGRESARCANTIDAD = new IngresarCantidad(this, true);
+        INGRESARCANTIDAD.setVisible(true);
+        jLabelPesetas.setText(String.valueOf(INGRESARCANTIDAD.resultado) + " Pesetas");
     }//GEN-LAST:event_jButtonIngresarCantidadActionPerformed
 
     public static void main(String args[]) {

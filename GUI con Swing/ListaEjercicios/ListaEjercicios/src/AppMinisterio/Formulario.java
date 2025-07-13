@@ -7,13 +7,13 @@ import javax.swing.JOptionPane;
 
 public class Formulario extends javax.swing.JDialog {
 
-    private final AppMinisterio MF;
+    private final AppMinisterio APPMINISTERIO;
 
     public Formulario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        MF = (AppMinisterio) parent;
+        APPMINISTERIO = (AppMinisterio) parent;
     }
 
     @SuppressWarnings("unchecked")
@@ -340,8 +340,8 @@ public class Formulario extends javax.swing.JDialog {
 
             Persona p = new Persona(profesion, hermanos, edad, sexo, deporte, compras, television, cine);
 
-            MF.añadirPersona(p);
-            MF.setVisible(true);
+            APPMINISTERIO.añadirPersona(p);
+            APPMINISTERIO.setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed

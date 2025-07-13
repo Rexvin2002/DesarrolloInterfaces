@@ -1,4 +1,3 @@
-
 package AccesoProgramas.Ejercicio10;
 
 /**
@@ -8,13 +7,15 @@ import javax.swing.JFrame;
 
 public class Menu extends javax.swing.JPanel {
 
-    private Seleccion s;
-    private JFrame f;
-    
-    public Menu(JFrame f) {
+    private final Seleccion SELECCION;
+    private final JFrame VENTANA;
+
+    public Menu(JFrame ventana) {
         initComponents();
-        this.f = f;
+        this.VENTANA = ventana;
+        this.SELECCION = new Seleccion();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,9 +51,8 @@ public class Menu extends javax.swing.JPanel {
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         // Mostrar el siguiente diálogo si es necesario
-        f.dispose();
-        s = new Seleccion();
-        s.setVisible(true);
+        VENTANA.dispose();
+        SELECCION.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
 
 

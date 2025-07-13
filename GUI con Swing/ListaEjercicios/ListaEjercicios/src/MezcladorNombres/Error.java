@@ -38,7 +38,6 @@ public class Error extends javax.swing.JDialog {
         setTitle("ERROR");
         setMaximumSize(new java.awt.Dimension(460, 220));
         setMinimumSize(new java.awt.Dimension(460, 220));
-        setPreferredSize(new java.awt.Dimension(460, 220));
         setSize(new java.awt.Dimension(450, 220));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 

@@ -10,7 +10,7 @@ import javax.swing.text.StyledDocument;
 
 public class Mezclador extends javax.swing.JFrame {
 
-    private Error e;
+    private final Error ERROR4 = new Error(this, true);
 
     public Mezclador() {
         initComponents();
@@ -52,7 +52,6 @@ public class Mezclador extends javax.swing.JFrame {
         setTitle("Mezclador de nombres");
         setMaximumSize(new java.awt.Dimension(450, 500));
         setMinimumSize(new java.awt.Dimension(450, 500));
-        setPreferredSize(new java.awt.Dimension(450, 500));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(450, 500));
@@ -157,8 +156,7 @@ public class Mezclador extends javax.swing.JFrame {
 
     private void jButtonMezclarActionPerformed(java.awt.event.ActionEvent evt) {
         if (jTextFieldPrimerNombre.getText().length() < 4 || jTextFieldSegundoNombre.getText().length() < 4) {
-            e = new Error(this, true);
-            e.setVisible(true);
+            ERROR4.setVisible(true);
             jTextFieldPrimerNombre.setText("");
             jTextFieldSegundoNombre.setText("");
         } else {

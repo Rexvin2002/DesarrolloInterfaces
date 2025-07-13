@@ -12,8 +12,8 @@ import javax.swing.SpinnerDateModel;
 
 public class AñadirHijo extends javax.swing.JDialog {
 
-    public final LogicaPersonas LOGICAPERSONAS = Registro.logicaPersonas;
-    private final Error ER;
+    public final LogicaPersonas LOGICAPERSONAS = Registro.LOGICAPERSONAS;
+    private final Error ERROR2 = new Error((Frame) getParent(), true, "Por favor, complete los campos.");
 
     public AñadirHijo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -26,8 +26,6 @@ public class AñadirHijo extends javax.swing.JDialog {
         calendar.set(2000, Calendar.JANUARY, 1); // Por ejemplo, fecha inicial
         jSpinnerFecha.setModel(new SpinnerDateModel(calendar.getTime(), null, null, Calendar.DAY_OF_MONTH));
         jSpinnerFecha.setEditor(new JSpinner.DateEditor(jSpinnerFecha, "dd/MM/yyyy"));
-
-        ER = new Error((Frame) getParent(), true, "Por favor, complete los campos.");
     }
 
     @SuppressWarnings("unchecked")
@@ -183,7 +181,7 @@ public class AñadirHijo extends javax.swing.JDialog {
 
         // Validar si el campo "nombre" está vacío
         if (nombre.isEmpty()) {
-            ER.setVisible(true);  // Mostrar mensaje de error
+            ERROR2.setVisible(true);  // Mostrar mensaje de error
         } else {
             // Si el nombre no está vacío, crear el objeto Persona y continuar
             Persona p = new Persona(nombre, apellidos, fecha, deporte, nivel);
