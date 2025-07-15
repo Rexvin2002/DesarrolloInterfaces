@@ -1,3 +1,55 @@
 Realizar el informe del enlace: https://adictosaltrabajo.com/2007/10/19/subreport/
 
 Subir el archivo .sql (para la creación de tablas e inserción de datos) y el informe y subinforme creados.
+
+BASE DE DATOS USADA:
+
+-- Tabla ALUMNO (ampliada)
+CREATE TABLE alumno (
+    idAlumno INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    apellidos VARCHAR(100),
+    fecha_nacimiento DATE,
+    direccion VARCHAR(200),
+    telefono VARCHAR(20)
+);
+
+-- Tabla CALIFICACION (ampliada)
+CREATE TABLE calificacion (
+    idCalificacion INT PRIMARY KEY,
+    idAlumno INT,
+    asignatura VARCHAR(100),
+    nota DECIMAL(4,2),
+    fecha DATE,
+    FOREIGN KEY (idAlumno) REFERENCES alumno(idAlumno)
+);
+
+INSERT INTO alumno (idAlumno, nombre, apellidos, fecha_nacimiento, direccion, telefono) VALUES
+(1, 'Juan', 'Pérez García', '2000-05-15', 'Calle Mayor 123, Madrid', '611223344'),
+(2, 'María', 'López Fernández', '2001-03-22', 'Avenida Libertad 45, Barcelona', '622334455'),
+(3, 'Carlos', 'Gómez Martínez', '1999-11-30', 'Plaza España 7, Valencia', '633445566'),
+(4, 'Ana', 'Rodríguez Sánchez', '2000-07-10', 'Calle Sol 12, Sevilla', '644556677'),
+(5, 'David', 'Hernández Jiménez', '2001-01-25', 'Paseo Marítimo 8, Málaga', '655667788');
+
+
+INSERT INTO calificacion (idCalificacion, idAlumno, asignatura, nota, fecha) VALUES
+(1, 1, 'Matemáticas', 8.5, '2023-01-15'),
+(2, 1, 'Historia', 7.0, '2023-01-16'),
+(3, 1, 'Literatura', 9.0, '2023-01-18'),
+(4, 1, 'Física', 8.0, '2023-01-20'),
+(5, 2, 'Matemáticas', 6.5, '2023-01-15'),
+(6, 2, 'Historia', 8.0, '2023-01-16'),
+(7, 2, 'Literatura', 7.5, '2023-01-18'),
+(8, 2, 'Física', 9.0, '2023-01-20'),
+(9, 3, 'Matemáticas', 5.5, '2023-01-15'),
+(10, 3, 'Historia', 6.0, '2023-01-16'),
+(11, 3, 'Literatura', 7.0, '2023-01-18'),
+(12, 3, 'Física', 6.5, '2023-01-20'),
+(13, 4, 'Matemáticas', 9.5, '2023-01-15'),
+(14, 4, 'Historia', 9.0, '2023-01-16'),
+(15, 4, 'Literatura', 8.5, '2023-01-18'),
+(16, 4, 'Física', 9.0, '2023-01-20'),
+(17, 5, 'Matemáticas', 7.0, '2023-01-15'),
+(18, 5, 'Historia', 7.5, '2023-01-16'),
+(19, 5, 'Literatura', 8.0, '2023-01-18'),
+(20, 5, 'Física', 7.0, '2023-01-20');

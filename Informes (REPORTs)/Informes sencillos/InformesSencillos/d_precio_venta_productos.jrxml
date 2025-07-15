@@ -1,0 +1,85 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="d_precio_venta_productos" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2f04d7a-d29f-48b4-b1ca-d393ea3ee15b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<query language="SQL"><![CDATA[SELECT PRODUCT.NAME AS PRODUCT_NAME, 
+       ADDRESS.FIRSTNAME || ' ' || ADDRESS.LASTNAME AS CUSTOMER_NAME, 
+       POSITIONS.PRICE
+FROM POSITIONS
+JOIN DOCUMENT ON POSITIONS.DOCUMENTID = DOCUMENT.ID
+JOIN PRODUCT ON POSITIONS.PRODUCTID = PRODUCT.ID
+JOIN ADDRESS ON DOCUMENT.ADDRESSID = ADDRESS.ID
+ORDER BY PRODUCT_NAME]]></query>
+	<field name="PRODUCT_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="PRODUCT_NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCT"/>
+	</field>
+	<field name="CUSTOMER_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CUSTOMER_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="CUSTOMER_NAME"/>
+	</field>
+	<field name="PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PRICE"/>
+		<property name="com.jaspersoft.studio.field.label" value="PRICE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="f94bd0f0-8ca4-4998-9086-ec12e857e4bc" x="0" y="20" width="554" height="50" fontSize="18.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Precio de venta agrupado por productos con media]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="384c249f-d877-4e89-a376-184d713ee1cd" x="0" y="0" width="180" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRODUCT_NAME]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01a15816-922e-4042-a1de-8ffccb592f60"/>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="de310d27-343f-42a9-baf5-053fb3ea410c" x="180" y="0" width="200" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[CUSTOMER_NAME]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a080e70e-7f32-41d3-8eda-b29730794bdd"/>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="8357a115-ddf8-4ce7-bb2c-eca33187f1f4" x="380" y="0" width="175" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRICE]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6154c740-d101-4d5d-aea3-73434281c245"/>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="593398a0-248e-48cd-9e04-2132e4823aea" x="0" y="0" width="180" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{PRODUCT_NAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01a15816-922e-4042-a1de-8ffccb592f60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="6330da95-6b16-4424-a807-6a4f5c8a4533" x="180" y="0" width="200" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{CUSTOMER_NAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a080e70e-7f32-41d3-8eda-b29730794bdd"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="38383511-5454-43ed-bc2b-fe2363964b86" x="380" y="0" width="175" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{PRICE}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6154c740-d101-4d5d-aea3-73434281c245"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
