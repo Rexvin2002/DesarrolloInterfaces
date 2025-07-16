@@ -18,7 +18,7 @@ public class DatabaseConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Definir la URL de conexión
-            String url = "jdbc:mysql://localhost/club_socios";
+            String url = "jdbc:mysql://localhost/empresa";
             String usuario = "root"; // Reemplazar con el nombre de usuario de la base de datos
             String contrasena = "passwd"; // Reemplazar con la contraseña de la base de datos
 

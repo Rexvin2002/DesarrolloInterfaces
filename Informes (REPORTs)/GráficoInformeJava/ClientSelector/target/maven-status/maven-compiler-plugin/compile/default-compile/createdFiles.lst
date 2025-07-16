@@ -1,0 +1,4 @@
+com\mycompany\clientselector\DatabaseConnection.class
+com\mycompany\clientselector\PDFReportGenerator.class
+com\mycompany\clientselector\ClientSelector.class
+com\mycompany\clientselector\ClienteSelectionGUI.class

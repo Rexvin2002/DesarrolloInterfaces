@@ -15,7 +15,7 @@ public class ClienteSelectionGUI {
     public static void main(String[] args) throws JRException {
         DatabaseConnection.connect();
 
-        String archivo = "src\\main\\java\\com\\mycompany\\clientselector\\Ejercicio02\\Grafico.jrxml";
+        String archivo = "C:\\Users\\kgv17\\OneDrive\\Documents\\GitHub\\DesarrolloInterfaces\\Informes (REPORTs)\\GráficoInformeJava\\InformesGráficos\\Grafico.jrxml";
         JasperReport jr = JasperCompileManager.compileReport(archivo);
         JasperPrint jp = JasperFillManager.fillReport(jr, null);
         JasperViewer.viewReport(jp);

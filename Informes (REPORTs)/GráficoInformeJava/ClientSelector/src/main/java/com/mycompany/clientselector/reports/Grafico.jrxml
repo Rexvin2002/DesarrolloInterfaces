@@ -1,7 +1,7 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="grafico" language="java" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="66486cd7-6714-4148-856e-77a143882c49">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ClientesTrabajosEmpleados.jrdax"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Empresa"/>
 	<query language="SQL"><![CDATA[SELECT 
     (SELECT COUNT(*) FROM Empleado) AS TotalEmployees,
     'Total Employees' AS Title1,
@@ -58,7 +58,7 @@
 		<property name="com.jaspersoft.studio.field.name" value="Title2"/>
 		<property name="com.jaspersoft.studio.field.label" value="Title2"/>
 	</field>
-	<field name="TotalExpenses" class="java.lang.Double">
+	<field name="TotalExpenses" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="TotalExpenses"/>
 		<property name="com.jaspersoft.studio.field.label" value="TotalExpenses"/>
 	</field>
@@ -71,7 +71,7 @@
 		<property name="com.jaspersoft.studio.field.label" value="JobName1"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="trabajo"/>
 	</field>
-	<field name="JobValue1" class="java.lang.Double">
+	<field name="JobValue1" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="JobValue1"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobValue1"/>
 	</field>
@@ -79,7 +79,7 @@
 		<property name="com.jaspersoft.studio.field.name" value="JobName2"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobName2"/>
 	</field>
-	<field name="JobValue2" class="java.lang.Double">
+	<field name="JobValue2" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="JobValue2"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobValue2"/>
 	</field>
@@ -87,7 +87,7 @@
 		<property name="com.jaspersoft.studio.field.name" value="JobName3"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobName3"/>
 	</field>
-	<field name="JobValue3" class="java.lang.Double">
+	<field name="JobValue3" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="JobValue3"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobValue3"/>
 	</field>
@@ -95,7 +95,7 @@
 		<property name="com.jaspersoft.studio.field.name" value="JobName4"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobName4"/>
 	</field>
-	<field name="JobValue4" class="java.lang.Double">
+	<field name="JobValue4" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="JobValue4"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobValue4"/>
 	</field>
@@ -103,7 +103,7 @@
 		<property name="com.jaspersoft.studio.field.name" value="JobName5"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobName5"/>
 	</field>
-	<field name="JobValue5" class="java.lang.Double">
+	<field name="JobValue5" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="JobValue5"/>
 		<property name="com.jaspersoft.studio.field.label" value="JobValue5"/>
 	</field>

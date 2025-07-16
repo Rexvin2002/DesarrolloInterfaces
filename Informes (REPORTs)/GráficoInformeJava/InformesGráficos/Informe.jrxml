@@ -47,9 +47,9 @@ FROM Cliente
 	<pageFooter height="50"/>
 	<lastPageFooter height="50"/>
 	<summary height="396" splitType="Stretch">
-		<element kind="subreport" uuid="75557755-dc07-4f7a-b8d7-de5f7bcb9d0f" x="0" y="0" width="554" height="396">
+		<element kind="subreport" uuid="a25d7bf5-f859-453e-8ebf-0eed7b35a3fe" x="0" y="0" width="554" height="396">
 			<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-			<expression><![CDATA["grafico.jasper"]]></expression>
+			<expression><![CDATA["Grafico.jasper"]]></expression>
 		</element>
 	</summary>
 	<noData height="50"/>
