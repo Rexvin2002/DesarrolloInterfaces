@@ -1,0 +1,147 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="a_pedidos_todos" language="java" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc4910fa-ddf7-4cb7-9771-9c5dbbbb85fb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="504"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="484"/>
+	<parameter name="CustomerID" class="java.lang.Integer"/>
+	<query language="SQL"><![CDATA[SELECT
+ AVG(P.PRICE) AS AVG_PRICE,
+ SUM(P.QUANTITY * P.PRICE) AS TOTAL_SPENT,
+ MAX(P.PRICE) AS MOST_EXPENSIVE_PRICE,
+ (SELECT P1.NAME FROM PRODUCT P1 WHERE P1.COST = MAX(P.PRICE)) AS
+MOST_EXPENSIVE_PRODUCT,
+ MIN(P.PRICE) AS CHEAPEST_PRICE,
+ (SELECT P2.NAME FROM PRODUCT P2 WHERE P2.COST = MIN(P.PRICE)) AS CHEAPEST_PRODUCT
+FROM
+ POSITIONS P
+JOIN
+ DOCUMENT D ON P.DOCUMENTID = D.ID
+WHERE
+ D.ADDRESSID = $P{CustomerID}]]></query>
+	<field name="AVG_PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="AVG_PRICE"/>
+		<property name="com.jaspersoft.studio.field.label" value="AVG_PRICE"/>
+	</field>
+	<field name="TOTAL_SPENT" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_SPENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_SPENT"/>
+	</field>
+	<field name="MOST_EXPENSIVE_PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MOST_EXPENSIVE_PRICE"/>
+		<property name="com.jaspersoft.studio.field.label" value="MOST_EXPENSIVE_PRICE"/>
+	</field>
+	<field name="MOST_EXPENSIVE_PRODUCT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MOST_EXPENSIVE_PRODUCT"/>
+		<property name="com.jaspersoft.studio.field.label" value="MOST_EXPENSIVE_PRODUCT"/>
+	</field>
+	<field name="CHEAPEST_PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="CHEAPEST_PRICE"/>
+		<property name="com.jaspersoft.studio.field.label" value="CHEAPEST_PRICE"/>
+	</field>
+	<field name="CHEAPEST_PRODUCT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CHEAPEST_PRODUCT"/>
+		<property name="com.jaspersoft.studio.field.label" value="CHEAPEST_PRODUCT"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="56be493a-9ae7-4035-a4ec-040976d782d8" x="0" y="14" width="760" height="50" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[RESUMEN DE GASTOS]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="3d2b941e-81e7-4bd1-a5a5-8d1dbc4e729e" x="0" y="0" width="130" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[MEDIA DE GASTOS]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0657030-2a73-49df-adf0-3b40f2a53b63"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="dcd487f5-c949-4a6a-a2ec-5bba557b38cc" x="130" y="0" width="126" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[TOTAL GASTADO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cc51674-715e-42a2-99e2-7095e186fdd9"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="e7dc5003-354a-43b9-bcb0-b91481e2ce29" x="382" y="0" width="126" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRECIO MÁS CARO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="632e5476-8348-47e9-aed9-4cdbbdee4422"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="6eb10232-adf7-4a9e-9a44-e08abf8df19c" x="256" y="0" width="126" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRODUCTO MÁS CARO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df83cd16-60f8-4b5a-8df3-934864dfd3f6"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c4b39d74-ed73-4c3b-825c-6c942ce59994" x="634" y="0" width="126" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRECIO MÁS BARATO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f4a369f0-afc2-47e7-b9d7-cad3e849519d"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="4ee6f7bd-9c42-45ef-85d7-033fa30a0e0a" x="508" y="0" width="126" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRODUCTO MÁS BARATO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f1452f2-7d68-4a67-99fe-1704cb015bf9"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<element kind="textField" uuid="cc18bfe8-afa5-48f1-b1b7-40bf1aeb70b6" x="0" y="0" width="130" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{AVG_PRICE} == null ? "N/A" : String.format("%.2f €", $F{AVG_PRICE})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0657030-2a73-49df-adf0-3b40f2a53b63"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="3de477ed-6597-45e8-9639-7d01a9d8e2c8" x="130" y="0" width="126" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{TOTAL_SPENT} == null ? "N/A" : String.format("%.2f €", $F{TOTAL_SPENT})
+]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cc51674-715e-42a2-99e2-7095e186fdd9"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="020b2b4f-7590-438d-99ee-f74800eba1ef" x="382" y="0" width="126" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{MOST_EXPENSIVE_PRICE} == null ? "N/A" : String.format("%.2f €", $F{MOST_EXPENSIVE_PRICE})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="632e5476-8348-47e9-aed9-4cdbbdee4422"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="eae19ddb-8589-465e-838d-b179f56d4302" x="256" y="0" width="126" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{MOST_EXPENSIVE_PRODUCT}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df83cd16-60f8-4b5a-8df3-934864dfd3f6"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b70836ba-929c-4a16-b3a1-269b312caede" x="634" y="0" width="126" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{CHEAPEST_PRICE} == null ? "N/A" : String.format("%.2f €", $F{CHEAPEST_PRICE})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f4a369f0-afc2-47e7-b9d7-cad3e849519d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e9ad5948-d3c0-4258-b228-82793898d11c" x="508" y="0" width="126" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{CHEAPEST_PRODUCT}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f1452f2-7d68-4a67-99fe-1704cb015bf9"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

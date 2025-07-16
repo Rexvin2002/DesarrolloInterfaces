@@ -1,0 +1,106 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="datos" language="java" pageWidth="800" pageHeight="842" columnWidth="800" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fc4910fa-ddf7-4cb7-9771-9c5dbbbb85fb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="504"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="484"/>
+	<parameter name="CustomerID" class="java.lang.Integer"/>
+	<query language="SQL"><![CDATA[SELECT
+ p.NAME AS PRODUCT_NAME,
+ pos.QUANTITY,
+ (pos.QUANTITY * pos.PRICE) AS TOTAL_PRICE,
+ p.COST AS COST_PER_UNIT
+FROM ADDRESS a
+JOIN DOCUMENT d ON a.ID = d.ADDRESSID
+JOIN POSITIONS pos ON d.ID = pos.DOCUMENTID
+JOIN PRODUCT p ON pos.PRODUCTID = p.ID
+WHERE a.ID = $P{CustomerID}
+ORDER BY p.NAME]]></query>
+	<field name="PRODUCT_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="PRODUCT_NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCT"/>
+	</field>
+	<field name="QUANTITY" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="QUANTITY"/>
+		<property name="com.jaspersoft.studio.field.label" value="QUANTITY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<field name="TOTAL_PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_PRICE"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_PRICE"/>
+	</field>
+	<field name="COST_PER_UNIT" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="COST"/>
+		<property name="com.jaspersoft.studio.field.label" value="COST_PER_UNIT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCT"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="ea849992-58f2-46b4-9f23-81f3e839ada5" x="0" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[NOMBRE PRODUCTO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e15350c7-3f24-44dd-97e6-e25db53dc2d5"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="dc71ae82-c59f-412a-a412-1ae7ec196aee" x="380" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[CANTIDAD]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc7459f7-d245-45bf-8a4a-83c199667d44"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="7a276e29-046d-4207-bb28-e989a19538d8" x="570" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRECIO TOTAL]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c00bf1fe-a5e2-49b8-a496-96ccff04cc26"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a450fcce-95de-4efc-8cb9-73393da0e3db" x="190" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[COSTE POR UNIDAD]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5b8232fb-4f08-467b-a963-0868603ffa78"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="d0097b6b-b4ea-4657-9c56-fe57c2838807" x="0" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{PRODUCT_NAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e15350c7-3f24-44dd-97e6-e25db53dc2d5"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b65e28ae-f732-440f-b9ac-208710dc008f" x="380" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{QUANTITY}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc7459f7-d245-45bf-8a4a-83c199667d44"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="8c3611c2-2a3e-4ad3-a587-3fe032e41735" x="570" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{TOTAL_PRICE} == null ? "N/A" : String.format("%.2f €", $F{TOTAL_PRICE})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c00bf1fe-a5e2-49b8-a496-96ccff04cc26"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="0683623d-2296-42f4-90e6-945b6cd8f382" x="190" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{COST_PER_UNIT} == null ? "N/A" : String.format("%.2f €", $F{COST_PER_UNIT})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5b8232fb-4f08-467b-a963-0868603ffa78"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
+</jasperReport>

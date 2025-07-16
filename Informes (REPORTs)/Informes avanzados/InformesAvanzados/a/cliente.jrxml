@@ -1,0 +1,119 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="a_pedidos_todos" language="java" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc4910fa-ddf7-4cb7-9771-9c5dbbbb85fb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="504"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="484"/>
+	<parameter name="CustomerID" class="java.lang.Integer"/>
+	<query language="SQL"><![CDATA[SELECT
+ A.FIRSTNAME,
+ A.LASTNAME,
+ A.CITY,
+ COUNT(D.ID) AS TOTAL_ORDERS
+FROM
+ ADDRESS A
+LEFT JOIN
+ DOCUMENT D ON A.ID = D.ADDRESSID
+WHERE
+ A.ID = $P{CustomerID}
+GROUP BY
+ A.FIRSTNAME, A.LASTNAME, A.CITY]]></query>
+	<field name="FIRSTNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FIRSTNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="FIRSTNAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+	</field>
+	<field name="LASTNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LASTNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="LASTNAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+	</field>
+	<field name="CITY" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CITY"/>
+		<property name="com.jaspersoft.studio.field.label" value="CITY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+	</field>
+	<field name="TOTAL_ORDERS" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_ORDERS"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_ORDERS"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="56be493a-9ae7-4035-a4ec-040976d782d8" x="0" y="14" width="760" height="50" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[MOSTRAR DATOS SEGÚN LA ID DEL CLIENTE]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="67c57327-2c9f-4563-9b10-82b6b9577c37" x="0" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[NOMBRE]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="44078176-a83b-46d4-b168-ed197507d5af"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0d6b0ab3-5264-4974-b310-da05e8cae5c8" x="190" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[APELLIDO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="099acba9-ba58-4800-95bc-f459b25b53ec"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="4aab5ea9-2fc9-454b-8092-320ade9ca68f" x="380" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[CIUDAD]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34915d04-7ec3-451d-868c-da65311dac20"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="26fb517f-cb91-4089-80ac-1bb9820e2bbb" x="570" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Nº PEDIDOS]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b9c8bed-40c5-40c5-9cdc-6c751b1e7fed"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="236" splitType="Stretch">
+			<element kind="textField" uuid="657d4807-3270-4f22-b60b-643a8f3ec493" x="0" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{FIRSTNAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="44078176-a83b-46d4-b168-ed197507d5af"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="3ee73ec3-cc6a-43b3-ab6f-fe6e96bf2638" x="190" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{LASTNAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="099acba9-ba58-4800-95bc-f459b25b53ec"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="bb3a6c37-3cd2-46b5-8a0e-18b2c10d6842" x="380" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{CITY}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34915d04-7ec3-451d-868c-da65311dac20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="7112b52e-18bb-40cc-9454-48f9e7aed190" x="570" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{TOTAL_ORDERS}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b9c8bed-40c5-40c5-9cdc-6c751b1e7fed"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="subreport" uuid="788aac45-2ec6-483c-97cd-51b28c1ec86c" x="0" y="36" width="760" height="200">
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<expression><![CDATA["datos.jasper"]]></expression>
+				<parameter name="CustomerID">
+					<expression><![CDATA[$P{CustomerID}]]></expression>
+				</parameter>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="54" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

@@ -1,0 +1,228 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="clientes" language="java" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc4910fa-ddf7-4cb7-9771-9c5dbbbb85fb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="504"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="484"/>
+	<parameter name="CustomerID" class="java.lang.Integer"/>
+	<query language="SQL"><![CDATA[WITH ClientTotals AS (
+ SELECT
+ a.ID,
+ a.FIRSTNAME,
+ a.LASTNAME,
+ SUM(pos.QUANTITY) AS TOTAL_PRODUCTS_PURCHASED,
+ SUM(pos.QUANTITY * pos.PRICE) AS TOTAL_SPENT
+ FROM ADDRESS a
+ JOIN DOCUMENT d ON a.ID = d.ADDRESSID
+ JOIN POSITIONS pos ON d.ID = pos.DOCUMENTID
+ GROUP BY a.ID, a.FIRSTNAME, a.LASTNAME
+)
+SELECT
+ID,
+ FIRSTNAME,
+ LASTNAME,
+ TOTAL_PRODUCTS_PURCHASED,
+ TOTAL_SPENT
+FROM ClientTotals
+ORDER BY FIRSTNAME, LASTNAME]]></query>
+	<field name="ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="FIRSTNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FIRSTNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="FIRSTNAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="LASTNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LASTNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="LASTNAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="TOTAL_PRODUCTS_PURCHASED" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_PRODUCTS_PURCHASED"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_PRODUCTS_PURCHASED"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="TOTAL_SPENT" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_SPENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_SPENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<variable name="TotalClientes" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$F{ID}]]></expression>
+	</variable>
+	<variable name="MediaGastos" calculation="Average" class="java.lang.Double">
+		<expression><![CDATA[$F{TOTAL_SPENT}]]></expression>
+	</variable>
+	<variable name="MediaProductos" calculation="Average" class="java.lang.Double">
+		<expression><![CDATA[$F{TOTAL_PRODUCTS_PURCHASED}]]></expression>
+	</variable>
+	<variable name="MenorGasto" calculation="Lowest" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{TOTAL_SPENT}]]></expression>
+	</variable>
+	<variable name="MayorGasto" calculation="Highest" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{TOTAL_SPENT}]]></expression>
+	</variable>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="56be493a-9ae7-4035-a4ec-040976d782d8" x="0" y="14" width="760" height="50" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PRODUCTOS DE CADA CLIENTE]]></text>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch"/>
+	<detail>
+		<band height="341" splitType="Stretch">
+			<element kind="textField" uuid="1835b72e-8082-4039-b484-dfea198bd785" x="190" y="30" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{FIRSTNAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ae36ba1-9ebc-48e8-a722-6e481aca6a5c"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="68888f07-2196-43b1-a17e-1980b6be67fb" x="190" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{LASTNAME}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78a95b71-e7db-41cc-80f2-f0554f6f2829"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="6c81edd1-1a58-497c-82ef-e9bd48a61943" x="570" y="0" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{TOTAL_PRODUCTS_PURCHASED}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d23a4076-3714-457b-babe-7140a3d76f05"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="3e690a02-702f-4913-a621-6e5bf4434139" x="570" y="30" width="190" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{TOTAL_SPENT} == null ? "N/A" : String.format("%.2f €", $F{TOTAL_SPENT})]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62ba4ff6-dae0-412a-8465-5ddeef0d24ab"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="97c63de0-44cb-4662-a44b-59f219442c49" x="0" y="30" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[NOMBRE]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ae36ba1-9ebc-48e8-a722-6e481aca6a5c"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="59e28fbf-a72a-4605-92a0-c60e191c347e" x="0" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[APELLIDO]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78a95b71-e7db-41cc-80f2-f0554f6f2829"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="4e91a6a8-84e1-482e-b332-9eb2ab39b19e" x="380" y="30" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[TOTAL GASTADO]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62ba4ff6-dae0-412a-8465-5ddeef0d24ab"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="729b09f8-d485-4e07-bc2b-5f0246934c97" x="380" y="0" width="190" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[TOTAL PRODUCTOS COMPRADOS]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d23a4076-3714-457b-babe-7140a3d76f05"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+			</element>
+			<element kind="subreport" uuid="a125b7bc-0048-46e5-9570-b462ea3827cf" x="0" y="80" width="760" height="260">
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<expression><![CDATA["datos.jasper"]]></expression>
+				<parameter name="CustomerID">
+					<expression><![CDATA[$P{CustomerID}]]></expression>
+				</parameter>
+			</element>
+			<element kind="rectangle" uuid="1b47665c-b45a-4e98-a3b6-fabda6dc5891" x="0" y="60" width="760" height="20"/>
+		</band>
+	</detail>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary height="150" splitType="Stretch">
+		<element kind="staticText" uuid="4b858496-8d1f-4448-aa2f-effb62c35e6c" x="0" y="0" width="380" height="30" fontSize="10.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<text><![CDATA[TOTAL CLIENTES]]></text>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="2a245501-837b-4f8c-9d7c-0893d87a1442" x="0" y="30" width="380" height="30" fontSize="10.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<text><![CDATA[MEDIA GASTOS CLIENTES]]></text>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0e5842b5-25cb-4baa-a6f2-5f8b3f639cb7" x="0" y="60" width="380" height="30" fontSize="10.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<text><![CDATA[MEDIA PRODUCTOS COMPRADOS]]></text>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="37c2ca5f-b8c0-492e-919c-ea10c2ca191c" x="0" y="90" width="380" height="30" fontSize="10.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<text><![CDATA[CLIENTE CON MENOR GASTO]]></text>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5c2432ca-9b04-4f78-9b97-520f66295104" x="0" y="120" width="380" height="30" fontSize="10.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<text><![CDATA[CLIENTE CON MAYOR GASTO]]></text>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="8dcee154-b1ca-43d0-bcf6-e938f3feac7c" x="380" y="0" width="380" height="30" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<expression><![CDATA[$V{TotalClientes}]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="37004fee-3ec1-44f8-bf45-1e09a2af6093" x="380" y="30" width="380" height="30" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<expression><![CDATA[$V{MediaGastos} == null ? "N/A" : String.format("%.2f €", $V{MediaGastos})]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="53d1bd9a-8a79-472b-bae4-788c6abc1718" x="380" y="60" width="380" height="30" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<expression><![CDATA[$V{MediaProductos}]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="a0c5e55b-861d-48c7-a62e-fc6d465e0952" x="380" y="120" width="380" height="30" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<expression><![CDATA[$V{MayorGasto} == null ? "N/A" : String.format("%.2f €", $V{MayorGasto})]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="731a0651-2209-4c0c-a075-eca52cc30517" x="380" y="90" width="380" height="30" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="20"/>
+			<expression><![CDATA[$V{MenorGasto} == null ? "N/A" : String.format("%.2f €", $V{MenorGasto})]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+	</summary>
+</jasperReport>
