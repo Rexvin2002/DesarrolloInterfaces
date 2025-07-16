@@ -1,0 +1,1 @@
+En mi caso es un proyecto Maven y he añadido las dependencias pero en caso de hacerlo en un programa de Java with Ant o similar, estás son las librerías que habría que incluir.

@@ -1,0 +1,157 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="EmpleadoTrabajo" language="java" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="efee9782-52d5-48cd-82a8-e1bb9a4e3733">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Empresa"/>
+	<parameter name="IDTrabajo" class="java.lang.Integer"/>
+	<query language="SQL"><![CDATA[SELECT
+ e.Nombre AS NombreEmpleado,
+ e.Apellidos AS ApellidosEmpleado,
+ e.Sueldo,
+ e.IDEmpleado,
+ (SELECT COUNT(DISTINCT e2.IDEmpleado)
+ FROM Empleado e2
+ JOIN TrabajoEmpleados te2 ON e2.IDEmpleado = te2.IDEmpleado) AS TotalEmpleados
+FROM
+ Empleado e
+JOIN
+ TrabajoEmpleados te ON e.IDEmpleado = te.IDEmpleado
+WHERE
+ te.IDTrabajo = $P{IDTrabajo}]]></query>
+	<field name="NombreEmpleado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="NombreEmpleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleado"/>
+	</field>
+	<field name="ApellidosEmpleado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Apellidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="ApellidosEmpleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleado"/>
+	</field>
+	<field name="Sueldo" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Sueldo"/>
+		<property name="com.jaspersoft.studio.field.label" value="Sueldo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleado"/>
+	</field>
+	<field name="IDEmpleado" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="IDEmpleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="IDEmpleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleado"/>
+	</field>
+	<field name="TotalEmpleados" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="TotalEmpleados"/>
+		<property name="com.jaspersoft.studio.field.label" value="TotalEmpleados"/>
+	</field>
+	<variable name="totalGastos" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{Sueldo}]]></expression>
+	</variable>
+	<variable name="nEmpleados" calculation="DistinctCount" class="java.lang.Integer">
+		<expression><![CDATA[$F{IDEmpleado}]]></expression>
+	</variable>
+	<background splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="03cf9d55-8487-4329-bd66-e930ac639bec" x="0" y="0" width="100" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Nombre]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="00b67864-beaf-4dab-a00f-d0afa57a46e9"/>
+			<box>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="386f933a-4e47-4bb7-b5d1-d7103457bd3d" x="100" y="0" width="100" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Apellidos]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2169dd1-bb4e-4ba3-9211-e53739864faa"/>
+			<box>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="607ba4c8-4cfc-4e36-8ed1-0edafdf40021" x="200" y="0" width="100" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Sueldo]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e3bfe84-a948-4cc0-8361-39f822e3926f"/>
+			<box>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="ad0ce219-512b-4f33-90eb-975c86c9b812" x="0" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{NombreEmpleado}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="00b67864-beaf-4dab-a00f-d0afa57a46e9"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e80be0e5-7a07-4173-8715-52c43c330754" x="100" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{ApellidosEmpleado}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2169dd1-bb4e-4ba3-9211-e53739864faa"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="36d822c0-4819-42ee-9604-c442b54ade84" x="200" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Sueldo} == null ? "N/A" : $F{Sueldo} + " €"
+]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e3bfe84-a948-4cc0-8361-39f822e3926f"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<summary height="60">
+		<element kind="textField" uuid="0599077d-fd55-4b3a-8952-ab5e5e762a78" x="100" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{totalGastos} == null ? "N/A" : $V{totalGastos} + " €"
+]]></expression>
+			<box>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0bd58b4e-5b73-4ea6-b1e7-3ee5b3d56c5b" x="0" y="0" width="100" height="30" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[TotalGastado:]]></text>
+			<box rightPadding="0">
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="c5ba1b07-a155-4f6b-8621-fa0d2a68f3ea" x="100" y="30" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{nEmpleados}]]></expression>
+			<box>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="7670b02e-b232-483a-91b5-90611b94d7a3" x="0" y="30" width="100" height="30" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[NºEmpleados:]]></text>
+			<box rightPadding="0">
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
+	</summary>
+</jasperReport>
